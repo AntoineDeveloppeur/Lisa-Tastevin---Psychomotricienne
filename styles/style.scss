@@ -1,0 +1,7 @@
+@use 'variables' as vars;
+
+.font-title {
+    font-family: #{map-get(vars.$font-title, font-family)};
+    font-weight: map-get(vars.$font-title, font-weight);
+    font-style: map-get(vars.$font-title, font-style);
+}
