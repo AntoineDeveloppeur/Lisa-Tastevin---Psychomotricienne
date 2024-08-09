@@ -2,6 +2,7 @@
 /* Fonts */
 /* Spacing */
 /* Colors */
+/* Codé pour un affichage entre 360px et 767.98px */
 /*
 *
 ******CSS reset begins*****
@@ -58,6 +59,7 @@ a {
   -webkit-text-decoration-skip: ink;
           text-decoration-skip-ink: auto;
   text-decoration: none;
+  color: black;
 }
 
 a:visited {
@@ -104,7 +106,8 @@ html {
   font-weight: 400;
   font-style: normal;
   font-size: 1rem;
-  max-width: 40rem;
+  max-width: 34rem;
+  text-align: justify;
 }
 
 .font-title {
@@ -120,11 +123,15 @@ html {
 *
 */
 .header--mobile {
+  position: fixed;
+  top: 0;
+  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
   background-color: white;
   padding: 1rem;
+  z-index: 6;
 }
 .header--mobile__logoAndName {
   display: flex;
@@ -150,7 +157,7 @@ html {
   position: relative;
   top: 0px;
   right: 1rem;
-  z-index: 1;
+  z-index: 6;
   -webkit-user-select: none;
   -moz-user-select: none;
        user-select: none;
@@ -163,7 +170,7 @@ html {
   position: absolute;
   cursor: pointer;
   opacity: 0;
-  z-index: 2;
+  z-index: 6;
 }
 
 #menuToggle span {
@@ -174,19 +181,77 @@ html {
   position: relative;
   background: #c7a54b;
   border-radius: 3px;
-  z-index: 1;
+  z-index: 6;
   transform-origin: 5px 0px;
   transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1), background 0.5s cubic-bezier(0.77, 0.2, 0.05, 1), opacity 0.55s ease;
 }
 
+#menuToggle span:first-child {
+  transform-origin: 0% 0%;
+}
+
+#menuToggle span:nth-last-child(2) {
+  transform-origin: 0% 100%;
+}
+
+#menuToggle input:checked ~ span {
+  opacity: 1;
+  transform: rotate(45deg) translate(-3px, -1px);
+  background: #c7a54b;
+}
+
+#menuToggle input:checked ~ span:nth-last-child(3) {
+  opacity: 0;
+  transform: rotate(0deg) scale(0.2, 0.2);
+}
+
+#menuToggle input:checked ~ span:nth-last-child(2) {
+  transform: rotate(-45deg) translate(0, -1px);
+}
+
 #menu {
-  display: none;
+  position: fixed;
+  top: 0rem;
+  right: 0;
+  width: 350px;
+  height: 320px;
+  box-shadow: 0 0 10px #85888c;
+  padding: 50px;
+  padding-right: 30px;
+  padding-top: 70px;
+  background-color: white;
+  border-radius: 15% 0 0 15%;
+  -webkit-font-smoothing: antialiased;
+  transform-origin: 0% 0%;
+  transform: translate(100%, 0);
+  transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 1rem;
+  z-index: 5;
+}
+
+#menu li {
+  padding: 10px 0;
+  transition-delay: 2s;
+  text-align: right;
+  font-family: EB Garamond, serif;
+  color: #c7a54b;
+}
+#menu li a {
+  color: #c7a54b;
+}
+
+#menuToggle input:checked ~ ul {
+  transform: none;
 }
 
 /* Menu Mobile fin */
 .harmoniser {
-  padding-top: 1rem;
-  padding-bottom: 1rem;
+  margin-top: 93px;
+  padding-top: 1.4rem;
+  padding-bottom: 1.4rem;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -212,8 +277,8 @@ html {
 }
 
 .PourQui {
-  padding-top: 2rem;
-  padding-bottom: 2rem;
+  padding-top: 2.4rem;
+  padding-bottom: 2.4rem;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -285,8 +350,8 @@ html {
 }
 
 .Lisa {
-  padding-top: 2rem;
-  padding-bottom: 2rem;
+  padding-top: 2.4rem;
+  padding-bottom: 2.4rem;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -312,16 +377,15 @@ html {
 }
 
 .AQuoiRessemble {
-  padding-top: 2rem;
-  padding-bottom: 2rem;
+  padding-top: 2.4rem;
+  padding-bottom: 2.4rem;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  align-items: flex-start;
+  align-items: center;
   position: relative;
   background-image: url("../pics/kintsugi.png");
   background-size: cover; /* Ajuste l'image à la taille spécifiée */
-  z-index: 1;
 }
 .AQuoiRessemble__background {
   content: "";
@@ -341,7 +405,7 @@ html {
   width: 100%;
   height: 2rem;
   background: linear-gradient(to top, rgba(255, 255, 255, 0), rgb(255, 255, 255));
-  z-index: 3;
+  z-index: 2;
 }
 .AQuoiRessemble::after {
   content: "";
@@ -351,24 +415,93 @@ html {
   width: 100%;
   height: 2rem;
   background: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgb(255, 255, 255));
-  z-index: 3;
+  z-index: 2;
 }
-.AQuoiRessemble__h1 {
-  color: #958940;
+.AQuoiRessemble__containText--center {
+  max-width: 34rem;
+  min-width: 300px;
+}
+.AQuoiRessemble__containText--center__containText--left {
+  width: 75%;
+  min-width: 300px;
+}
+.AQuoiRessemble__containText--center__containText--left__h1 {
+  color: #958340;
   padding-left: 2rem;
   padding-right: 2rem;
   margin-bottom: 1rem;
-  z-index: 2;
+  z-index: 3;
+  position: relative;
 }
-.AQuoiRessemble__p {
+.AQuoiRessemble__containText--center__containText--left__p {
   padding-left: 2rem;
   padding-right: 2rem;
-  z-index: 2;
+  z-index: 3;
+  position: relative;
 }
 .AQuoiRessemble__img {
   position: absolute;
-  top: 0;
+  top: 50%;
   right: 0;
+  transform: translate(0%, -50%);
+  margin-right: 16px;
   width: 40%;
-  z-index: 0;
+  max-width: 200px;
+  z-index: -1;
+}
+
+.OuMeTrouver {
+  padding-top: 2.4rem;
+  padding-bottom: 2.4rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+.OuMeTrouver__h1 {
+  color: #395350;
+  margin-bottom: 1rem;
+}
+.OuMeTrouver__ul {
+  padding-left: 3.235rem;
+  padding-right: 2rem;
+}
+.OuMeTrouver__ul li {
+  margin-bottom: 0.8rem;
+  position: relative;
+  text-align: justify;
+}
+.OuMeTrouver__ul li svg {
+  color: #92bbb5;
+  content: "";
+  position: absolute;
+  left: -2rem;
+  top: 0.3rem; /* Décale la puce vers le bas */
+  width: 16px; /* Largeur de l'image */
+  height: 16px; /* Hauteur de l'image */
+}
+.OuMeTrouver__img {
+  width: 75%;
+  max-width: 400px;
+  min-width: 350px;
+  margin-bottom: 1rem;
+}
+.OuMeTrouver__button {
+  height: 3rem;
+  border: 1px solid #92bbb5;
+  border-radius: 1.5rem;
+  background-image: url("../pics/background-green.jpg");
+  background-position: center;
+  position: relative;
+  padding-left: 3.5rem;
+  padding-right: 2rem;
+}
+.OuMeTrouver__button svg {
+  position: absolute;
+  color: #395350;
+  left: 1rem;
+  top: 50%; /* Décale la puce vers le bas */
+  transform: translate(0, -50%);
+  width: 1.5rem; /* Largeur de l'image */
+  height: 1.5rem; /* Hauteur de l'image */
 }/*# sourceMappingURL=style.css.map */

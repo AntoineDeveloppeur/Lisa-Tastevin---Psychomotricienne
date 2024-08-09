@@ -1,5 +1,7 @@
 @use 'variables' as vars;
 
+/* Codé pour un affichage entre 360px et 767.98px */
+
 /*
 *
 ******CSS reset begins*****
@@ -56,6 +58,7 @@ ol {
 a {
     text-decoration-skip-ink: auto;
     text-decoration: none;
+    color: black;
 }
 
 a:visited {
@@ -105,6 +108,7 @@ html {
     font-style: map-get(vars.$fontParagraph, font-style);
     font-size: map-get(vars.$fontParagraph, font-size);
     max-width: vars.$maxWidthText;
+    text-align: justify;
 }
 
 .font-title {
@@ -121,11 +125,15 @@ html {
 */
 
 .header--mobile {
+    position: fixed;
+    top: 0;
+    width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
     background-color: white;
     padding: vars.$paddingMobile--header;
+    z-index: 6;
     &__logoAndName {
         display: flex;
         justify-content: flex-start;
@@ -152,7 +160,7 @@ html {
     position: relative;
     top: 0px;
     right: 1rem;
-    z-index: 1;
+    z-index: 6;
     -webkit-user-select: none;
     user-select: none;
 }
@@ -164,7 +172,7 @@ html {
     position: absolute;
     cursor: pointer;
     opacity: 0;
-    z-index: 2;
+    z-index: 6;
 }
 
 #menuToggle span {
@@ -175,19 +183,75 @@ html {
     position: relative;
     background: vars.$color--lightgold;
     border-radius: 3px;
-    z-index: 1;
+    z-index: 6;
     transform-origin: 5px 0px;
     transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1),
         background 0.5s cubic-bezier(0.77, 0.2, 0.05, 1), opacity 0.55s ease;
 }
 
+#menuToggle span:first-child {
+    transform-origin: 0% 0%;
+}
+#menuToggle span:nth-last-child(2) {
+    transform-origin: 0% 100%;
+}
+
+#menuToggle input:checked ~ span {
+    opacity: 1;
+    transform: rotate(45deg) translate(-3px, -1px);
+    background: vars.$color--lightgold;
+}
+#menuToggle input:checked ~ span:nth-last-child(3) {
+    opacity: 0;
+    transform: rotate(0deg) scale(0.2, 0.2);
+}
+
+#menuToggle input:checked ~ span:nth-last-child(2) {
+    transform: rotate(-45deg) translate(0, -1px);
+}
+
 #menu {
-    display: none;
+    position: fixed;
+    top: 0rem;
+    right: 0;
+    width: 350px;
+    height: 320px;
+    box-shadow: 0 0 10px #85888c;
+    padding: 50px;
+    padding-right: 30px;
+    padding-top: 70px;
+    background-color: white;
+    border-radius: 15% 0 0 15%;
+    -webkit-font-smoothing: antialiased;
+    transform-origin: 0% 0%;
+    transform: translate(100%, 0);
+    transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
+    font-optical-sizing: map-get(vars.$fontParagraph, font-optical-sizing);
+    font-weight: 500;
+    font-style: map-get(vars.$fontParagraph, font-style);
+    font-size: map-get(vars.$fontParagraph, font-size);
+    z-index: 5;
+}
+
+#menu li {
+    padding: 10px 0;
+    transition-delay: 2s;
+    text-align: right;
+    font-family: #{map-get(vars.$fontParagraph, font-family)};
+    color: vars.$color--lightgold;
+    & a {
+        color: vars.$color--lightgold;
+    }
+}
+
+#menuToggle input:checked ~ ul {
+    transform: none;
 }
 
 /* Menu Mobile fin */
 
 .harmoniser {
+    margin-top: 93px;
     padding-top: vars.$paddingMobile--section;
     padding-bottom: vars.$paddingMobile--section;
     display: flex;
@@ -342,11 +406,10 @@ html {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    align-items: flex-start;
+    align-items: center;
     position: relative;
     background-image: url('../pics/kintsugi.png');
     background-size: cover; /* Ajuste l'image à la taille spécifiée */
-    z-index: 1;
     &__background {
         content: '';
         position: absolute;
@@ -369,7 +432,7 @@ html {
             rgba(255, 255, 255, 0),
             rgba(255, 255, 255, 1)
         );
-        z-index: 3;
+        z-index: 2;
     }
     &::after {
         content: '';
@@ -383,26 +446,94 @@ html {
             rgba(255, 255, 255, 0),
             rgba(255, 255, 255, 1)
         );
-        z-index: 3;
-    }
-
-    &__h1 {
-        color: vars.$color--darkgold;
-        padding-left: vars.$paddingMobile--p;
-        padding-right: vars.$paddingMobile--p;
-        margin-bottom: vars.$paddingMobile--header;
         z-index: 2;
     }
-    &__p {
-        padding-left: vars.$paddingMobile--p;
-        padding-right: vars.$paddingMobile--p;
-        z-index: 2;
+    &__containText--center {
+        max-width: vars.$maxWidthText;
+        min-width: 300px;
+        &__containText--left {
+            width: 75%;
+            min-width: 300px;
+            &__h1 {
+                color: vars.$color--darkgold;
+                padding-left: vars.$paddingMobile--p;
+                padding-right: vars.$paddingMobile--p;
+                margin-bottom: vars.$paddingMobile--header;
+                z-index: 3;
+                position: relative;
+            }
+            &__p {
+                padding-left: vars.$paddingMobile--p;
+                padding-right: vars.$paddingMobile--p;
+                z-index: 3;
+                position: relative;
+            }
+        }
     }
     &__img {
         position: absolute;
-        top: 0;
+        top: 50%;
         right: 0;
+        transform: translate(0%, -50%);
+        margin-right: 16px;
         width: 40%;
-        z-index: 0;
+        max-width: 200px;
+        z-index: -1;
+    }
+}
+
+.OuMeTrouver {
+    padding-top: calc(vars.$paddingMobile--section + 1rem);
+    padding-bottom: calc(vars.$paddingMobile--section + 1rem);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    &__h1 {
+        color: vars.$color--darkgreen;
+        margin-bottom: vars.$paddingMobile--header;
+    }
+    &__ul {
+        padding-left: calc(vars.$paddingMobile--p + 1.235rem);
+        padding-right: vars.$paddingMobile--p;
+        & li {
+            margin-bottom: 0.8rem;
+            position: relative;
+            text-align: justify;
+            & svg {
+                color: vars.$color--lightgreen;
+                content: '';
+                position: absolute;
+                left: -2rem;
+                top: 0.3rem; /* Décale la puce vers le bas */
+                width: 16px; /* Largeur de l'image */
+                height: 16px; /* Hauteur de l'image */
+            }
+        }
+    }
+    &__img {
+        width: 75%;
+        max-width: 400px;
+        min-width: 350px;
+        margin-bottom: 1rem;
+    }
+    &__button {
+        height: 3rem;
+        border: 1px solid vars.$color--lightgreen;
+        border-radius: 1.5rem;
+        background-image: url('../pics/background-green.jpg');
+        background-position: center;
+        position: relative;
+        padding-left: 3.5rem;
+        padding-right: vars.$paddingMobile--p;
+        & svg {
+            position: absolute;
+            color: vars.$color--darkgreen;
+            left: 1rem;
+            top: 50%; /* Décale la puce vers le bas */
+            transform: translate(0, -50%);
+            width: 1.5rem; /* Largeur de l'image */
+            height: 1.5rem; /* Hauteur de l'image */
+        }
     }
 }
