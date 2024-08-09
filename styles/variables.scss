@@ -1,14 +1,48 @@
-.the-nautigal-regular {
-    font-family: 'The Nautigal', cursive;
-    font-weight: 400;
-    font-style: normal;
-}
-
-$font-title: (
+/* Fonts */
+$fontSignature: (
     font-family: (
         'The Nautigal',
         cursive,
     ),
     font-weight: 400,
     font-style: normal,
+    font-size: 2rem,
 );
+
+$fontTitle: (
+    font-family: (
+        'Cardo',
+        serif,
+    ),
+    font-weight: 600,
+    font-style: normal,
+    font-size: 1.235rem,
+);
+
+$fontParagraph: (
+    font-family: (
+        'EB Garamond',
+        serif,
+    ),
+    font-optical-sizing: auto,
+    font-weight: 400,
+    font-style: normal,
+    font-size: 1rem,
+);
+
+/* Spacing */
+
+$paddingMobile--header: 1rem; //utiliser pour les côtés et au-dessus et en-dessous
+$paddingMobile--title: 1.5rem;
+$paddingMobile--p: 2rem;
+
+$paddingMobile--section: 1rem; //utilisé pour le dessus et le dessous
+$maxWidthText: 40rem;
+
+/* Colors */
+$color--main: black;
+$color--lightgold: #c7a54b;
+$color--darkgold: #958940;
+$color--blue: #577ab0;
+$color--darkgreen: #395350;
+$color--lightgreen: #92bbb5;
