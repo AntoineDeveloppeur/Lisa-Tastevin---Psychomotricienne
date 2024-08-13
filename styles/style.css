@@ -504,4 +504,28 @@ html {
   transform: translate(0, -50%);
   width: 1.5rem; /* Largeur de l'image */
   height: 1.5rem; /* Hauteur de l'image */
+}
+
+footer {
+  padding-top: 2.4rem;
+  padding-bottom: 2.4rem;
+  padding-left: 1.4rem;
+  padding-right: 1.4rem;
+}
+
+.footer__div1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.footer__div1__mentions {
+  margin-left: 0.3rem;
+}
+.footer__div2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.footer__div2__p {
+  margin-left: 0.3rem;
 }/*# sourceMappingURL=style.css.map */

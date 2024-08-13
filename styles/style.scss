@@ -537,3 +537,29 @@ html {
         }
     }
 }
+
+footer {
+    padding-top: calc(vars.$paddingMobile--section + 1rem);
+    padding-bottom: calc(vars.$paddingMobile--section + 1rem);
+    padding-left: vars.$paddingMobile--section;
+    padding-right: vars.$paddingMobile--section;
+}
+
+.footer {
+    &__div1 {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        &__mentions {
+            margin-left: 0.3rem;
+        }
+    }
+    &__div2 {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        &__p {
+            margin-left: 0.3rem;
+        }
+    }
+}
