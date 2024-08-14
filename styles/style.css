@@ -122,6 +122,15 @@ html {
 *****Fin Comportements par défaut*****
 *
 */
+.text-to-appear {
+  opacity: 0;
+  transition: transform 0.8s ease-out, opacity 0.8s ease-out;
+}
+
+.visible {
+  opacity: 1;
+}
+
 .header--mobile {
   position: fixed;
   top: 0;

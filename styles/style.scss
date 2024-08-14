@@ -124,6 +124,17 @@ html {
 *
 */
 
+.text-to-appear {
+    // transform: translateY(20px);
+    opacity: 0;
+    transition: transform 0.8s ease-out, opacity 0.8s ease-out;
+}
+
+.visible {
+    opacity: 1;
+    // transform: translateY(0);
+}
+
 .header--mobile {
     position: fixed;
     top: 0;
