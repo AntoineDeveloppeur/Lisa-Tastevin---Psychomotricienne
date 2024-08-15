@@ -145,6 +145,7 @@ html {
     background-color: white;
     padding: vars.$paddingMobile--header;
     z-index: 6;
+    border-bottom: 1px solid vars.$color--lightgold;
     &__logoAndName {
         display: flex;
         justify-content: flex-start;
@@ -537,6 +538,9 @@ html {
         position: relative;
         padding-left: 3.5rem;
         padding-right: vars.$paddingMobile--p;
+        &--form {
+            margin-top: 1rem;
+        }
         & svg {
             position: absolute;
             color: vars.$color--darkgreen;
@@ -549,28 +553,52 @@ html {
     }
 }
 
+.grow {
+    animation: grow 0.6s ease-in-out 2 alternate;
+}
+
+@keyframes grow {
+    0% {
+        transform: translate(0, -50%) scale(1);
+    }
+    100% {
+        transform: translate(0, -50%) scale(1.15);
+    }
+}
+
+// .grow {
+//     transform: scale(1);
+//     animation: grow 1s ease-in-out 2 alternate;
+//     transform-origin: center;
+// }
+
+// span {
+//     display: inline-block;
+//     transition: transform 1s ease-in-out;
+// }
+
+// @keyframes grow {
+//     0% {
+//         transform: scale(1);
+//     }
+
+//     100% {
+//         transform: scale(1.1);
+//     }
+// }
+
 footer {
     padding-top: calc(vars.$paddingMobile--section + 1rem);
     padding-bottom: calc(vars.$paddingMobile--section + 1rem);
     padding-left: vars.$paddingMobile--section;
     padding-right: vars.$paddingMobile--section;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .footer {
-    &__div1 {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        &__mentions {
-            margin-left: 0.3rem;
-        }
-    }
-    &__div2 {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        &__p {
-            margin-left: 0.3rem;
-        }
+    &__p {
+        text-align: center;
     }
 }
