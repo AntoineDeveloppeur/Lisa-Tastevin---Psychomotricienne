@@ -19,4 +19,15 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     window.addEventListener('scroll', actionOnScroll)
     actionOnScroll()
+
+    const formButton = document.querySelector('.OuMeTrouver__button--form')
+    const form = document.querySelector('.OuMeTrouver__form')
+    const clickOnFormButton = () => {
+        if (form.classList.contains('form-visible')) {
+            form.classList.remove('form-visible')
+        } else {
+            form.classList.add('form-visible')
+        }
+    }
+    formButton.addEventListener('click', clickOnFormButton)
 })

@@ -116,6 +116,7 @@ html {
     font-weight: map-get(vars.$fontTitle, font-weight);
     font-style: map-get(vars.$fontTitle, font-style);
     font-size: map-get(vars.$fontTitle, font-size);
+    text-align: center;
 }
 
 /* 
@@ -199,6 +200,14 @@ html {
     transform-origin: 5px 0px;
     transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1),
         background 0.5s cubic-bezier(0.77, 0.2, 0.05, 1), opacity 0.55s ease;
+}
+
+#menuToggle__img {
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform: translate(-200px, 100px);
+    height: 200px;
 }
 
 #menuToggle span:first-child {
@@ -291,7 +300,7 @@ html {
     }
 }
 
-.PourQui {
+.Pourquoi {
     padding-top: calc(vars.$paddingMobile--section + 1rem);
     padding-bottom: calc(vars.$paddingMobile--section + 1rem);
     display: flex;
@@ -421,7 +430,7 @@ html {
     align-items: center;
     position: relative;
     background-image: url('../pics/kintsugi.png');
-    background-size: cover; /* Ajuste l'image à la taille spécifiée */
+    background-size: contain; /* Ajuste l'image à la taille spécifiée */
     &__background {
         content: '';
         position: absolute;
@@ -485,18 +494,17 @@ html {
     &__img {
         position: absolute;
         top: 50%;
-        right: 0;
+        right: -30px;
         transform: translate(0%, -50%);
         margin-right: 16px;
         width: 40%;
-        max-width: 200px;
-        z-index: -1;
+        max-width: 180px;
+        z-index: 3;
     }
 }
 
 .OuMeTrouver {
     padding-top: calc(vars.$paddingMobile--section + 1rem);
-    padding-bottom: calc(vars.$paddingMobile--section + 1rem);
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -531,6 +539,7 @@ html {
     }
     &__button {
         height: 3rem;
+        width: 238px;
         border: 1px solid vars.$color--lightgreen;
         border-radius: 1.5rem;
         background-image: url('../pics/background-green.jpg');
@@ -538,6 +547,12 @@ html {
         position: relative;
         padding-left: 3.5rem;
         padding-right: vars.$paddingMobile--p;
+        // padding-bottom: vars.$paddingMobile--section;
+        transform: scale(1);
+        transition: transform 0.3s ease-out;
+        &:hover {
+            transform: scale(1.05);
+        }
         &--form {
             margin-top: 1rem;
         }
@@ -551,10 +566,81 @@ html {
             height: 1.5rem; /* Hauteur de l'image */
         }
     }
+    &__form {
+        margin-top: 1rem;
+        display: flex;
+        max-height: 0;
+        overflow: hidden;
+        transition: all 800ms ease-out;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        &__div {
+            width: 238px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            &--message {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                width: 80vw;
+            }
+            &__label {
+                margin-bottom: 0.4rem;
+            }
+            &__input {
+                width: 238px;
+                height: 2rem;
+                padding-left: 1rem;
+                margin-bottom: 1rem;
+                border: solid 1px vars.$color--lightgreen;
+                border-radius: 1.5rem;
+                &:focus {
+                    outline: none;
+                    box-shadow: 0 0 5px vars.$color--lightgold;
+                }
+            }
+        }
+        &__textarea {
+            padding: 1rem;
+            width: 80vw;
+            max-width: 400px;
+            height: 200px;
+            margin-bottom: 1rem;
+            border: solid 1px vars.$color--lightgreen;
+            border-radius: 1.5rem;
+            resize: none;
+            &:focus {
+                outline: none;
+                box-shadow: 0 0 5px vars.$color--lightgold;
+            }
+        }
+        &__button {
+            padding: 0 0;
+            margin-bottom: vars.$paddingMobile--section;
+            text-align: center;
+            width: 120px;
+            height: 2rem;
+            border: 1px solid vars.$color--lightgreen;
+            border-radius: 1.5rem;
+            background-image: url('../pics/background-green.jpg');
+            background-position: center;
+            transform: scale(1);
+            transition: transform 0.3s ease-out;
+            &:hover {
+                transform: scale(1.05);
+            }
+        }
+    }
 }
 
 .grow {
     animation: grow 0.6s ease-in-out 2 alternate;
+}
+
+.form-visible {
+    max-height: 550px;
 }
 
 @keyframes grow {
@@ -565,27 +651,6 @@ html {
         transform: translate(0, -50%) scale(1.15);
     }
 }
-
-// .grow {
-//     transform: scale(1);
-//     animation: grow 1s ease-in-out 2 alternate;
-//     transform-origin: center;
-// }
-
-// span {
-//     display: inline-block;
-//     transition: transform 1s ease-in-out;
-// }
-
-// @keyframes grow {
-//     0% {
-//         transform: scale(1);
-//     }
-
-//     100% {
-//         transform: scale(1.1);
-//     }
-// }
 
 footer {
     padding-top: calc(vars.$paddingMobile--section + 1rem);

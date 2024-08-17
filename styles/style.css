@@ -115,6 +115,7 @@ html {
   font-weight: 600;
   font-style: normal;
   font-size: 1.235rem;
+  text-align: center;
 }
 
 /* 
@@ -194,6 +195,14 @@ html {
   z-index: 6;
   transform-origin: 5px 0px;
   transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1), background 0.5s cubic-bezier(0.77, 0.2, 0.05, 1), opacity 0.55s ease;
+}
+
+#menuToggle__img {
+  position: absolute;
+  top: 0;
+  right: 0;
+  transform: translate(-200px, 100px);
+  height: 200px;
 }
 
 #menuToggle span:first-child {
@@ -286,7 +295,7 @@ html {
   padding-right: 2rem;
 }
 
-.PourQui {
+.Pourquoi {
   padding-top: 2.4rem;
   padding-bottom: 2.4rem;
   display: flex;
@@ -299,7 +308,7 @@ html {
   position: relative;
   z-index: 1;
 }
-.PourQui__background {
+.Pourquoi__background {
   content: "";
   position: absolute;
   background-color: rgba(255, 255, 255, 0.7);
@@ -309,7 +318,7 @@ html {
   height: 100%;
   z-index: 2;
 }
-.PourQui::before {
+.Pourquoi::before {
   content: "";
   position: absolute;
   top: 0;
@@ -319,7 +328,7 @@ html {
   background: linear-gradient(to top, rgba(255, 255, 255, 0), rgb(255, 255, 255));
   z-index: 3;
 }
-.PourQui::after {
+.Pourquoi::after {
   content: "";
   position: absolute;
   bottom: 0;
@@ -329,23 +338,23 @@ html {
   background: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgb(255, 255, 255));
   z-index: 3;
 }
-.PourQui__h1 {
+.Pourquoi__h1 {
   color: #577ab0;
   padding-left: 1.5rem;
   padding-right: 1.5rem;
   margin-bottom: 1rem;
   z-index: 3;
 }
-.PourQui__ul {
+.Pourquoi__ul {
   padding-left: 3.235rem;
   padding-right: 2rem;
   z-index: 3;
 }
-.PourQui__ul li {
+.Pourquoi__ul li {
   margin-bottom: 0.8rem;
   position: relative;
 }
-.PourQui__ul li::before {
+.Pourquoi__ul li::before {
   content: "";
   position: absolute;
   left: -1.235rem;
@@ -355,7 +364,7 @@ html {
   background-image: url("../pics/logo.png");
   background-size: cover; /* Ajuste l'image à la taille spécifiée */
 }
-.PourQui__p {
+.Pourquoi__p {
   z-index: 3;
 }
 
@@ -395,7 +404,7 @@ html {
   align-items: center;
   position: relative;
   background-image: url("../pics/kintsugi.png");
-  background-size: cover; /* Ajuste l'image à la taille spécifiée */
+  background-size: contain; /* Ajuste l'image à la taille spécifiée */
 }
 .AQuoiRessemble__background {
   content: "";
@@ -452,17 +461,16 @@ html {
 .AQuoiRessemble__img {
   position: absolute;
   top: 50%;
-  right: 0;
+  right: -30px;
   transform: translate(0%, -50%);
   margin-right: 16px;
   width: 40%;
-  max-width: 200px;
-  z-index: -1;
+  max-width: 180px;
+  z-index: 3;
 }
 
 .OuMeTrouver {
   padding-top: 2.4rem;
-  padding-bottom: 2.4rem;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -498,6 +506,7 @@ html {
 }
 .OuMeTrouver__button {
   height: 3rem;
+  width: 238px;
   border: 1px solid #92bbb5;
   border-radius: 1.5rem;
   background-image: url("../pics/background-green.jpg");
@@ -505,6 +514,11 @@ html {
   position: relative;
   padding-left: 3.5rem;
   padding-right: 2rem;
+  transform: scale(1);
+  transition: transform 0.3s ease-out;
+}
+.OuMeTrouver__button:hover {
+  transform: scale(1.05);
 }
 .OuMeTrouver__button--form {
   margin-top: 1rem;
@@ -518,9 +532,80 @@ html {
   width: 1.5rem; /* Largeur de l'image */
   height: 1.5rem; /* Hauteur de l'image */
 }
+.OuMeTrouver__form {
+  margin-top: 1rem;
+  display: flex;
+  max-height: 0;
+  overflow: hidden;
+  transition: all 800ms ease-out;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.OuMeTrouver__form__div {
+  width: 238px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.OuMeTrouver__form__div--message {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 80vw;
+}
+.OuMeTrouver__form__div__label {
+  margin-bottom: 0.4rem;
+}
+.OuMeTrouver__form__div__input {
+  width: 238px;
+  height: 2rem;
+  padding-left: 1rem;
+  margin-bottom: 1rem;
+  border: solid 1px #92bbb5;
+  border-radius: 1.5rem;
+}
+.OuMeTrouver__form__div__input:focus {
+  outline: none;
+  box-shadow: 0 0 5px #c7a54b;
+}
+.OuMeTrouver__form__textarea {
+  padding: 1rem;
+  width: 80vw;
+  max-width: 400px;
+  height: 200px;
+  margin-bottom: 1rem;
+  border: solid 1px #92bbb5;
+  border-radius: 1.5rem;
+  resize: none;
+}
+.OuMeTrouver__form__textarea:focus {
+  outline: none;
+  box-shadow: 0 0 5px #c7a54b;
+}
+.OuMeTrouver__form__button {
+  padding: 0 0;
+  margin-bottom: 1.4rem;
+  text-align: center;
+  width: 120px;
+  height: 2rem;
+  border: 1px solid #92bbb5;
+  border-radius: 1.5rem;
+  background-image: url("../pics/background-green.jpg");
+  background-position: center;
+  transform: scale(1);
+  transition: transform 0.3s ease-out;
+}
+.OuMeTrouver__form__button:hover {
+  transform: scale(1.05);
+}
 
 .grow {
   animation: grow 0.6s ease-in-out 2 alternate;
+}
+
+.form-visible {
+  max-height: 550px;
 }
 
 @keyframes grow {
