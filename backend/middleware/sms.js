@@ -9,12 +9,12 @@ const client = twilio(accountSid, authToken)
 
 async function createMessage() {
     const message = await client.messages.create({
-        body: 'This is the ship that made the Kessel Run in fourteen parsecs?',
-        from: '+15017122661',
-        to: '+15558675310',
+        body: 'Bravo Antoine tu as réussi à envoyer semeuseu',
+        from: process.env.TWILIO_PHONE_SENDER,
+        to: process.env.TWILIO_PHONE_RECEIVER,
     })
 
     console.log(message.body)
 }
 
-createMessage()
+module.exports = createMessage

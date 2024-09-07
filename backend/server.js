@@ -1,19 +1,27 @@
 const express = require('express')
 const http = require('http')
+require('dotenv').config({ path: '../.env' })
+const createMessage = require('./middleware/sms')
+const emailNotification = require('./middleware/nodemail')
 
 console.log('le server tourne')
 
+//Créer l'application avec le framework express
 const app = express()
+
+//Configurer l'application pour qu'elle se branche sur le port 3000
 app.set('port', process.env.PORT || 3000)
 
+//Créer un serveur avec la fonction internet http qui fonctionne avec l'application nommée "app"
 const server = http.createServer(app)
 
+//Déclencher l'écoute du serveur
 server.listen(process.env.PORT || 3000)
 
 // Middleware pour traiter les données JSON
 app.use(express.json())
 
-//Changer l'astérix lorsque le nom de domaine sera connu
+//TODO: Changer l'astérix lorsque le nom de domaine sera connu
 app.use((req, res, next) => {
     res.setHeader('Access-Control-Allow-Origin', '*')
     res.setHeader(
@@ -27,8 +35,9 @@ app.use((req, res, next) => {
     next()
 })
 
-app.post('/form', (req, res, next) => {
+app.post('/form', emailNotification, (req, res, next) => {
     console.log("je suis dans app.use de l'envoi de la réponse au client")
     console.log('req.body', req.body)
+    // createMessage()
     res.status(200).json({ message: 'bravo vous avez lancé une requête' })
 })

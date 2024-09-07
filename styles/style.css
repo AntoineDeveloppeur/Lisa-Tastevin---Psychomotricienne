@@ -456,8 +456,8 @@ html {
   justify-content: flex-start;
   align-items: center;
   position: relative;
-  background-image: url("../pics/kintsugi.png");
-  background-size: contain; /* Ajuste l'image à la taille spécifiée */
+  background-image: url("../pics/background-green.jpg");
+  background-size: cover; /* Ajuste l'image à la taille spécifiée */
 }
 .AQuoiRessemble__background {
   content: "";
@@ -519,7 +519,7 @@ html {
   margin-right: 16px;
   width: 40%;
   max-width: 180px;
-  z-index: 3;
+  z-index: 1;
 }
 
 .OuMeTrouver {
