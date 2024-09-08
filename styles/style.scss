@@ -252,6 +252,7 @@ html {
     font-style: map-get(vars.$fontParagraph, font-style);
     font-size: map-get(vars.$fontParagraph, font-size);
     z-index: 5;
+    background-color: vars.$color--shadowgold;
 }
 
 #menu li {
@@ -301,34 +302,31 @@ html {
             position: relative;
             white-space: nowrap;
             font-weight: 400;
-            overflow: hidden;
-            clip-path: inset(0 0 0 0);
+            overflow: visible;
         }
     }
 }
 
 .surligner {
     position: absolute;
-    top: 5px;
-    left: 0px;
-    width: 84px;
-    height: 20px;
+    top: 50%;
+    transform: translateY(-35%);
+    left: -6px;
+    height: 40px;
     stroke: lighten(vars.$color--blue, 30);
     stroke-opacity: 1;
     fill: vars.$color--darkgreen;
-    stroke-width: 10;
     stroke-linecap: round;
     opacity: 1;
     z-index: -1;
-    overflow: hidden;
+    object-fit: cover;
 }
 
 .text-to-highlight {
     position: relative;
     white-space: nowrap;
     font-weight: 400;
-    overflow: hidden;
-    clip-path: inset(0 0 0 0);
+    overflow: visible;
 }
 
 .hindHightlight {
@@ -341,13 +339,13 @@ html {
     height: 50px;
     z-index: -1;
     overflow: hidden;
-    clip-path: inset(0 0 0 0);
     transition: transform 4s ease-in;
-    transform: translate(0, 0);
+    transform: scale(1);
+    transform-origin: right;
 }
 
 .showhighlight {
-    transform: translate(100%, 0);
+    transform: scaleX(0);
 }
 
 .Pourquoi {
@@ -446,24 +444,9 @@ html {
         border-radius: 53% 41% 37% 64% / 57% 29% 60% 43%;
         width: 200px;
         margin-bottom: 1rem;
-        // height: 200px;
         object-fit: contain;
         object-position: center;
         position: relative;
-        // &::before {
-        //     content: '';
-        //     position: absolute;
-        //     display: block;
-        //     top: 0;
-        //     left: 0;
-        //     // transform: translate(50%, 50%);
-        //     width: 550px;
-        //     height: 500px;
-        //     // border-radius: 53% 41% 37% 64% / 57% 29% 60% 43%;
-        //     background-color: red;
-        //     // background-image: url('../pics/background-multicolor.jpg');
-        //     z-index: 4;
-        // }
     }
     &__p {
         padding-left: vars.$paddingMobile--p;
@@ -544,9 +527,9 @@ html {
     &__img {
         position: absolute;
         top: 50%;
-        right: -30px;
+        right: 10px;
         transform: translate(0%, -50%);
-        margin-right: 16px;
+        // margin-right: 16px;
         width: 40%;
         max-width: 180px;
         z-index: 1;
