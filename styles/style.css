@@ -110,11 +110,19 @@ html {
   text-align: justify;
 }
 
-.font-title {
+.font-title-h1 {
   font-family: Cardo, serif;
   font-weight: 600;
   font-style: normal;
   font-size: 1.235rem;
+  text-align: center;
+}
+
+.font-title-h2 {
+  font-family: Cardo, serif;
+  font-weight: 600;
+  font-style: normal;
+  font-size: 1rem;
   text-align: center;
 }
 
@@ -413,10 +421,13 @@ html {
 .Lisa {
   padding-top: 2.4rem;
   padding-bottom: 2.4rem;
+  padding-left: 3.4rem;
+  padding-right: 3.4rem;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
+  gap: 1.5rem;
 }
 .Lisa__h1 {
   color: #395350;
@@ -431,6 +442,34 @@ html {
   -o-object-position: center;
      object-position: center;
   position: relative;
+}
+.Lisa__card {
+  border-radius: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1.9rem;
+  gap: 0.8rem;
+  max-width: 350px;
+  transition: box-shadow 0.3s ease-in-out, transform 0.05s ease-in-out;
+  box-shadow: 1px 1px 14px white;
+  transform: scale(1);
+}
+.Lisa__card:hover {
+  box-shadow: 1px 1px 14px #f7e7bf;
+  transform: scale(1.01);
+}
+.Lisa__card--card1 {
+  background-color: #eef1f6;
+}
+.Lisa__card--card2 {
+  background-color: #e4eced;
+}
+.Lisa__card--card3 {
+  background-color: #d9e6e4;
+}
+.Lisa__card__h2 {
+  color: #395350;
 }
 .Lisa__p {
   padding-left: 2rem;
@@ -548,18 +587,9 @@ html {
 .OuMeTrouver__button {
   height: 3rem;
   width: 238px;
-  border: 1px solid #92bbb5;
-  border-radius: 1.5rem;
-  background-image: url("../pics/background-green.jpg");
-  background-position: center;
   position: relative;
   padding-left: 3.5rem;
   padding-right: 2rem;
-  transform: scale(1);
-  transition: transform 0.3s ease-out;
-}
-.OuMeTrouver__button:hover {
-  transform: scale(1.05);
 }
 .OuMeTrouver__button--form {
   margin-top: 1rem;
@@ -627,18 +657,24 @@ html {
 .OuMeTrouver__form__button {
   padding: 0 0;
   margin-bottom: 1.4rem;
-  text-align: center;
   width: 120px;
   height: 2rem;
+}
+
+.button {
+  cursor: pointer;
+  text-align: center;
   border: 1px solid #92bbb5;
   border-radius: 1.5rem;
   background-image: url("../pics/background-green.jpg");
   background-position: center;
   transform: scale(1);
-  transition: transform 0.3s ease-out;
+  box-shadow: 1px 1px 5px white;
+  transition: transform 0.2s ease-out, box-shadow 0.3s ease-in-out;
 }
-.OuMeTrouver__form__button:hover {
+.button:hover {
   transform: scale(1.05);
+  box-shadow: 1px 1px 5px #f7e7bf;
 }
 
 .grow {

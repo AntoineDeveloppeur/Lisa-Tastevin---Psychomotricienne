@@ -9,7 +9,7 @@ $fontSignature: (
     font-size: 2rem,
 );
 
-$fontTitle: (
+$fontTitleh1: (
     font-family: (
         'Cardo',
         serif,
@@ -17,6 +17,16 @@ $fontTitle: (
     font-weight: 600,
     font-style: normal,
     font-size: 1.235rem,
+);
+
+$fontTitleh2: (
+    font-family: (
+        'Cardo',
+        serif,
+    ),
+    font-weight: 600,
+    font-style: normal,
+    font-size: 1rem,
 );
 
 $fontParagraph: (
@@ -36,16 +46,26 @@ $paddingMobile--header: 1rem; //utiliser pour les côtés et au-dessus et en-des
 $paddingMobile--title: 1.5rem;
 $paddingMobile--p: 2rem;
 
-$paddingMobile--section: 1.4rem; //utilisé pour le dessus et le dessous
+$paddingMobile--section: 1.4rem; //utilisé pour le dessus et le dessous et sur les côté
 $maxWidthText: 34rem;
 
 /* Colors */
 $color--main: black;
 $color--lightgold: #c7a54b;
 $color--darkgold: #958340;
-$color--shadowgold: #fffdf8;
+
 $color--blue: #577ab0;
 $color--darkgreen: #395350;
 $color--lightgreen: #92bbb5;
 
+//Shadows colors
+$color--shadowgold: #fffdf8;
+$color--shadowgold2: #f7e7bf;
+
+//Strokes colors
 $color--strokecolor: lighten($color--blue, 40);
+
+//Cards colors
+$color--card1: #eef1f6;
+$color--card2: #e4eced;
+$color--card3: #d9e6e4;
