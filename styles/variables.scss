@@ -47,3 +47,5 @@ $color--shadowgold: #fffdf8;
 $color--blue: #577ab0;
 $color--darkgreen: #395350;
 $color--lightgreen: #92bbb5;
+
+$color--strokecolor: lighten($color--blue, 40);

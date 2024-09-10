@@ -7,11 +7,10 @@ function addHighlight() {
         const strokeWidth = 8000 / width
         console.log(numberOfCaracter)
 
-        const svgHighlight = `<svg
+        const svgHighlight = `<span class="hindHighlight"><svg
                                 xmlns="http://www.w3.org/2000/svg"
                                 viewBox="-40 20 600 40"
-                                id="surligne3"
-                                class="surligner"
+                                class="highlight"
                                 width="${numberOfCaracter * 8}px"
                                 stroke-width="${strokeWidth}";
 
@@ -22,7 +21,9 @@ function addHighlight() {
                                 ></path>
                                 <path d="M5.4,22c75.2,4.3,445.9-4,488.8-0.3"></path>
                             </svg>
-                            <span class="hindHightlight"></span>`
+                            </span>
+
+                            `
         text.innerHTML += svgHighlight
     })
 }
@@ -51,7 +52,7 @@ const actionOnScroll = () => {
     })
 
     //Enlève la partie blanche qui cache le surlignement
-    const animationSurligner = document.querySelectorAll('.hindHightlight')
+    const animationSurligner = document.querySelectorAll('.hindHighlight')
     animationSurligner.forEach((cacheSurlignement) => {
         const cachePosition = cacheSurlignement.getBoundingClientRect().top
         if (cachePosition < windowHeight - 50) {

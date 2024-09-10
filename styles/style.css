@@ -302,13 +302,9 @@ html {
   overflow: visible;
 }
 
-.surligner {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-35%);
-  left: -6px;
+.highlight {
   height: 40px;
-  stroke: #bfcce1;
+  stroke: #e2e8f1;
   stroke-opacity: 1;
   fill: #395350;
   stroke-linecap: round;
@@ -325,23 +321,20 @@ html {
   overflow: visible;
 }
 
-.hindHightlight {
+.hindHighlight {
+  transition: width 2s ease-in-out;
   position: absolute;
-  top: 0;
-  left: 0;
-  content: "";
-  width: 200px;
-  background-color: white;
-  height: 50px;
-  z-index: -1;
+  top: 50%;
+  transform: translateY(-50%);
+  left: -6px;
   overflow: hidden;
-  transition: transform 4s ease-in;
-  transform: scale(1);
-  transform-origin: right;
+  width: 0;
+  height: 100%;
+  z-index: -1;
 }
 
 .showhighlight {
-  transform: scaleX(0);
+  width: 120%;
 }
 
 .Pourquoi {
