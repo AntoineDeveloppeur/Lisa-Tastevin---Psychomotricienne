@@ -534,6 +534,7 @@ html {
 .AQuoiRessemble__containText--center {
   max-width: 34rem;
   min-width: 300px;
+  position: relative;
 }
 .AQuoiRessemble__containText--center__containText--left {
   width: 75%;

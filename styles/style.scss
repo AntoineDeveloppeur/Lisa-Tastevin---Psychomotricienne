@@ -555,6 +555,7 @@ html {
     &__containText--center {
         max-width: vars.$maxWidthText;
         min-width: 300px;
+        position: relative;
         &__containText--left {
             width: 75%;
             min-width: 300px;
