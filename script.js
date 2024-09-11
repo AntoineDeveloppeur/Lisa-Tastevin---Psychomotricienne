@@ -3,15 +3,18 @@ function addHighlight() {
 
     textToHighlight.forEach((text) => {
         const numberOfCaracter = text.textContent.length
-        const width = numberOfCaracter * 8
+        const width = numberOfCaracter * 7.5 + 60 / numberOfCaracter
         const strokeWidth = 8000 / width
         console.log(numberOfCaracter)
 
+        const lastClass = text.classList[1] && text.classList[1]
+        console.log(lastClass)
+
         const svgHighlight = `<span class="hindHighlight"><svg
                                 xmlns="http://www.w3.org/2000/svg"
-                                viewBox="-40 20 600 40"
-                                class="highlight"
-                                width="${numberOfCaracter * 8}px"
+                                viewBox="-40 45 600 10"
+                                class="highlight ${lastClass}"
+                                width="${width}px"
                                 stroke-width="${strokeWidth}";
 
                             >
