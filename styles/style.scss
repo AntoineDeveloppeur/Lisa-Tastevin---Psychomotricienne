@@ -152,7 +152,7 @@ html {
     justify-content: space-between;
     align-items: center;
     background-color: white;
-    padding: vars.$paddingMobile--header;
+    padding: calc(vars.$paddingMobile--header - 10px);
     z-index: 6;
     border-bottom: 1px solid vars.$color--lightgold;
     &__logoAndName {
@@ -161,7 +161,7 @@ html {
         align-items: center;
         gap: 1rem;
         &__logo {
-            width: 59px;
+            width: 50px;
         }
         &__name {
             font-family: #{map-get(vars.$fontSignature, font-family)};
@@ -433,7 +433,7 @@ html {
             top: 0.3rem; /* Décale la puce vers le bas */
             width: 16px; /* Largeur de l'image */
             height: 16px; /* Hauteur de l'image */
-            background-image: url('../pics/logo.png');
+            background-image: url('../pics/puce.png');
             background-size: cover; /* Ajuste l'image à la taille spécifiée */
         }
     }
@@ -473,12 +473,12 @@ html {
         padding: calc(vars.$paddingMobile--section + 0.5rem);
         gap: 0.8rem;
         max-width: 350px;
-        transition: box-shadow 0.3s ease-in-out, transform 0.05s ease-in-out;
-        box-shadow: 1px 1px 14px white;
+        transition: box-shadow 0.2s ease-in-out, transform 0.05s ease-in-out;
         transform: scale(1);
-
         &:hover {
-            box-shadow: 1px 1px 14px vars.$color--shadowgold2;
+            box-shadow: 0 0 18px -10px rgba(249, 218, 109, 1);
+            -webkit-box-shadow: 0 0 18px -10px rgba(249, 218, 109, 1);
+            -moz-box-shadow: 0 0 18px -10px rgba(249, 218, 109, 1);
             transform: scale(1.01);
         }
         &--card1 {
@@ -670,9 +670,12 @@ html {
                 margin-bottom: 1rem;
                 border: solid 1px vars.$color--lightgreen;
                 border-radius: 1.5rem;
+                transition: box-shadow 0.2s ease-in-out;
                 &:focus {
                     outline: none;
-                    box-shadow: 0 0 5px vars.$color--lightgold;
+                    box-shadow: 0 0 18px -10px rgba(249, 218, 109, 1);
+                    -webkit-box-shadow: 0 0 18px -10px rgba(249, 218, 109, 1);
+                    -moz-box-shadow: 0 0 18px -10px rgba(249, 218, 109, 1);
                 }
             }
         }
@@ -685,9 +688,12 @@ html {
             border: solid 1px vars.$color--lightgreen;
             border-radius: 1.5rem;
             resize: none;
+            transition: box-shadow 0.2s ease-in-out;
             &:focus {
                 outline: none;
-                box-shadow: 0 0 5px vars.$color--lightgold;
+                box-shadow: 0 0 18px -10px rgba(249, 218, 109, 1);
+                -webkit-box-shadow: 0 0 18px -10px rgba(249, 218, 109, 1);
+                -moz-box-shadow: 0 0 18px -10px rgba(249, 218, 109, 1);
             }
         }
         &__button {
@@ -708,10 +714,12 @@ html {
     background-position: center;
     transform: scale(1);
     box-shadow: 1px 1px 5px white;
-    transition: transform 0.2s ease-out, box-shadow 0.3s ease-in-out;
+    transition: transform 0.2s ease-out, box-shadow 0.2s ease-in-out;
     &:hover {
         transform: scale(1.025);
-        box-shadow: 1px 1px 5px vars.$color--shadowgold2;
+        box-shadow: 0 0 18px -10px rgba(249, 218, 109, 1);
+        -webkit-box-shadow: 0 0 18px -10px rgba(249, 218, 109, 1);
+        -moz-box-shadow: 0 0 18px -10px rgba(249, 218, 109, 1);
     }
 }
 
