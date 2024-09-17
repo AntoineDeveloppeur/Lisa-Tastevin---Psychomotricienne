@@ -284,9 +284,8 @@
     z-index: 3;
     border-radius: 40px;
     box-shadow: 0 0 18px -10px vars.$color--lightgreen;
-
-    // -webkit-box-shadow: 0 0 18px -10px rgba(249, 218, 109, 1);
-    // -moz-box-shadow: 0 0 18px -10px rgba(249, 218, 109, 1);
+    -webkit-box-shadow: 0 0 18px -10px vars.$color--lightgreen;
+    -moz-box-shadow: 0 0 18px -10px vars.$color--lightgreen;
 }
 .my-carousel {
     border-radius: 5px;
@@ -297,7 +296,11 @@
 }
 .carousel__slide {
     overflow: hidden;
+    &__p {
+        line-height: 1.35;
+    }
 }
+
 .carousel--thumb .carousel__indicator {
     height: 30px;
     width: 30px;

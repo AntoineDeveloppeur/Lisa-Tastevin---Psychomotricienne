@@ -306,6 +306,8 @@
   z-index: 3;
   border-radius: 40px;
   box-shadow: 0 0 18px -10px #92bbb5;
+  -webkit-box-shadow: 0 0 18px -10px #92bbb5;
+  -moz-box-shadow: 0 0 18px -10px #92bbb5;
 }
 
 .my-carousel {
@@ -318,6 +320,9 @@
 
 .carousel__slide {
   overflow: hidden;
+}
+.carousel__slide__p {
+  line-height: 1.35;
 }
 
 .carousel--thumb .carousel__indicator {

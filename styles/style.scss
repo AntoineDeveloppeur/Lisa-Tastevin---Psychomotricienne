@@ -107,6 +107,7 @@ html {
     font-weight: map-get(vars.$fontParagraph, font-weight);
     font-style: map-get(vars.$fontParagraph, font-style);
     font-size: map-get(vars.$fontParagraph, font-size);
+    line-height: map-get(vars.$fontParagraph, line-height);
     max-width: vars.$maxWidthText;
     text-align: justify;
 }
