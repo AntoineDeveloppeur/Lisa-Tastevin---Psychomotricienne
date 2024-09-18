@@ -459,7 +459,7 @@ html {
         margin-bottom: vars.$paddingMobile--header;
     }
     &__img {
-        border-radius: 53% 41% 37% 64% / 57% 29% 60% 43%;
+        border-radius: $border-radius;
         width: 200px;
         margin-bottom: 1rem;
         object-fit: contain;
