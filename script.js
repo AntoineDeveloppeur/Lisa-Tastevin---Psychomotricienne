@@ -110,11 +110,37 @@ function goToSectionFromMenu() {
 }
 goToSectionFromMenu()
 
+function pushedAnimationForButton() {
+    document.querySelectorAll('.button').forEach((button) => {
+        button.addEventListener('click', () => {
+            button.classList.add('button-pushed')
+            setTimeout(() => {
+                button.classList.remove('button-pushed')
+            }, 250)
+        })
+    })
+}
+
+pushedAnimationForButton()
+
+function showButtonIsClicked() {
+    const button = document.querySelector('.OuMeTrouver__form__button')
+    if (button.classList.contains('darkenButton')) {
+        button.classList.remove('darkenButton')
+    } else {
+        button.classList.add('darkenButton')
+        document.addEventListener('click', () =>
+            button.classList.remove('darkenButton')
+        )
+    }
+}
+
 function sendForm() {
     document
         .querySelector('.OuMeTrouver__form')
         .addEventListener('submit', (e) => {
             e.preventDefault()
+            showButtonIsClicked()
             const data = {
                 name: document.getElementById('name').value,
                 email: document.getElementById('email').value,

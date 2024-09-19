@@ -304,6 +304,7 @@ html {
     &__h1 {
         padding-left: vars.$paddingMobile--title;
         padding-right: vars.$paddingMobile--title;
+        color: vars.$color--darkblue;
     }
     &__line {
         padding-left: vars.$paddingMobile--title;
@@ -726,7 +727,7 @@ html {
     background-image: url('../pics/background-green.jpg');
     background-position: center;
     transform: scale(1);
-    box-shadow: 1px 1px 5px white;
+    box-shadow: 0px 2px 2px 2px rgba(0, 0, 0, 0.1);
     transition: transform 0.2s ease-out, box-shadow 0.2s ease-in-out;
     &:hover {
         transform: scale(1.025);
@@ -740,10 +741,6 @@ html {
     animation: grow 0.6s ease-in-out 2 alternate;
 }
 
-.form-visible {
-    max-height: 550px;
-}
-
 @keyframes grow {
     0% {
         transform: translate(0, -50%) scale(1);
@@ -751,6 +748,28 @@ html {
     100% {
         transform: translate(0, -50%) scale(1.15);
     }
+}
+
+.button-pushed {
+    animation: button-pushed2 0.1s ease-in-out 2 alternate;
+}
+
+@keyframes button-pushed2 {
+    0% {
+        transform: scale(1.025);
+    }
+    100% {
+        transform: scale(0.95);
+    }
+}
+
+.form-visible {
+    max-height: 550px;
+}
+
+.darkenButton {
+    background-color: rgba(0, 0, 0, 0.1); /* Couleur sombre */
+    background-blend-mode: darken; /* Mélange la couleur et l'image */
 }
 
 footer {
