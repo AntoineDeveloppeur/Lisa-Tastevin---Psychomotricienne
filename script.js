@@ -5,10 +5,8 @@ function addHighlight() {
         const numberOfCaracter = text.textContent.length
         const width = numberOfCaracter * 7.5 + 60 / numberOfCaracter
         const strokeWidth = 8000 / width
-        console.log(numberOfCaracter)
 
         const lastClass = text.classList[1] && text.classList[1]
-        console.log(lastClass)
 
         const svgHighlight = `<span class="hindHighlight"><svg
                                 xmlns="http://www.w3.org/2000/svg"
@@ -78,8 +76,39 @@ function showForm() {
     }
     formButton.addEventListener('click', clickOnFormButton)
 }
-
 showForm()
+
+function hideMenu() {
+    const linkToSections = document.querySelectorAll('.link-to-section')
+    const checkbox = document.getElementById('checkbox')
+    console.log(checkbox)
+    linkToSections.forEach((link) =>
+        link.addEventListener('click', () => (checkbox.checked = false))
+    )
+}
+hideMenu()
+
+function goToSectionFromMenu() {
+    document.querySelectorAll('.link-to-section').forEach((link) => {
+        link.addEventListener('click', function (event) {
+            event.preventDefault() // Empêche le comportement par défaut du saut d'ancre
+
+            const targetId = this.getAttribute('href').substring(1) // Récupère l'ID de l'ancre
+            const targetElement = document.getElementById(targetId)
+
+            const offset = 60 // Décalage souhaité en pixels
+            const elementPosition =
+                targetElement.getBoundingClientRect().top + window.scrollY
+            const offsetPosition = elementPosition - offset
+
+            window.scrollTo({
+                top: offsetPosition,
+                behavior: 'smooth', // Ajoute un défilement fluide
+            })
+        })
+    })
+}
+goToSectionFromMenu()
 
 function sendForm() {
     document

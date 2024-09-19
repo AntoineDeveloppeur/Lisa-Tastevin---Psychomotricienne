@@ -192,23 +192,35 @@ html {
     width: 40px;
     height: 32px;
     position: absolute;
+    margin: 0;
+    top: -5px;
+    left: -5px;
     cursor: pointer;
     opacity: 0;
-    z-index: 6;
+    z-index: 7;
 }
 
 #menuToggle span {
+    position: relative;
     display: flex;
     width: 29px;
     height: 2px;
     margin-bottom: 5px;
-    position: relative;
     background: vars.$color--lightgold;
     border-radius: 3px;
     z-index: 6;
     transform-origin: 5px 0px;
     transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1),
         background 0.5s cubic-bezier(0.77, 0.2, 0.05, 1), opacity 0.55s ease;
+    // &::after {
+    //     content: '';
+    //     position: absolute;
+    //     top: -10px;
+    //     right: -10px;
+    //     bottom: -10px;
+    //     left: -10px;
+    //     z-index: -10; /* Assure que cela n'affecte pas le contenu */
+    // }
 }
 
 #menuToggle__img {

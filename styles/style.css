@@ -190,17 +190,20 @@ html {
   width: 40px;
   height: 32px;
   position: absolute;
+  margin: 0;
+  top: -5px;
+  left: -5px;
   cursor: pointer;
   opacity: 0;
-  z-index: 6;
+  z-index: 7;
 }
 
 #menuToggle span {
+  position: relative;
   display: flex;
   width: 29px;
   height: 2px;
   margin-bottom: 5px;
-  position: relative;
   background: #c7a54b;
   border-radius: 3px;
   z-index: 6;
