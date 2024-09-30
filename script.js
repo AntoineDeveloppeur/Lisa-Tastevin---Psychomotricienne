@@ -123,16 +123,74 @@ function pushedAnimationForButton() {
 
 pushedAnimationForButton()
 
-function showButtonIsClicked() {
-    const button = document.querySelector('.OuMeTrouver__form__button')
-    if (button.classList.contains('darkenButton')) {
-        button.classList.remove('darkenButton')
-    } else {
-        button.classList.add('darkenButton')
-        document.addEventListener('click', () =>
-            button.classList.remove('darkenButton')
-        )
-    }
+function greyButtonWhenClicked() {
+    const button = document.querySelectorAll('.button-to-grey')
+    button.forEach((button) => {
+        button.addEventListener('click', () => {
+            if (button.classList.contains('darkenButton')) {
+                button.classList.remove('darkenButton')
+            } else {
+                button.classList.add('darkenButton')
+            }
+            if (button.classList.contains('OuMeTrouver__button--appel')) {
+                console.log(
+                    'le boutton appuyer est OuMeTrouver__button--appel '
+                )
+                setTimeout(() => button.classList.remove('darkenButton'), 1000)
+            }
+        })
+    })
+}
+
+greyButtonWhenClicked()
+
+function showLoader() {
+    const buttonSend = document.querySelector('.OuMeTrouver__form__button')
+    buttonSend.classList.add('dont-display')
+    const loader = document.querySelector('.loader')
+    console.log('loader', loader)
+    loader.classList.remove('dont-display')
+    console.log('loader classList', loader.classList)
+}
+
+function dontShowLoader() {
+    const buttonSend = document.querySelector('.OuMeTrouver__form__button')
+    buttonSend.classList.remove('dont-display')
+    const loader = document.querySelector('.loader')
+    console.log('loader', loader)
+    loader.classList.add('dont-display')
+    console.log('loader classList', loader.classList)
+}
+
+function deleteForm() {
+    const form = document.querySelector('.OuMeTrouver__form')
+    form.innerHTML = ''
+}
+
+function showSuccessInSendingTheForm() {
+    const form = document.querySelector('.OuMeTrouver__form')
+    const message = document.createElement('p')
+    message.classList.add('font-text')
+    message.style.margin = '20px'
+    message.style.textAlign = 'center'
+    message.innerHTML =
+        "<strong class='text-to-highlight'>Succès !</strong><br>J'ai bien reçu votre message, je vous recontacte très vite."
+    form.appendChild(message)
+    addHighlight()
+    actionOnScroll()
+}
+
+function showFailureInSendingTheForm() {
+    const form = document.querySelector('.OuMeTrouver__form')
+    const message = document.createElement('p')
+    message.classList.add('font-text')
+    message.style.margin = '20px'
+    message.style.textAlign = 'center'
+    message.innerHTML =
+        "<strong class='text-to-highlight'>Malheureusement,</strong> il y a eu un problème avec le formulaire<br>Contactez-moi directement par téléphone au 06 37 33 55 10."
+    form.appendChild(message)
+    addHighlight()
+    actionOnScroll()
 }
 
 function sendForm() {
@@ -140,7 +198,7 @@ function sendForm() {
         .querySelector('.OuMeTrouver__form')
         .addEventListener('submit', (e) => {
             e.preventDefault()
-            showButtonIsClicked()
+            showLoader()
             const data = {
                 name: document.getElementById('name').value,
                 email: document.getElementById('email').value,
@@ -154,17 +212,18 @@ function sendForm() {
                 body: JSON.stringify(data),
             })
                 .then((response) => {
+                    deleteForm()
                     if (!response.ok) {
-                        throw new Error('Erreur dans la réponse du réseau')
+                        showFailureInSendingTheForm()
                     } else {
-                        console.log(
-                            'succès! le server à répondu psoitivement à la réception du formulaire'
-                        )
+                        showSuccessInSendingTheForm()
                     }
                 })
                 .catch((error) => {
                     !alert("votre requête n'a pu aboutir")
                     console.log(error)
+                    deleteForm()
+                    showFailureInSendingTheForm()
                 })
 
             console.log(data)

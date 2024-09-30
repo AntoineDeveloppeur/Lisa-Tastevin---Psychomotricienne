@@ -1,7 +1,7 @@
 const express = require('express')
 const http = require('http')
 require('dotenv').config({ path: '../.env' })
-const createMessage = require('./middleware/sms')
+const sendSMS = require('./middleware/sms')
 const emailNotification = require('./middleware/nodemail')
 
 console.log('le server tourne')
@@ -35,9 +35,11 @@ app.use((req, res, next) => {
     next()
 })
 
-app.post('/form', emailNotification, (req, res, next) => {
+app.post('/form', emailNotification, sendSMS, (req, res, next) => {
     console.log("je suis dans app.use de l'envoi de la réponse au client")
     console.log('req.body', req.body)
-    // createMessage()
-    res.status(200).json({ message: 'bravo vous avez lancé une requête' })
+    res.status(200).json({
+        message:
+            'Le formulaire a été envoyé avec succès, je reviens vers vous rapidement.',
+    })
 })

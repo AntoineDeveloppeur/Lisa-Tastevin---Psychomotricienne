@@ -24,6 +24,7 @@
         />
         <link href="./styles/style.css" rel="stylesheet" />
         <link href="./styles/carousel.css" rel="stylesheet" />
+        <link href="./styles/loader.css" rel="stylesheet" />
 
         <script src="./script.js" defer></script>
     </head>
@@ -37,7 +38,7 @@
                         al="logo"
                     />
                     <p class="header--mobile__logoAndName__name">
-                        Lisa Tastevin
+                        Lisa Tastevin - Psychomotricienne
                     </p>
                 </div>
                 <nav role="navigation">
@@ -84,13 +85,13 @@
         <main>
             <section id="section1" class="harmoniser">
                 <h1 class="harmoniser__h1 font-title-h1">
-                    La Psychomotricité pour Adultes
+                    La Psychomotricité pour les Adultes
                 </h1>
                 <span class="harmoniser__line"></span>
                 <p class="harmoniser__p font-text text-to-appear">
-                    La psychomotricité est une discipline qui aide à améliorer
-                    l'harmonie entre le corps et l'esprit grâce à des activités
-                    ludiques et des exercices adaptés. Elle favorise le
+                    La psychomotricité est une discipline qui aide à harmoniser
+                    le corps et l'esprit grâce à des activités ludiques et des
+                    exercices adaptés. Elle favorise le
                     <strong class="harmoniser__p__strong text-to-highlight"
                         >bien-être global</strong
                     >
@@ -110,41 +111,35 @@
             </section>
             <section id="section2" class="Pourquoi">
                 <h1 class="Pourquoi__h1 font-title-h1"
-                    >Pourquoi rencontrer une psychomotricienne ?</h1
+                    >En quoi puis-je vous aider?</h1
                 >
                 <span class="Pourquoi__background"></span>
                 <ul class="Pourquoi__ul font-text">
                     <li class="text-to-appear">
                         Vous ressentez des difficultés pour identifier,
-                        comprendre, exprimer vos émotions ?
+                        comprendre, exprimer vos émotions
                     </li>
                     <li class="text-to-appear">
-                        Vous avez
-                        <strong class="text-to-highlight"
-                            >peur du regard</strong
-                        >
-                        de l'autre ou craignez d'être jugé en permanence ?
+                        Vous
+                        <strong class="text-to-highlight">redoutez</strong> le
+                        regard de l'autre ou craignez d'être jugé en permanence.
                     </li>
                     <li class="text-to-appear">
-                        Vous n'aimez pas votre reflet dans le miroir ? Le stress
-                        et l'anxiété envahissent votre quotidien ?
-                    </li>
-                    <li class="text-to-appear">
-                        Vous avez du mal à aller vers les autres et à
-                        communiquer ?
+                        Vous n'aimez pas votre reflet dans le miroir. Le stress
+                        et l'anxiété envahissent votre quotidien.
                     </li>
                     <li class="text-to-appear">
                         Vous
                         <strong class="text-to-highlight">souffrez</strong> de
                         douleurs physiques qui vous empêchent de faire des
-                        activités que vous aimez ?
+                        activités que vous aimez.
                     </li>
                 </ul>
-                <p class="Pourquoi__p font-text text-to-appear">
+                <!-- <p class="Pourquoi__p font-text text-to-appear">
                     <strong class="text-to-highlight"
                         >Je peux vous aider</strong
                     >
-                </p>
+                </p> -->
             </section>
             <section id="section3" class="Lisa">
                 <h1 class="Lisa__h1 font-title-h1">
@@ -250,12 +245,10 @@
                             class="AQuoiRessemble__containText--center__containText--left__p font-text text-to-appear"
                         >
                             Une séance se compose d'un échange verbal au cours
-                            duquel vous m'amenez votre problématique et exprimez
-                            vos difficultés. Dans un second temps, je vous fais
-                            une proposition corporelle adaptée à votre besoin et
-                            vos affinités pour vous aider à construire "votre
-                            boîte à outil". Une première séance dure 1h pour un
-                            tarif de 50€.
+                            duquel nous parlons de vous. Dans un second temps,
+                            je vous fais une proposition corporelle adaptée à
+                            votre besoin et vos affinités pour vous aider à
+                            construire "votre boîte à outil".
                         </p>
                         <img
                             class="AQuoiRessemble__img"
@@ -469,7 +462,9 @@
                     </li>
                 </ul>
                 <img class="OuMeTrouver__img" src="./pics/cabinet.png" />
-                <button class="OuMeTrouver__button font-text button">
+                <button
+                    class="OuMeTrouver__button OuMeTrouver__button--appel font-text button button-to-grey"
+                >
                     <a href="tel:0637335510">
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
@@ -491,7 +486,7 @@
                     </a>
                 </button>
                 <button
-                    class="OuMeTrouver__button OuMeTrouver__button--form font-text button-to-grow button"
+                    class="OuMeTrouver__button OuMeTrouver__button--form font-text button button-to-grow button-to-grey"
                 >
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -563,6 +558,11 @@
                     >
                         Envoyer
                     </button>
+                    <div class="loader dont-display">
+                        <div class="loader__a"></div>
+                        <div class="loader__b"></div>
+                        <div class="loader__c"></div>
+                    </div>
                 </form>
             </section>
         </main>

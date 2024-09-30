@@ -1,0 +1,58 @@
+@use 'variables' as vars;
+
+:root {
+    --c1: #{vars.$color--blue};
+    --c3: #{vars.$color--lightgreen};
+    --c2: #{vars.$color--lightgold};
+}
+
+.loader {
+    justify-content: space-around;
+    &__a,
+    &__b,
+    &__c {
+        border-radius: 50%;
+        width: 1em;
+        height: 1em;
+        transform-origin: 50% 100%;
+        animation: bounce1 0.8s linear infinite;
+    }
+}
+
+.loader {
+    display: flex;
+    width: 6em;
+    height: calc(2rem + vars.$paddingMobile--section);
+    &__a {
+        background: var(--c1);
+    }
+    &__b {
+        background: var(--c2);
+        animation-delay: 0.1s;
+    }
+    &__c {
+        background: var(--c3);
+        animation-delay: 0.2s;
+    }
+}
+
+/* Animations */
+@keyframes bounce1 {
+    from,
+    to {
+        transform: translateY(0) scale(1, 1);
+        animation-timing-function: ease-in;
+    }
+    45% {
+        transform: translateY(1em) scale(1, 1);
+        animation-timing-function: linear;
+    }
+    50% {
+        transform: translateY(1em) scale(1.5, 0.5);
+        animation-timing-function: linear;
+    }
+    55% {
+        transform: translateY(1em) scale(1, 1);
+        animation-timing-function: ease-out;
+    }
+}

@@ -60,7 +60,8 @@ $color--lightgreen: #92bbb5;
 $color--darkgreen: #395350;
 
 //Shadows colors
-$color--shadowgold: #fffdf8;
+// $color--shadowgold: #fffdf8;
+$color--shadowgold: lighten(#958340, 57);
 $color--shadowgold2: #f7e7bf;
 
 //Strokes colors
