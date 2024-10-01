@@ -110,6 +110,10 @@ html {
     line-height: map-get(vars.$fontParagraph, line-height);
     max-width: vars.$maxWidthText;
     text-align: justify;
+    hyphens: auto;
+    word-wrap: break-word;
+    text-align-last: left;
+    white-space: normal;
 }
 
 .font-title-h1 {

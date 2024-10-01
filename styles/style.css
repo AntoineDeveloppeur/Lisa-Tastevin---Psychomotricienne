@@ -109,6 +109,12 @@ html {
   line-height: 1.5;
   max-width: 34rem;
   text-align: justify;
+  -webkit-hyphens: auto;
+          hyphens: auto;
+  word-wrap: break-word;
+  -moz-text-align-last: left;
+       text-align-last: left;
+  white-space: normal;
 }
 
 .font-title-h1 {
