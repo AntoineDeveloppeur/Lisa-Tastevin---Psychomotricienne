@@ -171,11 +171,32 @@ html {
   width: 50px;
 }
 .header--mobile__logoAndName__name {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.header--mobile__logoAndName__name__p {
   font-family: The Nautigal, cursive;
   font-weight: 400;
   font-style: normal;
   font-size: 2rem;
   color: #c7a54b;
+  white-space: nowrap;
+  margin-top: -8px;
+  margin-bottom: -8px;
+}
+.header--mobile__logoAndName__name__job {
+  font-family: Cardo, serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 16px;
+  color: #c7a54b;
+  padding-top: 5px;
+  margin-top: -4px;
+  margin-bottom: -4px;
+}
+.header--mobile__logoAndName__blank {
+  width: 20px;
 }
 
 /* Menu Mobile début */
@@ -194,10 +215,10 @@ html {
 #menuToggle input {
   display: flex;
   width: 40px;
-  height: 32px;
+  height: 24px;
   position: absolute;
   margin: 0;
-  top: -5px;
+  top: 0;
   left: -5px;
   cursor: pointer;
   opacity: 0;
@@ -231,6 +252,7 @@ html {
 
 #menuToggle span:nth-last-child(2) {
   transform-origin: 0% 100%;
+  margin-bottom: 0;
 }
 
 #menuToggle input:checked ~ span {
@@ -252,8 +274,8 @@ html {
   position: fixed;
   top: 0rem;
   right: 0;
-  width: 350px;
-  height: 320px;
+  width: 300px;
+  height: 340px;
   box-shadow: 0 0 10px #85888c;
   padding: 50px;
   padding-right: 30px;
@@ -446,8 +468,8 @@ html {
 .Lisa {
   padding-top: 2.4rem;
   padding-bottom: 2.4rem;
-  padding-left: 3.4rem;
-  padding-right: 3.4rem;
+  padding-left: 1.4rem;
+  padding-right: 1.4rem;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -545,12 +567,10 @@ html {
 }
 .AQuoiRessemble__containText--center {
   max-width: 34rem;
-  min-width: 300px;
   position: relative;
 }
 .AQuoiRessemble__containText--center__containText--left {
   width: 75%;
-  min-width: 300px;
 }
 .AQuoiRessemble__containText--center__containText--left__h1 {
   color: #958340;
@@ -608,7 +628,7 @@ html {
 .OuMeTrouver__img {
   width: 75%;
   max-width: 400px;
-  min-width: 350px;
+  min-width: 300px;
   margin-bottom: 1rem;
 }
 .OuMeTrouver__button {
