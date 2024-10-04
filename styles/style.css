@@ -112,8 +112,6 @@ html {
   -webkit-hyphens: auto;
           hyphens: auto;
   word-wrap: break-word;
-  -moz-text-align-last: left;
-       text-align-last: left;
   white-space: normal;
 }
 
