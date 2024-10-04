@@ -1,0 +1,7 @@
+@use 'variables' as vars;
+
+.mentions {
+    margin-top: 93px;
+    padding-top: vars.$paddingMobile--section;
+    padding-bottom: vars.$paddingMobile--section;
+}
