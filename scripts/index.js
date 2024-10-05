@@ -235,3 +235,49 @@ function sendForm() {
 }
 
 sendForm()
+
+function rotateArrow(arrow) {
+    console.log('arrow dans rotateArrow', arrow)
+    arrow.classList.contains('Lisa__card__arrow--down')
+        ? arrow.classList.remove('Lisa__card__arrow--down')
+        : arrow.classList.add('Lisa__card__arrow--down')
+}
+
+function showOrDontShowText(text) {
+    text.classList.contains('Lisa__card__p--visible')
+        ? text.classList.remove('Lisa__card__p--visible')
+        : text.classList.add('Lisa__card__p--visible')
+}
+
+function animateCards() {
+    const cards = document.querySelectorAll('.Lisa__card')
+
+    const arrows = document.querySelectorAll('.Lisa__card__arrow')
+    cards.forEach((card) => {
+        card.addEventListener('click', () => {
+            const arrowAlreadyDown = document.querySelector(
+                '.Lisa__card__arrow--down'
+            )
+            const arrowChildOfCard = card.querySelector('.Lisa__card__arrow')
+            if (arrowAlreadyDown) {
+                rotateArrow(arrowAlreadyDown)
+                const pSibling =
+                    arrowAlreadyDown.parentElement.querySelector(
+                        '.Lisa__card__p'
+                    )
+                showOrDontShowText(pSibling)
+            }
+
+            if (arrowAlreadyDown != arrowChildOfCard) {
+                rotateArrow(arrowChildOfCard)
+                const pSibling =
+                    arrowChildOfCard.parentElement.querySelector(
+                        '.Lisa__card__p'
+                    )
+                showOrDontShowText(pSibling)
+            }
+        })
+    })
+}
+
+animateCards()
