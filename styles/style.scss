@@ -482,7 +482,7 @@ html {
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    gap: 1.5rem;
+    gap: 1rem;
     &__h1 {
         color: vars.$color--darkgreen;
         margin-bottom: vars.$paddingMobile--header;
@@ -525,14 +525,30 @@ html {
         &--extended {
             padding: calc(vars.$paddingMobile--section + 0.5rem);
         }
+        &__imgAndTitle {
+            margin-top: 1rem;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            &__h2 {
+                color: vars.$color--darkgreen;
+                font-size: 0.85rem;
+                transition: font-size 0.3s ease-in-out 0.23s;
+                &--bigger {
+                    font-size: 1rem;
+                }
+            }
+        }
         &__arrow {
-            width: 20px;
-            height: 20px;
+            width: 16px;
+            height: 16px;
             position: absolute;
-            top: 20px;
-            right: 20px;
+            top: 18px;
+            right: 16px;
             transform: rotate(-90deg) scale(1);
-            transition: transform 0.3s ease-in-out;
+            transition: transform 0.3s ease-in-out 0.23s;
             &:hover {
                 transform: rotate(-90deg) scale(1.1);
             }
@@ -544,12 +560,6 @@ html {
             }
         }
 
-        &__img {
-            margin-top: 1rem;
-        }
-        &__h2 {
-            color: vars.$color--darkgreen;
-        }
         &__p {
             max-height: 0px;
             // padding-top: 0px;
@@ -558,7 +568,7 @@ html {
             padding-right: calc(vars.$paddingMobile--section);
 
             overflow: hidden;
-            transition: all 0.5s ease-in-out;
+            transition: all 0.5s ease-in-out 0.25s;
         }
         &__p--visible {
             max-height: 380px;
@@ -836,16 +846,29 @@ html {
     }
 }
 
-.button-pushed {
-    animation: button-pushed2 0.1s ease-in-out 2 alternate;
+.button-clicked {
+    animation: button-clicked 0.1s ease-in-out 2 alternate;
 }
 
-@keyframes button-pushed2 {
+.card-clicked {
+    animation: card-clicked 0.15s linear 2 alternate;
+}
+
+@keyframes button-clicked {
     0% {
         transform: scale(1.025);
     }
     100% {
         transform: scale(0.95);
+    }
+}
+
+@keyframes card-clicked {
+    0% {
+        transform: scale(1.01);
+    }
+    100% {
+        transform: scale(0.99);
     }
 }
 

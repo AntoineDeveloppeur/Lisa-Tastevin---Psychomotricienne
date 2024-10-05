@@ -127,7 +127,7 @@ html {
   font-family: Cardo, serif;
   font-weight: 600;
   font-style: normal;
-  font-size: 1rem;
+  font-size: 1.1rem;
   text-align: center;
 }
 
@@ -472,7 +472,7 @@ html {
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  gap: 1.5rem;
+  gap: 1rem;
 }
 .Lisa__h1 {
   color: #395350;
@@ -519,14 +519,29 @@ html {
 .Lisa__card--extended {
   padding: 1.9rem;
 }
+.Lisa__card__imgAndTitle {
+  margin-top: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+.Lisa__card__imgAndTitle__h2 {
+  color: #395350;
+  font-size: 0.85rem;
+  transition: font-size 0.3s ease-in-out 0.23s;
+}
+.Lisa__card__imgAndTitle__h2--bigger {
+  font-size: 1rem;
+}
 .Lisa__card__arrow {
-  width: 20px;
-  height: 20px;
+  width: 16px;
+  height: 16px;
   position: absolute;
-  top: 20px;
-  right: 20px;
+  top: 18px;
+  right: 16px;
   transform: rotate(-90deg) scale(1);
-  transition: transform 0.3s ease-in-out;
+  transition: transform 0.3s ease-in-out 0.23s;
 }
 .Lisa__card__arrow:hover {
   transform: rotate(-90deg) scale(1.1);
@@ -537,18 +552,12 @@ html {
 .Lisa__card__arrow--down:hover {
   transform: rotate(90deg) scale(1.2);
 }
-.Lisa__card__img {
-  margin-top: 1rem;
-}
-.Lisa__card__h2 {
-  color: #395350;
-}
 .Lisa__card__p {
   max-height: 0px;
   padding-left: 1.4rem;
   padding-right: 1.4rem;
   overflow: hidden;
-  transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out 0.25s;
 }
 .Lisa__card__p--visible {
   max-height: 380px;
@@ -808,16 +817,28 @@ html {
     transform: translate(0, -50%) scale(1.15);
   }
 }
-.button-pushed {
-  animation: button-pushed2 0.1s ease-in-out 2 alternate;
+.button-clicked {
+  animation: button-clicked 0.1s ease-in-out 2 alternate;
 }
 
-@keyframes button-pushed2 {
+.card-clicked {
+  animation: card-clicked 0.15s linear 2 alternate;
+}
+
+@keyframes button-clicked {
   0% {
     transform: scale(1.025);
   }
   100% {
     transform: scale(0.95);
+  }
+}
+@keyframes card-clicked {
+  0% {
+    transform: scale(1.01);
+  }
+  100% {
+    transform: scale(0.99);
   }
 }
 .form-visible {

@@ -64,21 +64,6 @@ const actionOnScroll = () => {
 window.addEventListener('scroll', actionOnScroll)
 actionOnScroll()
 
-function showForm() {
-    const formButton = document.querySelector('.OuMeTrouver__button--form')
-    console.log('formButton', formButton)
-    const form = document.querySelector('.OuMeTrouver__form')
-    const clickOnFormButton = () => {
-        if (form.classList.contains('form-visible')) {
-            form.classList.remove('form-visible')
-        } else {
-            form.classList.add('form-visible')
-        }
-    }
-    formButton.addEventListener('click', clickOnFormButton)
-}
-showForm()
-
 function hideMenu() {
     const linkToSections = document.querySelectorAll('.link-to-section')
     const checkbox = document.getElementById('checkbox')
@@ -114,18 +99,18 @@ function goToSectionFromMenu() {
 }
 goToSectionFromMenu()
 
-function pushedAnimationForButton() {
+function clickAnimationForButton() {
     document.querySelectorAll('.button').forEach((button) => {
         button.addEventListener('click', () => {
-            button.classList.add('button-pushed')
+            button.classList.add('button-clicked')
             setTimeout(() => {
-                button.classList.remove('button-pushed')
+                button.classList.remove('button-clicked')
             }, 250)
         })
     })
 }
 
-pushedAnimationForButton()
+clickAnimationForButton()
 
 function greyButtonWhenClicked() {
     const button = document.querySelectorAll('.button-to-grey')
@@ -147,6 +132,25 @@ function greyButtonWhenClicked() {
 }
 
 greyButtonWhenClicked()
+
+/*
+ ***** Formulaire *****
+ */
+
+function showForm() {
+    const formButton = document.querySelector('.OuMeTrouver__button--form')
+    console.log('formButton', formButton)
+    const form = document.querySelector('.OuMeTrouver__form')
+    const clickOnFormButton = () => {
+        if (form.classList.contains('form-visible')) {
+            form.classList.remove('form-visible')
+        } else {
+            form.classList.add('form-visible')
+        }
+    }
+    formButton.addEventListener('click', clickOnFormButton)
+}
+showForm()
 
 function showLoader() {
     const buttonSend = document.querySelector('.OuMeTrouver__form__button')
@@ -236,6 +240,22 @@ function sendForm() {
 
 sendForm()
 
+/*
+ ***** Animations des cartes de la section Lisa *****
+ */
+
+function clickAnimationForCard() {
+    document.querySelectorAll('.Lisa__card').forEach((card) => {
+        card.addEventListener('click', () => {
+            card.classList.add('card-clicked')
+            setTimeout(() => {
+                card.classList.remove('card-clicked')
+            }, 201)
+        })
+    })
+}
+clickAnimationForCard()
+
 function rotateArrow(arrow) {
     console.log('arrow dans rotateArrow', arrow)
     arrow.classList.contains('Lisa__card__arrow--down')
@@ -249,10 +269,23 @@ function showOrDontShowText(text) {
         : text.classList.add('Lisa__card__p--visible')
 }
 
+function changeTitleSize(title) {
+    title.classList.contains('Lisa__card__imgAndTitle__h2--bigger')
+        ? title.classList.remove('Lisa__card__imgAndTitle__h2--bigger')
+        : title.classList.add('Lisa__card__imgAndTitle__h2--bigger')
+}
+
+function animateOneCard(arrow) {
+    rotateArrow(arrow)
+    const pSibling = arrow.parentElement.querySelector('.Lisa__card__p')
+    showOrDontShowText(pSibling)
+
+    const title = arrow.closest('.Lisa__card').querySelector('h2')
+    changeTitleSize(title)
+}
+
 function animateCards() {
     const cards = document.querySelectorAll('.Lisa__card')
-
-    const arrows = document.querySelectorAll('.Lisa__card__arrow')
     cards.forEach((card) => {
         card.addEventListener('click', () => {
             const arrowAlreadyDown = document.querySelector(
@@ -260,21 +293,10 @@ function animateCards() {
             )
             const arrowChildOfCard = card.querySelector('.Lisa__card__arrow')
             if (arrowAlreadyDown) {
-                rotateArrow(arrowAlreadyDown)
-                const pSibling =
-                    arrowAlreadyDown.parentElement.querySelector(
-                        '.Lisa__card__p'
-                    )
-                showOrDontShowText(pSibling)
+                animateOneCard(arrowAlreadyDown)
             }
-
             if (arrowAlreadyDown != arrowChildOfCard) {
-                rotateArrow(arrowChildOfCard)
-                const pSibling =
-                    arrowChildOfCard.parentElement.querySelector(
-                        '.Lisa__card__p'
-                    )
-                showOrDontShowText(pSibling)
+                animateOneCard(arrowChildOfCard)
             }
         })
     })
