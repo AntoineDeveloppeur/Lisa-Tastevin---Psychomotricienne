@@ -35,11 +35,19 @@ const actionOnScroll = () => {
     const windowHeight = window.innerHeight
 
     //Fait apparaître le texte de manière douce au fur et à mesure du scroll
-    const textToAppear = document.querySelectorAll('.text-to-appear')
-    textToAppear.forEach((text) => {
+    const textsToAppear = document.querySelectorAll('.vertical-slide-animation')
+    textsToAppear.forEach((text) => {
         const textPosition = text.getBoundingClientRect().top
-        if (textPosition < windowHeight - 50) {
-            text.classList.add('visible')
+        if (textPosition < windowHeight - 70) {
+            text.classList.add('vertical-slide-animated')
+        }
+    })
+
+    const picsToAppear = document.querySelectorAll('.opacity-animation')
+    picsToAppear.forEach((pic) => {
+        const picPosition = pic.getBoundingClientRect().top
+        if (picPosition < windowHeight - 70) {
+            pic.classList.add('opacity-animated')
         }
     })
 
@@ -245,7 +253,7 @@ sendForm()
  */
 
 function clickAnimationForCard() {
-    document.querySelectorAll('.Lisa__card').forEach((card) => {
+    document.querySelectorAll('.Lisa__cards__card').forEach((card) => {
         card.addEventListener('click', () => {
             card.classList.add('card-clicked')
             setTimeout(() => {
@@ -258,40 +266,42 @@ clickAnimationForCard()
 
 function rotateArrow(arrow) {
     console.log('arrow dans rotateArrow', arrow)
-    arrow.classList.contains('Lisa__card__arrow--down')
-        ? arrow.classList.remove('Lisa__card__arrow--down')
-        : arrow.classList.add('Lisa__card__arrow--down')
+    arrow.classList.contains('Lisa__cards__card__arrow--down')
+        ? arrow.classList.remove('Lisa__cards__card__arrow--down')
+        : arrow.classList.add('Lisa__cards__card__arrow--down')
 }
 
 function showOrDontShowText(text) {
-    text.classList.contains('Lisa__card__p--visible')
-        ? text.classList.remove('Lisa__card__p--visible')
-        : text.classList.add('Lisa__card__p--visible')
+    text.classList.contains('Lisa__cards__card__p--visible')
+        ? text.classList.remove('Lisa__cards__card__p--visible')
+        : text.classList.add('Lisa__cards__card__p--visible')
 }
 
 function changeTitleSize(title) {
-    title.classList.contains('Lisa__card__imgAndTitle__h2--bigger')
-        ? title.classList.remove('Lisa__card__imgAndTitle__h2--bigger')
-        : title.classList.add('Lisa__card__imgAndTitle__h2--bigger')
+    title.classList.contains('Lisa__cards__card__imgAndTitle__h2--bigger')
+        ? title.classList.remove('Lisa__cards__card__imgAndTitle__h2--bigger')
+        : title.classList.add('Lisa__cards__card__imgAndTitle__h2--bigger')
 }
 
 function animateOneCard(arrow) {
     rotateArrow(arrow)
-    const pSibling = arrow.parentElement.querySelector('.Lisa__card__p')
+    const pSibling = arrow.parentElement.querySelector('.Lisa__cards__card__p')
     showOrDontShowText(pSibling)
 
-    const title = arrow.closest('.Lisa__card').querySelector('h2')
+    const title = arrow.closest('.Lisa__cards__card').querySelector('h2')
     changeTitleSize(title)
 }
 
 function animateCards() {
-    const cards = document.querySelectorAll('.Lisa__card')
+    const cards = document.querySelectorAll('.Lisa__cards__card')
     cards.forEach((card) => {
         card.addEventListener('click', () => {
             const arrowAlreadyDown = document.querySelector(
-                '.Lisa__card__arrow--down'
+                '.Lisa__cards__card__arrow--down'
             )
-            const arrowChildOfCard = card.querySelector('.Lisa__card__arrow')
+            const arrowChildOfCard = card.querySelector(
+                '.Lisa__cards__card__arrow'
+            )
             if (arrowAlreadyDown) {
                 animateOneCard(arrowAlreadyDown)
             }
