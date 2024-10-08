@@ -458,14 +458,15 @@ html {
         display: flex;
         flex-direction: column;
         justify-content: flex-start;
-        align-items: center;
+        align-items: flex-start;
         flex-wrap: nowrap;
         &__h1 {
             color: vars.$color--blue;
-            padding-left: vars.$paddingMobile--title;
+            padding-left: 0;
             padding-right: vars.$paddingMobile--title;
             margin-bottom: vars.$paddingMobile--header;
             z-index: 3;
+            text-align: left;
         }
         &__ul {
             // padding-left: calc(vars.$paddingMobile--p + 1.235rem);
@@ -690,7 +691,7 @@ html {
         right: 10px;
         transform: translate(0%, -50%);
         // margin-right: 16px;
-        width: 40%;
+        width: 30%;
         max-width: 180px;
         z-index: 1;
     }
@@ -951,21 +952,32 @@ footer {
         font-size: 120%;
     }
 
-    .Pourquoi__img {
-        width: auto;
-        // height: 50%;
-        object-fit: cover;
+    .Pourquoi {
+        &__content {
+            justify-content: flex-start;
+            align-items: flex-start;
+            flex-wrap: nowrap;
+            &__h1 {
+                padding-left: 0;
+            }
+        }
+        &__img {
+            width: 200px;
+            // height: 50%;
+            object-fit: cover;
+        }
     }
 
     .Lisa {
         display: flex;
         justify-content: space-around;
-        align-items: flex-start;
+        align-items: center;
         flex-direction: row;
-        gap: 0rem;
+        gap: 1rem;
         &__titleAndPhoto {
             justify-content: flex-start;
             max-height: 400px;
+            align-self: flex-start;
             &__h1 {
                 color: vars.$color--darkgreen;
                 margin-bottom: vars.$paddingMobile--header;
@@ -974,6 +986,39 @@ footer {
                 margin-top: auto;
                 margin-bottom: auto;
             }
+        }
+        &__cards__card__imgAndTitle__h2 {
+            font-size: 1rem;
+            &--bigger {
+                font-size: 1.15rem;
+            }
+        }
+    }
+
+    .AQuoiRessemble {
+        padding-left: 1rem;
+        padding-right: 1rem;
+        z-index: 3;
+        position: relative;
+        flex-direction: row;
+        align-items: flex-start;
+        &__containText--center {
+            padding-left: vars.$paddingDesktop--side;
+            &__containText--left {
+                width: 100%;
+                &__h1 {
+                    padding-left: 0;
+                    padding-right: 0;
+                    text-align: left;
+                }
+                &__p {
+                    padding-left: 0;
+                    padding-right: 0;
+                }
+            }
+        }
+        &__img {
+            display: none;
         }
     }
 }

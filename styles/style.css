@@ -446,15 +446,16 @@ html {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  align-items: center;
+  align-items: flex-start;
   flex-wrap: nowrap;
 }
 .Pourquoi__content__h1 {
   color: #577ab0;
-  padding-left: 1.5rem;
+  padding-left: 0;
   padding-right: 1.5rem;
   margin-bottom: 1rem;
   z-index: 3;
+  text-align: left;
 }
 .Pourquoi__content__ul {
   padding-right: 2rem;
@@ -648,7 +649,7 @@ html {
   top: 50%;
   right: 10px;
   transform: translate(0%, -50%);
-  width: 40%;
+  width: 30%;
   max-width: 180px;
   z-index: 1;
 }
@@ -899,21 +900,30 @@ footer {
   html {
     font-size: 120%;
   }
+  .Pourquoi__content {
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-wrap: nowrap;
+  }
+  .Pourquoi__content__h1 {
+    padding-left: 0;
+  }
   .Pourquoi__img {
-    width: auto;
+    width: 200px;
     -o-object-fit: cover;
        object-fit: cover;
   }
   .Lisa {
     display: flex;
     justify-content: space-around;
-    align-items: flex-start;
+    align-items: center;
     flex-direction: row;
-    gap: 0rem;
+    gap: 1rem;
   }
   .Lisa__titleAndPhoto {
     justify-content: flex-start;
     max-height: 400px;
+    align-self: flex-start;
   }
   .Lisa__titleAndPhoto__h1 {
     color: #395350;
@@ -922,5 +932,37 @@ footer {
   .Lisa__titleAndPhoto__img {
     margin-top: auto;
     margin-bottom: auto;
+  }
+  .Lisa__cards__card__imgAndTitle__h2 {
+    font-size: 1rem;
+  }
+  .Lisa__cards__card__imgAndTitle__h2--bigger {
+    font-size: 1.15rem;
+  }
+  .AQuoiRessemble {
+    padding-left: 1rem;
+    padding-right: 1rem;
+    z-index: 3;
+    position: relative;
+    flex-direction: row;
+    align-items: flex-start;
+  }
+  .AQuoiRessemble__containText--center {
+    padding-left: 2rem;
+  }
+  .AQuoiRessemble__containText--center__containText--left {
+    width: 100%;
+  }
+  .AQuoiRessemble__containText--center__containText--left__h1 {
+    padding-left: 0;
+    padding-right: 0;
+    text-align: left;
+  }
+  .AQuoiRessemble__containText--center__containText--left__p {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .AQuoiRessemble__img {
+    display: none;
   }
 }/*# sourceMappingURL=style.css.map */
