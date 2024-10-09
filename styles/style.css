@@ -666,6 +666,7 @@ html {
   margin-bottom: 1rem;
 }
 .OuMeTrouver__ul {
+  list-style: none;
   padding-left: 3.235rem;
   padding-right: 2rem;
 }
@@ -819,6 +820,8 @@ html {
   transition: transform 0.2s ease-out, box-shadow 0.2s ease-in-out;
   transform-style: preserve-3d;
   backface-visibility: hidden;
+  width: -moz-max-content;
+  width: max-content;
 }
 .button:hover {
   transform: scale(1.025);
@@ -900,6 +903,9 @@ footer {
   html {
     font-size: 120%;
   }
+  .Pourquoi {
+    justify-content: center;
+  }
   .Pourquoi__content {
     justify-content: flex-start;
     align-items: flex-start;
@@ -915,10 +921,10 @@ footer {
   }
   .Lisa {
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
     flex-direction: row;
-    gap: 1rem;
+    gap: 3rem;
   }
   .Lisa__titleAndPhoto {
     justify-content: flex-start;
@@ -928,16 +934,17 @@ footer {
   .Lisa__titleAndPhoto__h1 {
     color: #395350;
     margin-bottom: 1rem;
+    text-align: left;
   }
   .Lisa__titleAndPhoto__img {
     margin-top: auto;
     margin-bottom: auto;
   }
   .Lisa__cards__card__imgAndTitle__h2 {
-    font-size: 1rem;
+    font-size: 0.9rem;
   }
   .Lisa__cards__card__imgAndTitle__h2--bigger {
-    font-size: 1.15rem;
+    font-size: 1.05rem;
   }
   .AQuoiRessemble {
     padding-left: 1rem;
@@ -945,6 +952,7 @@ footer {
     z-index: 3;
     position: relative;
     flex-direction: row;
+    justify-content: center;
     align-items: flex-start;
   }
   .AQuoiRessemble__containText--center {

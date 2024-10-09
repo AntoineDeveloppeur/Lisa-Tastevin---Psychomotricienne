@@ -708,6 +708,7 @@ html {
         margin-bottom: vars.$paddingMobile--header;
     }
     &__ul {
+        list-style: none;
         padding-left: calc(vars.$paddingMobile--p + 1.235rem);
         padding-right: vars.$paddingMobile--p;
         &__li {
@@ -865,6 +866,7 @@ html {
     transition: transform 0.2s ease-out, box-shadow 0.2s ease-in-out;
     transform-style: preserve-3d;
     backface-visibility: hidden;
+    width: max-content;
     &:hover {
         transform: scale(1.025);
         box-shadow: 0 0 18px -10px rgba(249, 218, 109, 1);
@@ -953,6 +955,7 @@ footer {
     }
 
     .Pourquoi {
+        justify-content: center;
         &__content {
             justify-content: flex-start;
             align-items: flex-start;
@@ -970,10 +973,10 @@ footer {
 
     .Lisa {
         display: flex;
-        justify-content: space-around;
+        justify-content: center;
         align-items: center;
         flex-direction: row;
-        gap: 1rem;
+        gap: 3rem;
         &__titleAndPhoto {
             justify-content: flex-start;
             max-height: 400px;
@@ -981,6 +984,7 @@ footer {
             &__h1 {
                 color: vars.$color--darkgreen;
                 margin-bottom: vars.$paddingMobile--header;
+                text-align: left;
             }
             &__img {
                 margin-top: auto;
@@ -988,9 +992,9 @@ footer {
             }
         }
         &__cards__card__imgAndTitle__h2 {
-            font-size: 1rem;
+            font-size: 0.9rem;
             &--bigger {
-                font-size: 1.15rem;
+                font-size: 1.05rem;
             }
         }
     }
@@ -1001,6 +1005,7 @@ footer {
         z-index: 3;
         position: relative;
         flex-direction: row;
+        justify-content: center;
         align-items: flex-start;
         &__containText--center {
             padding-left: vars.$paddingDesktop--side;
