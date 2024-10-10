@@ -633,22 +633,22 @@ html {
   justify-content: flex-start;
   align-items: center;
 }
-.OuMeTrouver__h1 {
+.OuMeTrouver__flexbox1__bloc1__h1 {
   color: #395350;
   margin-bottom: 1rem;
 }
-.OuMeTrouver__ul {
+.OuMeTrouver__flexbox1__bloc1__ul {
   list-style: none;
   padding-left: 3.235rem;
   padding-right: 2rem;
 }
-.OuMeTrouver__ul__li {
+.OuMeTrouver__flexbox1__bloc1__ul__li {
   margin-bottom: 0.8rem;
   position: relative;
   text-align: justify;
   max-width: 14rem;
 }
-.OuMeTrouver__ul__li svg {
+.OuMeTrouver__flexbox1__bloc1__ul__li svg {
   color: #92bbb5;
   content: "";
   position: absolute;
@@ -657,7 +657,7 @@ html {
   width: 16px;
   height: 16px;
 }
-.OuMeTrouver__ul__li__clickToUncover {
+.OuMeTrouver__flexbox1__bloc1__ul__li__clickToUncover {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -666,10 +666,10 @@ html {
   width: 200px;
   background-image: none !important;
 }
-.OuMeTrouver__ul__li__clickToUncover:hover {
+.OuMeTrouver__flexbox1__bloc1__ul__li__clickToUncover:hover {
   transform: scale(1.02);
 }
-.OuMeTrouver__ul__li__clickToUncover__button {
+.OuMeTrouver__flexbox1__bloc1__ul__li__clickToUncover__button {
   border: none;
   background: none;
   padding: 0;
@@ -679,13 +679,13 @@ html {
   justify-content: center;
   align-items: center;
 }
-.OuMeTrouver__ul__li__clickToUncover__button__img {
+.OuMeTrouver__flexbox1__bloc1__ul__li__clickToUncover__button__img {
   transition: translate 0.2s ease-in-out;
   width: 15px;
   height: 15px;
   margin-left: -10px;
 }
-.OuMeTrouver__ul__li__clickToUncover__button__img:hover {
+.OuMeTrouver__flexbox1__bloc1__ul__li__clickToUncover__button__img:hover {
   transform: scale(1.05);
 }
 .OuMeTrouver__img {

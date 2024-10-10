@@ -682,59 +682,63 @@ html {
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    &__h1 {
-        color: vars.$color--darkgreen;
-        margin-bottom: vars.$paddingMobile--header;
-    }
-    &__ul {
-        list-style: none;
-        padding-left: calc(vars.$paddingMobile--p + 1.235rem);
-        padding-right: vars.$paddingMobile--p;
-        &__li {
-            margin-bottom: 0.8rem;
-            position: relative;
-            text-align: justify;
-            max-width: 14rem;
-            & svg {
-                color: vars.$color--lightgreen;
-                content: '';
-                position: absolute;
-                left: -2rem;
-                top: 0.3rem;
-                width: 16px;
-                height: 16px;
+    &__flexbox1 {
+        &__bloc1 {
+            &__h1 {
+                color: vars.$color--darkgreen;
+                margin-bottom: vars.$paddingMobile--header;
             }
-            &__clickToUncover {
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                padding-left: 15px;
-                padding-right: 15px;
-                // width: max-content;
-                width: 200px;
-                background-image: none !important;
+            &__ul {
+                list-style: none;
+                padding-left: calc(vars.$paddingMobile--p + 1.235rem);
+                padding-right: vars.$paddingMobile--p;
+                &__li {
+                    margin-bottom: 0.8rem;
+                    position: relative;
+                    text-align: justify;
+                    max-width: 14rem;
+                    & svg {
+                        color: vars.$color--lightgreen;
+                        content: '';
+                        position: absolute;
+                        left: -2rem;
+                        top: 0.3rem;
+                        width: 16px;
+                        height: 16px;
+                    }
+                    &__clickToUncover {
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        padding-left: 15px;
+                        padding-right: 15px;
+                        // width: max-content;
+                        width: 200px;
+                        background-image: none !important;
 
-                &:hover {
-                    // font-weight: 500;
-                    transform: scale(1.02);
-                }
-                &__button {
-                    border: none;
-                    background: none;
-                    padding: 0;
-                    height: 1.5rem;
-                    width: 1.5rem;
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                    &__img {
-                        transition: translate 0.2s ease-in-out;
-                        width: 15px;
-                        height: 15px;
-                        margin-left: -10px;
-                        // margin-right: -10px;
                         &:hover {
-                            transform: scale(1.05);
+                            // font-weight: 500;
+                            transform: scale(1.02);
+                        }
+                        &__button {
+                            border: none;
+                            background: none;
+                            padding: 0;
+                            height: 1.5rem;
+                            width: 1.5rem;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            &__img {
+                                transition: translate 0.2s ease-in-out;
+                                width: 15px;
+                                height: 15px;
+                                margin-left: -10px;
+                                // margin-right: -10px;
+                                &:hover {
+                                    transform: scale(1.05);
+                                }
+                            }
                         }
                     }
                 }
