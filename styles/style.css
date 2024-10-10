@@ -695,10 +695,10 @@ html {
   margin-bottom: 1rem;
 }
 .OuMeTrouver__button {
-  height: 3rem;
-  width: 238px;
+  height: 2rem;
+  width: 230px !important;
   position: relative;
-  padding-left: 3.5rem;
+  padding-left: 3rem;
   padding-right: 2rem;
 }
 .OuMeTrouver__button--form {
@@ -710,8 +710,8 @@ html {
   left: 1rem;
   top: 50%; /* Décale la puce vers le bas */
   transform: translate(0, -50%);
-  width: 1.5rem; /* Largeur de l'image */
-  height: 1.5rem; /* Hauteur de l'image */
+  width: 1rem; /* Largeur de l'image */
+  height: 1rem; /* Hauteur de l'image */
 }
 .OuMeTrouver__button span {
   width: -moz-max-content;
@@ -1012,5 +1012,8 @@ footer {
   }
   .AQuoiRessemble__img {
     display: none;
+  }
+  .OuMeTrouver__button {
+    width: 280px !important;
   }
 }/*# sourceMappingURL=style.css.map */
