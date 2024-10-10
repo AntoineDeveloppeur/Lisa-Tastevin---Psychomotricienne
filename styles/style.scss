@@ -149,7 +149,7 @@ html {
 }
 .opacity-animation {
     opacity: 0;
-    transition: opacity 1.6s ease-in-out;
+    transition: opacity 1.6s ease-out;
 }
 
 .opacity-animated {
@@ -244,7 +244,8 @@ html {
     z-index: 6;
     transform-origin: 5px 0px;
     transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1),
-        background 0.5s cubic-bezier(0.77, 0.2, 0.05, 1), opacity 0.55s ease;
+        background 0.5s cubic-bezier(0.77, 0.2, 0.05, 1),
+        opacity 0.55s ease-in-out;
 }
 
 #menuToggle__img {
@@ -302,6 +303,7 @@ html {
 }
 
 #menu li {
+    list-style-type: none;
     padding: 10px 0;
     transition-delay: 2s;
     text-align: right;
@@ -319,85 +321,60 @@ html {
 /* Menu Mobile fin */
 
 .harmoniser {
+    position: relative;
     margin-top: 93px;
     padding-top: vars.$paddingMobile--section;
     padding-bottom: vars.$paddingMobile--section;
     display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
+    flex-direction: row;
+    justify-content: space-around;
     align-items: center;
-    &__h1 {
-        padding-left: vars.$paddingMobile--title;
-        padding-right: vars.$paddingMobile--title;
-        color: vars.$color--darkblue;
+    &__img {
+        width: 110px;
+        z-index: 1;
     }
-    &__line {
-        padding-left: vars.$paddingMobile--title;
-        padding-right: vars.$paddingMobile--title;
-        height: 2px;
-        width: 10rem;
-        margin-top: 0.5rem;
-        margin-bottom: 1rem;
+    &__background {
+        content: '';
+        position: absolute;
+        background-color: rgba(255, 255, 255, 0.7);
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 2;
+    }
+    &__div {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        z-index: 3;
+        &__h1 {
+            padding-left: vars.$paddingMobile--title;
+            padding-right: 0;
+            color: vars.$color--darkblue;
+        }
+        &__line {
+            padding-left: vars.$paddingMobile--title;
+            padding-right: 0;
+            height: 2px;
+            width: 10rem;
+            margin-top: 0.5rem;
+            margin-bottom: 1rem;
 
-        background: vars.$color--lightgold;
-        border-radius: 3px;
-    }
-    &__p {
-        padding-left: vars.$paddingMobile--p;
-        padding-right: vars.$paddingMobile--p;
-        &__strong {
-            position: relative;
-            white-space: nowrap;
-            font-weight: 400;
-            overflow: visible;
+            background: vars.$color--lightgold;
+            border-radius: 3px;
+        }
+        &__p {
+            padding-left: vars.$paddingMobile--p;
+            padding-right: 0;
+            // &__strong {
+            //     position: relative;
+            //     white-space: nowrap;
+            //     font-weight: 400;
+            //     overflow: visible;
         }
     }
-}
-
-.highlight {
-    height: 40px;
-    stroke: vars.$color--strokecolor;
-    stroke-opacity: 1;
-    fill: vars.$color--darkgreen;
-    stroke-linecap: round;
-    opacity: 1;
-    z-index: -1;
-    object-fit: cover;
-}
-
-.highlight--card1 {
-    stroke: darken(vars.$color--card1, 10);
-}
-
-.highlight--card2 {
-    stroke: darken(vars.$color--card2, 10);
-}
-
-.highlight--card3 {
-    stroke: darken(vars.$color--card3, 10);
-}
-
-.text-to-highlight {
-    position: relative;
-    white-space: nowrap;
-    font-weight: 400;
-    overflow: visible;
-}
-
-.hindHighlight {
-    transition: width 2s ease-in-out;
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    left: -6px;
-    overflow: hidden;
-    width: 0;
-    height: 100%;
-    z-index: -1;
-}
-
-.showhighlight {
-    width: 120%;
 }
 
 .Pourquoi {
@@ -508,9 +485,11 @@ html {
     &__titleAndPhoto {
         display: flex;
         flex-direction: column;
-        align-items: flex-start;
-        gap: 1rem;
+        align-items: center;
         &__h1 {
+            color: vars.$color--darkgreen;
+        }
+        &__h2 {
             color: vars.$color--darkgreen;
             margin-bottom: vars.$paddingMobile--header;
         }
@@ -715,6 +694,7 @@ html {
             margin-bottom: 0.8rem;
             position: relative;
             text-align: justify;
+            max-width: 14rem;
             & svg {
                 color: vars.$color--lightgreen;
                 content: '';
@@ -748,7 +728,7 @@ html {
                     justify-content: center;
                     align-items: center;
                     &__img {
-                        transition: translate 0.2s;
+                        transition: translate 0.2s ease-in-out;
                         width: 15px;
                         height: 15px;
                         margin-left: -10px;
@@ -848,7 +828,7 @@ html {
         &__button {
             padding: 0 0;
             margin-bottom: vars.$paddingMobile--section;
-            width: 120px;
+            min-width: 120px;
             height: 2rem;
         }
     }
@@ -863,7 +843,7 @@ html {
     background-position: center;
     transform: scale(1);
     box-shadow: 0px 2px 2px 1px rgba(0, 0, 0, 0.1);
-    transition: transform 0.2s ease-out, box-shadow 0.2s ease-in-out;
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
     transform-style: preserve-3d;
     backface-visibility: hidden;
     width: max-content;
@@ -894,6 +874,52 @@ html {
 
 .card-clicked {
     animation: card-clicked 0.15s linear 2 alternate;
+}
+
+.highlight {
+    height: 40px;
+    stroke: vars.$color--strokecolor;
+    stroke-opacity: 1;
+    fill: vars.$color--darkgreen;
+    stroke-linecap: round;
+    opacity: 1;
+    z-index: -1;
+    object-fit: cover;
+}
+
+.highlight--card1 {
+    stroke: darken(vars.$color--card1, 10);
+}
+
+.highlight--card2 {
+    stroke: darken(vars.$color--card2, 10);
+}
+
+.highlight--card3 {
+    stroke: darken(vars.$color--card3, 10);
+}
+
+.text-to-highlight {
+    position: relative;
+    white-space: nowrap;
+    font-weight: 400;
+    overflow: visible;
+}
+
+.hindHighlight {
+    transition: width 2s ease-in-out;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: -6px;
+    overflow: hidden;
+    width: 0;
+    height: 100%;
+    z-index: -1;
+}
+
+.showhighlight {
+    width: 120%;
 }
 
 @keyframes button-clicked {
@@ -945,13 +971,19 @@ footer {
     &__p {
         text-align: center;
         font-size: calc(map-get(vars.$fontParagraph, font-size) - 0.2rem);
-        transition: font-size 0.1s;
     }
 }
 
 @media (min-width: 768px) {
     html {
-        font-size: 120%;
+        font-size: 130%;
+    }
+
+    .harmoniser {
+        justify-content: center;
+        &__img {
+            width: 180px;
+        }
     }
 
     .Pourquoi {
@@ -966,7 +998,6 @@ footer {
         }
         &__img {
             width: 200px;
-            // height: 50%;
             object-fit: cover;
         }
     }
@@ -981,9 +1012,12 @@ footer {
             justify-content: flex-start;
             max-height: 400px;
             align-self: flex-start;
+            align-items: flex-start;
             &__h1 {
                 color: vars.$color--darkgreen;
-                margin-bottom: vars.$paddingMobile--header;
+                text-align: left;
+            }
+            &__h2 {
                 text-align: left;
             }
             &__img {
@@ -991,15 +1025,26 @@ footer {
                 margin-bottom: auto;
             }
         }
-        &__cards__card__imgAndTitle__h2 {
-            font-size: 0.9rem;
-            &--bigger {
-                font-size: 1.05rem;
+        &__cards__card {
+            max-width: 500px;
+            &__imgAndTitle__h2 {
+                font-size: 0.9rem;
+                &--bigger {
+                    font-size: 1.05rem;
+                }
+            }
+            &__arrow {
+                width: 20px;
+                height: 20px;
+                top: 22px;
+                right: 22px;
             }
         }
     }
 
     .AQuoiRessemble {
+        padding-top: calc(vars.$paddingMobile--section + 3rem);
+        padding-bottom: calc(vars.$paddingMobile--section + 3rem);
         padding-left: 1rem;
         padding-right: 1rem;
         z-index: 3;
@@ -1019,6 +1064,7 @@ footer {
                 &__p {
                     padding-left: 0;
                     padding-right: 0;
+                    width: 350px;
                 }
             }
         }

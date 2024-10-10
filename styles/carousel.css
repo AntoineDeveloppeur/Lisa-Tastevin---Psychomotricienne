@@ -119,6 +119,7 @@
 }
 .carousel__track .carousel__track__slide__h2 {
   color: #395350;
+  font-size: 1.235rem;
 }
 .carousel__track .carousel__track__slide__img {
   height: 120px;
@@ -173,4 +174,9 @@
   opacity: 1;
 }
 
-/* Fin de logic du carousel *//*# sourceMappingURL=carousel.css.map */
+/* Fin de logic du carousel */
+@media (min-width: 768px) {
+  .carousel {
+    margin-top: 0;
+  }
+}/*# sourceMappingURL=carousel.css.map */
