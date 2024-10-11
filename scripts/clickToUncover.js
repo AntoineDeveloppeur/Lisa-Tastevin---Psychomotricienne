@@ -14,8 +14,8 @@ function clickToUncover() {
                 if (element.classList.contains('mail')) {
                     element.innerHTML = ''
                     element.innerHTML = `
-    <a style="margin='auto'" href="mailto:exemple@mail.com?subject=Demande%20d'information&body=Bonjour,%20je%20souhaite%20plus%20d'informations.">
-        maildelisa@gmail.com
+    <a style="margin='auto'" href="mailto:lisatastevin.psychomot@gmail.com?subject=Demande%20d'information&body=Bonjour,%20je%20souhaite%20plus%20d'informations.">
+        lisatastevin.psychomot@gmail.com
     </a>`
                 }
             },
