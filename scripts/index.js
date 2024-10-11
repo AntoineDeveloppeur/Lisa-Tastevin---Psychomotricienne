@@ -129,9 +129,13 @@ function greyButtonWhenClicked() {
             } else {
                 button.classList.add('darkenButton')
             }
-            if (button.classList.contains('OuMeTrouver__button--appel')) {
+            if (
+                button.classList.contains(
+                    'OuMeTrouver__flexbox2__div--form__button--appel'
+                )
+            ) {
                 console.log(
-                    'le boutton appuyer est OuMeTrouver__button--appel '
+                    'le boutton appuyer est OuMeTrouver__flexbox2__div--form__button--appel '
                 )
                 setTimeout(() => button.classList.remove('darkenButton'), 1000)
             }
@@ -146,9 +150,13 @@ greyButtonWhenClicked()
  */
 
 function showForm() {
-    const formButton = document.querySelector('.OuMeTrouver__button--form')
+    const formButton = document.querySelector(
+        '.OuMeTrouver__flexbox2__div--form__button--form'
+    )
     console.log('formButton', formButton)
-    const form = document.querySelector('.OuMeTrouver__form')
+    const form = document.querySelector(
+        '.OuMeTrouver__flexbox2__div--form__form'
+    )
     const clickOnFormButton = () => {
         if (form.classList.contains('form-visible')) {
             form.classList.remove('form-visible')
@@ -161,7 +169,9 @@ function showForm() {
 showForm()
 
 function showLoader() {
-    const buttonSend = document.querySelector('.OuMeTrouver__form__button')
+    const buttonSend = document.querySelector(
+        '.OuMeTrouver__flexbox2__div--form__form__button'
+    )
     buttonSend.classList.add('dont-display')
     const loader = document.querySelector('.loader')
     console.log('loader', loader)
@@ -170,7 +180,9 @@ function showLoader() {
 }
 
 function dontShowLoader() {
-    const buttonSend = document.querySelector('.OuMeTrouver__form__button')
+    const buttonSend = document.querySelector(
+        '.OuMeTrouver__flexbox2__div--form__form__button'
+    )
     buttonSend.classList.remove('dont-display')
     const loader = document.querySelector('.loader')
     console.log('loader', loader)
@@ -179,12 +191,16 @@ function dontShowLoader() {
 }
 
 function deleteForm() {
-    const form = document.querySelector('.OuMeTrouver__form')
+    const form = document.querySelector(
+        '.OuMeTrouver__flexbox2__div--form__form'
+    )
     form.innerHTML = ''
 }
 
 function showSuccessInSendingTheForm() {
-    const form = document.querySelector('.OuMeTrouver__form')
+    const form = document.querySelector(
+        '.OuMeTrouver__flexbox2__div--form__form'
+    )
     const message = document.createElement('p')
     message.classList.add('font-text')
     message.style.margin = '20px'
@@ -197,7 +213,9 @@ function showSuccessInSendingTheForm() {
 }
 
 function showFailureInSendingTheForm() {
-    const form = document.querySelector('.OuMeTrouver__form')
+    const form = document.querySelector(
+        '.OuMeTrouver__flexbox2__div--form__form'
+    )
     const message = document.createElement('p')
     message.classList.add('font-text')
     message.style.margin = '20px'
@@ -211,7 +229,7 @@ function showFailureInSendingTheForm() {
 
 function sendForm() {
     document
-        .querySelector('.OuMeTrouver__form')
+        .querySelector('.OuMeTrouver__flexbox2__div--form__form')
         .addEventListener('submit', (e) => {
             e.preventDefault()
             showLoader()

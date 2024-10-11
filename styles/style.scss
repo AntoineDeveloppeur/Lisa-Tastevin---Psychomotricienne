@@ -683,6 +683,9 @@ html {
     justify-content: flex-start;
     align-items: center;
     &__flexbox1 {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
         &__bloc1 {
             &__h1 {
                 color: vars.$color--darkgreen;
@@ -744,96 +747,125 @@ html {
                 }
             }
         }
-    }
-    &__img {
-        width: 75%;
-        max-width: 400px;
-        min-width: 300px;
-        margin-bottom: 1rem;
-    }
-    &__button {
-        height: 2rem;
-        width: 230px !important;
-        position: relative;
-        padding-left: 3rem;
-        padding-right: vars.$paddingMobile--p;
-        &--form {
-            margin-top: 1rem;
-        }
-        & svg {
-            position: absolute;
-            color: vars.$color--darkgreen;
-            left: 1rem;
-            top: 50%; /* Décale la puce vers le bas */
-            transform: translate(0, -50%);
-            width: 1rem; /* Largeur de l'image */
-            height: 1rem; /* Hauteur de l'image */
-        }
-        & span {
-            width: max-content;
+        &__img {
+            width: 75%;
+            max-width: 400px;
+            min-width: 300px;
+            margin-bottom: 1rem;
         }
     }
-    &__form {
-        margin-top: 1rem;
+    &__flexbox2 {
         display: flex;
-        max-height: 0;
-        overflow: hidden;
-        transition: all 800ms ease-out;
         flex-direction: column;
-        justify-content: center;
         align-items: center;
-        &__div {
-            width: 238px;
+        &__button {
+            height: 2rem;
+            width: 230px !important;
+            position: relative;
+            padding-left: 3rem;
+            padding-right: vars.$paddingMobile--p;
+            & svg {
+                position: absolute;
+                color: vars.$color--darkgreen;
+                left: 1rem;
+                top: 50%; /* Décale la puce vers le bas */
+                transform: translate(0, -50%);
+                width: 1rem; /* Largeur de l'image */
+                height: 1rem; /* Hauteur de l'image */
+            }
+            & span {
+                width: max-content;
+            }
+        }
+        &__div--form {
             display: flex;
             flex-direction: column;
-            align-items: flex-start;
-            &--message {
-                display: flex;
-                flex-direction: column;
-                align-items: flex-start;
-                width: 80vw;
-            }
-            &__label {
-                margin-bottom: 0.4rem;
-            }
-            &__input {
-                width: 238px;
+            align-items: center;
+            &__button {
                 height: 2rem;
-                padding-left: 1rem;
-                margin-bottom: 1rem;
-                border: solid 1px vars.$color--lightgreen;
-                border-radius: 1.5rem;
-                transition: box-shadow 0.2s ease-in-out;
-                &:focus {
-                    outline: none;
-                    box-shadow: 0 0 18px -10px rgba(249, 218, 109, 1);
-                    -webkit-box-shadow: 0 0 18px -10px rgba(249, 218, 109, 1);
-                    -moz-box-shadow: 0 0 18px -10px rgba(249, 218, 109, 1);
+                width: 230px !important;
+                position: relative;
+                padding-left: 3rem;
+                padding-right: vars.$paddingMobile--p;
+                &--form {
+                    margin-top: 1rem;
+                }
+                & svg {
+                    position: absolute;
+                    color: vars.$color--darkgreen;
+                    left: 1rem;
+                    top: 50%; /* Décale la puce vers le bas */
+                    transform: translate(0, -50%);
+                    width: 1rem; /* Largeur de l'image */
+                    height: 1rem; /* Hauteur de l'image */
+                }
+                & span {
+                    width: max-content;
                 }
             }
-        }
-        &__textarea {
-            padding: 1rem;
-            width: 80vw;
-            max-width: 400px;
-            height: 200px;
-            margin-bottom: 1rem;
-            border: solid 1px vars.$color--lightgreen;
-            border-radius: 1.5rem;
-            resize: none;
-            transition: box-shadow 0.2s ease-in-out;
-            &:focus {
-                outline: none;
-                box-shadow: 0 0 18px -10px rgba(249, 218, 109, 1);
-                -webkit-box-shadow: 0 0 18px -10px rgba(249, 218, 109, 1);
-                -moz-box-shadow: 0 0 18px -10px rgba(249, 218, 109, 1);
+            &__form {
+                margin-top: 1rem;
+                display: flex;
+                max-height: 0;
+                overflow: hidden;
+                transition: all 800ms ease-out;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                &__div {
+                    width: 238px;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: flex-start;
+                    &--message {
+                        display: flex;
+                        flex-direction: column;
+                        align-items: flex-start;
+                        width: 80vw;
+                    }
+                    &__label {
+                        margin-bottom: 0.4rem;
+                    }
+                    &__input {
+                        width: 238px;
+                        height: 2rem;
+                        padding-left: 1rem;
+                        margin-bottom: 1rem;
+                        border: solid 1px vars.$color--lightgreen;
+                        border-radius: 1.5rem;
+                        transition: box-shadow 0.2s ease-in-out;
+                        &:focus {
+                            outline: none;
+                            box-shadow: 0 0 18px -10px rgba(249, 218, 109, 1);
+                            -webkit-box-shadow: 0 0 18px -10px rgba(249, 218, 109, 1);
+                            -moz-box-shadow: 0 0 18px -10px rgba(249, 218, 109, 1);
+                        }
+                    }
+                }
+                &__textarea {
+                    padding: 1rem;
+                    width: 80vw;
+                    max-width: 400px;
+                    height: 200px;
+                    margin-bottom: 1rem;
+                    border: solid 1px vars.$color--lightgreen;
+                    border-radius: 1.5rem;
+                    resize: none;
+                    transition: box-shadow 0.2s ease-in-out;
+                    &:focus {
+                        outline: none;
+                        box-shadow: 0 0 18px -10px rgba(249, 218, 109, 1);
+                        -webkit-box-shadow: 0 0 18px -10px rgba(249, 218, 109, 1);
+                        -moz-box-shadow: 0 0 18px -10px rgba(249, 218, 109, 1);
+                    }
+                }
+                &__button {
+                    padding: 0 0;
+                    margin-bottom: vars.$paddingMobile--section;
+                    min-width: 120px;
+                    height: 2rem;
+                }
             }
-        }
-        &__button {
-            padding: 0 0;
-            margin-bottom: vars.$paddingMobile--section;
-            min-width: 120px;
-            height: 2rem;
         }
     }
 }
@@ -1076,7 +1108,22 @@ footer {
             display: none;
         }
     }
-    .OuMeTrouver__button {
-        width: 280px !important;
+    .OuMeTrouver {
+        &__flexbox1 {
+            display: flex;
+            flex-direction: row-reverse;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+        &__flexbox2 {
+            &__button {
+                width: 280px !important;
+            }
+            &__div--form {
+                &__button {
+                    width: 280px !important;
+                }
+            }
+        }
     }
 }
