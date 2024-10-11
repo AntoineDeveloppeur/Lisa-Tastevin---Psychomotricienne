@@ -1,29 +1,51 @@
 <script type="application/ld+json">
     {
-        "@context": "http://schema.org/",
-        "@type": "Person",
-        "name": "Lisa Tastevin",
-        "url": "www.lisa.com",
-        "adress": "69 rue Gustave Delory, Lesquin, France",
-        "jobTitle": "Psychomotricienne",
-        "telephone": "0637335510",
-        "Product": {
-            "@type": "Product",
-            "@properties": "intangible",
+        "@context": "https://schema.org/",
+        "person": {
+            "@type": "Person",
+            "name": "Lisa Tastevin",
+            "url": "www.lisa.com",
+            "address": {
+                "@type": "PostalAddress",
+                "adressCountry": "France",
+                "addressLocality": "Lesquin",
+                "postalCode": "59810",
+                "streetAdress": "69 rue Gustave Delory"
+            },
+            "jobTitle": "Psychomotricienne",
+            "telephone": "+33637335510"
+        }
+    },
+    {
+        "@context": "https://schema.org/",
+        "service": {
+            "@type": "Service",
             "name": "Séance de psychomotricité",
+            "providerMobility": "static",
+            "keywords": "prendre soin de soi, aide psychologique, combat la depression",
+            "serviceType": "Séance de psychomotricité",
+            "alternateName": "Consultation de psychomotricité",
+            "mainEntityOfPage": "www.lisa.com",
+            "description": "En tant que psychomotricienne indépendante, je propose des séances personnalisées pour prendre en soin les adultes rencontrant des difficultés motrices, émotionnelles ou relationnelles. J'évalue les besoins spécifiques de chaque patient afin de rétablir un équilibre entre le corps et l'esprit à travers des exercices adaptés. Mon approche vise à améliorer la confiance en soi et le bien-être global, dans un cadre bienveillant et sécurisé.",
             "offers": {
                 "@type": "Offer",
-                "price" "50"
-            },
-            "keywords": "prendre soin de soi, aide psychologique, combat la depression"
+                "price": "50",
+                "priceCurrency": "EUR",
+                "provider": {
+                    "@type": "Person",
+                    "name": "Lisa Tastevin",
+                    "url": "www.lisa.com",
+                    "address": {
+                        "@type": "PostalAddress",
+                        "adressCountry": "FR",
+                        "addressLocality": "Lesquin",
+                        "postalCode": "59810",
+                        "streetAdress": "69 rue Gustave Delory"
+                    },
+                    "jobTitle": "Psychomotricienne",
+                    "telephone": "+33637335510"
+                }
+            }
         }
-        "@type""Service"
-    }
-</script>
-
-<script type="application/ld+json">
-    {
-        "@type": "MedicalEntity",
-        "relevantSpecialty": "Psychomotricité"
     }
 </script>
