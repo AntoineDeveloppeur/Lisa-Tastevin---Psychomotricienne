@@ -313,6 +313,68 @@ html {
 }
 
 /* Menu Mobile fin */
+.header--desktop {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  display: none;
+  justify-content: space-between;
+  align-items: center;
+  background-color: white;
+  padding: calc(1rem - 10px);
+  z-index: 6;
+  border-bottom: 1px solid #c7a54b;
+}
+.header--desktop__logoAndName {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 1rem;
+}
+.header--desktop__logoAndName__logo {
+  width: 50px;
+}
+.header--desktop__logoAndName__name {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.header--desktop__logoAndName__name__p {
+  font-family: The Nautigal, cursive;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 2rem;
+  color: #c7a54b;
+  white-space: nowrap;
+  margin-top: -8px;
+  margin-bottom: -8px;
+}
+.header--desktop__logoAndName__name__job {
+  font-family: Cardo, serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 16px;
+  color: #c7a54b;
+  padding-top: 5px;
+  margin-top: -4px;
+  margin-bottom: -4px;
+}
+.header--desktop__nav ul {
+  display: flex;
+  align-items: center;
+  margin: 0;
+  gap: 0.1rem;
+}
+.header--desktop__nav ul li {
+  list-style-type: none;
+}
+.header--desktop__nav ul li a {
+  padding: 0.5rem;
+  height: 1rem;
+  color: #c7a54b;
+  font-size: 0.7rem;
+}
+
 .harmoniser {
   position: relative;
   margin-top: 93px;
@@ -956,6 +1018,12 @@ footer {
 @media (min-width: 768px) {
   html {
     font-size: 130%;
+  }
+  .header--mobile {
+    display: none;
+  }
+  .header--desktop {
+    display: flex;
   }
   .harmoniser {
     justify-content: center;

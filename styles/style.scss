@@ -320,6 +320,70 @@ html {
 
 /* Menu Mobile fin */
 
+.header--desktop {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    display: none;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    padding: calc(vars.$paddingMobile--header - 10px);
+    z-index: 6;
+    border-bottom: 1px solid vars.$color--lightgold;
+    &__logoAndName {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 1rem;
+        &__logo {
+            width: 50px;
+        }
+        &__name {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            &__p {
+                font-family: #{map-get(vars.$fontSignature, font-family)};
+                font-weight: map-get(vars.$fontSignature, font-weight);
+                font-style: map-get(vars.$fontSignature, font-style);
+                font-size: map-get(vars.$fontSignature, font-size);
+                color: vars.$color--lightgold;
+                white-space: nowrap;
+                margin-top: -8px;
+                margin-bottom: -8px;
+            }
+            &__job {
+                font-family: #{map-get(vars.$fontTitleh1, font-family)};
+                font-weight: map-get(vars.$fontSignature, font-weight);
+                font-style: map-get(vars.$fontTitleh1, font-style);
+                font-size: 16px;
+                color: vars.$color--lightgold;
+                padding-top: 5px;
+                margin-top: -4px;
+                margin-bottom: -4px;
+            }
+        }
+    }
+    &__nav {
+        & ul {
+            display: flex;
+            align-items: center;
+            margin: 0;
+            gap: 0.1rem;
+            & li {
+                list-style-type: none;
+                a {
+                    padding: 0.5rem;
+                    height: 1rem;
+                    color: vars.$color--lightgold;
+                    font-size: 0.7rem;
+                }
+            }
+        }
+    }
+}
+
 .harmoniser {
     position: relative;
     margin-top: 93px;
@@ -1013,6 +1077,14 @@ footer {
 @media (min-width: 768px) {
     html {
         font-size: 130%;
+    }
+
+    .header--mobile {
+        display: none;
+    }
+
+    .header--desktop {
+        display: flex;
     }
 
     .harmoniser {
