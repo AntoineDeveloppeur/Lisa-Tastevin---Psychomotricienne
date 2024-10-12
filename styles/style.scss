@@ -1123,7 +1123,15 @@ footer {
                 &__button {
                     width: 280px !important;
                 }
+                &__form {
+                    &__textarea {
+                        height: 400px;
+                    }
+                }
             }
         }
+    }
+    .form-visible {
+        max-height: 700px;
     }
 }

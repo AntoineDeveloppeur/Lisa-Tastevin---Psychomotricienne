@@ -1060,4 +1060,10 @@ footer {
   .OuMeTrouver__flexbox2__div--form__button {
     width: 280px !important;
   }
+  .OuMeTrouver__flexbox2__div--form__form__textarea {
+    height: 400px;
+  }
+  .form-visible {
+    max-height: 700px;
+  }
 }/*# sourceMappingURL=style.css.map */
