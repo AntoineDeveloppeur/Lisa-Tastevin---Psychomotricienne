@@ -28,6 +28,83 @@
 
         <script src="./scripts/index.js" defer></script>
         <script src="./scripts/clickToUncover.js" defer></script>
+        <script type="application/ld+json">
+            {
+                "@context": "https://schema.org/",
+                "@type": "Person",
+                "name": "Lisa Tastevin",
+                "url": "www.lisa.com",
+                "address": {
+                    "@type": "PostalAddress",
+                    "addressCountry": "France",
+                    "addressLocality": "Lesquin",
+                    "postalCode": "59810",
+                    "streetAddress": "69 rue Gustave Delory"
+                },
+                "jobTitle": "Psychomotricienne pour adultes",
+                "image": "https://drive.google.com/file/d/1Xrfifc7Fs0mnkpQvxcvGMCOE0dwZ0wq9/view?usp=sharing"
+            }
+        </script>
+        <script type="application/ld+json">
+            {
+                "@context": "https://schema.org/",
+                "@type": "Service",
+                "name": "Séance de psychomotricité pour adultes",
+                "providerMobility": "static",
+                "serviceType": "Séance de psychomotricité pour adultes",
+                "alternateName": "Consultation de psychomotricité pour adultes",
+                "mainEntityOfPage": "https://www.lisa.com",
+                "description": "En tant que psychomotricienne indépendante, je propose des séances personnalisées pour prendre en soin les adultes rencontrant des difficultés motrices, émotionnelles ou relationnelles. J'évalue les besoins spécifiques de chaque patient afin de rétablir un équilibre entre le corps et l'esprit à travers des exercices adaptés. Mon approche vise à améliorer la confiance en soi et le bien-être global, dans un cadre bienveillant et sécurisé.",
+                "offers": {
+                    "@type": "Offer",
+                    "price": "50",
+                    "priceCurrency": "EUR"
+                },
+                "provider": {
+                    "@type": "Person",
+                    "name": "Lisa Tastevin",
+                    "url": "https://www.lisa.com",
+                    "address": {
+                        "@type": "PostalAddress",
+                        "addressCountry": "FR",
+                        "addressLocality": "Lesquin",
+                        "postalCode": "59810",
+                        "streetAddress": "69 rue Gustave Delory"
+                    },
+                    "jobTitle": "Psychomotricienne pour adultes"
+                },
+                "areaServed": {
+                    "@type": "LocalBusiness",
+                    "address": {
+                        "@type": "PostalAddress",
+                        "addressCountry": "FR",
+                        "addressLocality": "Lesquin",
+                        "postalCode": "59810",
+                        "streetAddress": "69 rue Gustave Delory"
+                    },
+                    "latitude": "50.58776310905274",
+                    "longitude": "3.100491133394482",
+                    "publicAccess": "true",
+                    "keywords": "prendre soin de soi, aide psychologique, combat la depression",
+                    "description": "Cabinet de Lisa Tastevin, psychomotricienne pour adultes",
+                    "currenciesAccepted": "EUR",
+                    "priceRange": "50",
+                    "funder": {
+                        "@type": "Person",
+                        "name": "Lisa Tastevin",
+                        "url": "https://www.lisa.com",
+                        "address": {
+                            "@type": "PostalAddress",
+                            "addressCountry": "FR",
+                            "addressLocality": "Lesquin",
+                            "postalCode": "59810",
+                            "streetAddress": "69 rue Gustave Delory"
+                        },
+                        "jobTitle": "Psychomotricienne pour adultes"
+                    }
+                }
+            }
+        </script>
     </head>
     <body>
         <header>
@@ -89,9 +166,65 @@
                     </div>
                 </nav>
             </div>
+            <div class="header--desktop">
+                <a href="./index.html" class="header--desktop__logoAndName">
+                    <img
+                        class="header--desktop__logoAndName__logo"
+                        src="./pics/logo.png"
+                        alt="logo de Lisa Tastevin"
+                    />
+                    <div class="header--desktop__logoAndName__name">
+                        <p class="header--desktop__logoAndName__name__p">
+                            Lisa Tastevin -&nbsp;</p
+                        >
+                        <p class="header--desktop__logoAndName__name__job">
+                            Psychomotricienne
+                        </p>
+                    </div>
+                </a>
+                <nav class="header--desktop__nav" role="navigation">
+                    <ul>
+                        <li class="header--desktop__nav__ul__li">
+                            <a
+                                class="header--desktop__nav__ul__li__a--1 link-to-section font-text"
+                                href="#section1"
+                                >Accueil</a
+                            >
+                        </li>
+                        <li class="header--desktop__nav__ul__li">
+                            <a
+                                class="header--desktop__nav__ul__li__a--2 link-to-section font-text"
+                                href="#section2"
+                                >Pourquoi consulter ?</a
+                            ></li
+                        >
+                        <li class="header--desktop__nav__ul__li">
+                            <a
+                                class="header--desktop__nav__ul__li__a--3 link-to-section font-text"
+                                href="#section3"
+                                >Une séance avec moi</a
+                            ></li
+                        >
+                        <li class="header--desktop__nav__ul__li">
+                            <a
+                                class="header--desktop__nav__ul__li__a--4 link-to-section font-text"
+                                href="#section4"
+                                >Votre Psychomotricienne</a
+                            ></li
+                        >
+                        <li class="header--desktop__nav__ul__li">
+                            <a
+                                class="header--desktop__nav__ul__li__a--5 link-to-section font-text"
+                                href="#section5"
+                                >Contact</a
+                            ></li
+                        >
+                    </ul>
+                </nav>
+            </div>
         </header>
         <main>
-            <section id="section1" class="harmoniser">
+            <section id="section1" class="harmoniser section">
                 <span class="harmoniser__background"></span>
                 <div class="harmoniser__div">
                     <h1 class="harmoniser__div__h1 font-title-h1">
@@ -107,22 +240,18 @@
                         favorise le
                         <strong
                             class="harmoniser__div__p__strong text-to-highlight"
-                            >bien-être global</strong
-                        >
-                        ,
+                            >bien-être global, </strong
+                        ><strong
+                            class="harmoniser__div__p__strong text-to-highlight"
+                            >la confiance en soi </strong
+                        >et la
                         <strong
                             class="harmoniser__div__p__strong text-to-highlight"
-                            >la confiance en soi</strong
-                        >
-
-                        et la
-                        <strong
-                            class="harmoniser__div__p__strong text-to-highlight"
-                            >gestion des émotions</strong
-                        >. J'accompagne les adultes pour les aider à se sentir
+                            >gestion des émotions. </strong
+                        >J'accompagne les adultes pour les aider à se sentir
                         mieux dans leur corps et les
-                        <strong class="text-to-highlight">sécuriser</strong>
-                        dans leur quotidien.
+                        <strong class="text-to-highlight">sécuriser </strong
+                        >dans leur quotidien.
                     </p>
                 </div>
                 <img
@@ -131,7 +260,7 @@
                     alt="dessin d'une silhouette"
                 />
             </section>
-            <section id="section2" class="Pourquoi">
+            <section id="section2" class="Pourquoi section">
                 <span class="Pourquoi__background"></span>
 
                 <img
@@ -141,7 +270,7 @@
                 />
                 <div class="Pourquoi__content">
                     <h1 class="Pourquoi__content__h1 font-title-h1"
-                        >En quoi puis-je vous aider ?</h1
+                        >Pourquoi consulter ?</h1
                     >
                     <ul class="Pourquoi__content__ul font-text">
                         <li
@@ -154,8 +283,8 @@
                             class="Pourquoi__content__ul__li vertical-slide-animation"
                         >
                             Vous
-                            <strong class="text-to-highlight">redoutez</strong>
-                            le regard de l'autre ou craignez d'être jugé en
+                            <strong class="text-to-highlight">redoutez </strong
+                            >le regard de l'autre ou craignez d'être jugé en
                             permanence.
                         </li>
                         <li
@@ -168,15 +297,15 @@
                             class="Pourquoi__content__ul__li vertical-slide-animation"
                         >
                             Vous
-                            <strong class="text-to-highlight">souffrez</strong>
-                            de douleurs physiques qui vous empêchent de faire
+                            <strong class="text-to-highlight">souffrez </strong
+                            >de douleurs physiques qui vous empêchent de faire
                             des activités que vous aimez.
                         </li>
                     </ul>
                 </div>
             </section>
 
-            <section id="section4" class="AQuoiRessemble">
+            <section id="section3" class="AQuoiRessemble section">
                 <span class="AQuoiRessemble__background"></span>
                 <div class="AQuoiRessemble__containText--center">
                     <div
@@ -196,7 +325,7 @@
                             votre besoin et vos affinités pour vous aider à
                             construire votre
                             <strong class="text-to-highlight"
-                                >"boîte à outils".</strong
+                                >"boîte à outil".</strong
                             >
                         </p>
                         <img
@@ -268,16 +397,14 @@
                                 >Matière qui se transforme au gré des gestes et
                                 qui en stimulant la
                                 <strong class="text-to-highlight"
-                                    >sensorialité</strong
-                                >, aide à exprimer les
+                                    >sensorialité, </strong
+                                >aide à exprimer les
                                 <strong class="text-to-highlight"
-                                    >émotions</strong
-                                >
-                                enfouies et à se connecter à l'<strong
+                                    >émotions </strong
+                                >enfouies et à se connecter à l'<strong
                                     class="text-to-highlight"
-                                    >instant</strong
-                                >
-                                présent en se détachant de toute recherche de
+                                    >instant </strong
+                                >présent en se détachant de toute recherche de
                                 performance.</p
                             >
                         </div>
@@ -330,7 +457,7 @@
                     ></label>
                 </div>
             </section>
-            <section id="section3" class="Lisa">
+            <section id="section4" class="Lisa section">
                 <div class="Lisa__titleAndPhoto">
                     <h1 class="Lisa__titleAndPhoto__h1 font-title-h1">
                         Lisa Tastevin
@@ -368,16 +495,14 @@
                             >Passionnée par la psychologie, je suis titulaire
                             d'une
                             <strong class="text-to-highlight highlight--card1"
-                                >licence</strong
-                            >
-                            dans ce domaine. Désireuse d'élargir mes compétences
-                            et d'ajouter une dimension corporelle à mon
-                            approche, j'ai poursuivi ma formation en intégrant
-                            une école de psychomotricité.
+                                >licence </strong
+                            >dans ce domaine. Désireuse d'élargir mes
+                            compétences et d'ajouter une dimension corporelle à
+                            mon approche, j'ai poursuivi ma formation en
+                            intégrant une école de psychomotricité.
                             <strong class="text-to-highlight highlight--card1"
-                                >Diplômée</strong
-                            >
-                            de l'école de Loos (59), je combine désormais ces
+                                >Diplômée </strong
+                            >de l'école de Loos (59), je combine désormais ces
                             deux disciplines pour offrir une approche globale et
                             complète.</p
                         >
@@ -405,23 +530,19 @@
                             >Je travaille depuis 4 ans dans une clinique de
                             santé mentale à Lille. J'accompagne
                             <strong class="text-to-highlight highlight--card2"
-                                >individuellement</strong
-                            >
-                            et en
+                                >individuellement </strong
+                            >et en
                             <strong class="text-to-highlight highlight--card2"
-                                >groupe</strong
-                            >
-                            des patients
+                                >groupe </strong
+                            >des patients
                             <strong class="text-to-highlight highlight--card2"
-                                >adultes</strong
-                            >
-                            pour les aider à se réconcilier avec leur corps et
+                                >adultes </strong
+                            >pour les aider à se réconcilier avec leur corps et
                             exprimer leurs émotions. Je
                             <strong class="text-to-highlight highlight--card2"
-                                >forme</strong
-                            >
-                            d'autres soignants sur le sujet du psychotraumatisme
-                            et son accompagnement.</p
+                                >forme </strong
+                            >d'autres soignants sur le sujet du
+                            psychotraumatisme et son accompagnement.</p
                         >
                     </div>
                     <div
@@ -448,41 +569,202 @@
                             >En tant que psychomotricienne indépendante, je
                             propose des séances personnalisées pour
                             <strong class="text-to-highlight highlight--card3"
-                                >prendre en soin</strong
-                            >
-                            les adultes rencontrant des difficultés motrices,
+                                >prendre en soin </strong
+                            >les adultes rencontrant des difficultés motrices,
                             émotionnelles ou relationnelles. J'évalue les
                             besoins spécifiques de chaque patient afin de
                             rétablir un équilibre entre le corps et l'esprit à
                             travers des exercices adaptés. Mon approche vise à
                             améliorer la
                             <strong class="text-to-highlight highlight--card3"
-                                >confiance</strong
-                            >
-                            en soi et le
+                                >confiance </strong
+                            >en soi et le
                             <strong class="text-to-highlight highlight--card3"
-                                >bien-être</strong
-                            >
-                            global, dans un cadre
+                                >bien-être </strong
+                            >global, dans un cadre
                             <strong class="text-to-highlight highlight--card3"
-                                >bienveillant</strong
-                            >
-                            et
+                                >bienveillant </strong
+                            >et
                             <strong class="text-to-highlight highlight--card3"
-                                >sécurisé</strong
-                            >.</p
+                                >sécurisé.</strong
+                            ></p
                         >
                     </div>
                 </div>
             </section>
 
-            <section id="section5" class="OuMeTrouver">
-                <h1 class="OuMeTrouver__h1 font-title-h1">Où me trouver ?</h1>
-                <ul class="OuMeTrouver__ul font-text">
-                    <li class="OuMeTrouver__ul__li vertical-slide-animation">
-                        <a
-                            href="https://www.google.fr/maps/place/69+Rue+Gustave+Delory,+59810+Lesquin/@50.5877543,3.0979205,613m/data=!3m2!1e3!4b1!4m6!3m5!1s0x47c2d68498e92a29:0x3a28808d61dab523!8m2!3d50.5877509!4d3.1004954!16s%2Fg%2F11c0zl8blr?entry=ttu&g_ep=EgoyMDI0MDkzMC4wIKXMDSoASAFQAw%3D%3D"
-                            target="_blank"
+            <section id="section5" class="OuMeTrouver section">
+                <div class="OuMeTrouver__flexbox1">
+                    <div class="OuMeTrouver__flexbox1__bloc1">
+                        <h1
+                            class="OuMeTrouver__flexbox1__bloc1__h1 font-title-h1"
+                            >Où me trouver ?</h1
+                        >
+                        <ul class="OuMeTrouver__flexbox1__bloc1__ul font-text">
+                            <li
+                                class="OuMeTrouver__flexbox1__bloc1__ul__li vertical-slide-animation"
+                            >
+                                <a
+                                    href="https://www.google.fr/maps/place/69+Rue+Gustave+Delory,+59810+Lesquin/@50.5877543,3.0979205,613m/data=!3m2!1e3!4b1!4m6!3m5!1s0x47c2d68498e92a29:0x3a28808d61dab523!8m2!3d50.5877509!4d3.1004954!16s%2Fg%2F11c0zl8blr?entry=ttu&g_ep=EgoyMDI0MDkzMC4wIKXMDSoASAFQAw%3D%3D"
+                                    target="_blank"
+                                >
+                                    <svg
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        width="24"
+                                        height="24"
+                                        viewBox="0 0 24 24"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        stroke-width="2"
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        class="feather feather-map-pin"
+                                    >
+                                        <path
+                                            d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"
+                                        ></path>
+                                        <circle cx="12" cy="10" r="3"></circle>
+                                    </svg>
+                                    69 rue Gustave Delory, Lesquin
+                                </a>
+                            </li>
+                            <li
+                                class="OuMeTrouver__flexbox1__bloc1__ul__li vertical-slide-animation"
+                            >
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    width="24"
+                                    height="24"
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    stroke-width="2"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    class="feather feather-mail"
+                                >
+                                    <path
+                                        d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"
+                                    ></path>
+                                    <polyline
+                                        points="22,6 12,13 2,6"
+                                    ></polyline>
+                                </svg>
+                                <div
+                                    class="OuMeTrouver__flexbox1__bloc1__ul__li__clickToUncover mail button"
+                                >
+                                    <button
+                                        class="OuMeTrouver__flexbox1__bloc1__ul__li__clickToUncover__button"
+                                    >
+                                        <img
+                                            class="OuMeTrouver__flexbox1__bloc1__ul__li__clickToUncover__button__img"
+                                            src="./pics/arrow.png"
+                                            alt="flèche"
+                                        />
+                                    </button>
+                                    <p>Cliquez pour afficher</p>
+                                </div>
+                            </li>
+                            <li
+                                class="OuMeTrouver__flexbox1__bloc1__ul__li vertical-slide-animation"
+                            >
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    width="24"
+                                    height="24"
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    stroke-width="2"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    class="feather feather-phone"
+                                >
+                                    <path
+                                        d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"
+                                    ></path>
+                                </svg>
+                                <div
+                                    class="OuMeTrouver__flexbox1__bloc1__ul__li__clickToUncover phone button"
+                                >
+                                    <button
+                                        class="OuMeTrouver__flexbox1__bloc1__ul__li__clickToUncover__button"
+                                    >
+                                        <img
+                                            class="OuMeTrouver__flexbox1__bloc1__ul__li__clickToUncover__button__img"
+                                            src="./pics/arrow.png"
+                                            alt="flèche"
+                                        />
+                                    </button>
+                                    <p>Cliquez pour afficher</p>
+                                </div>
+                            </li>
+                            <li
+                                class="OuMeTrouver__flexbox1__bloc1__ul__li vertical-slide-animation"
+                            >
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    width="24"
+                                    height="24"
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    stroke-width="2"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    class="feather feather-clock"
+                                >
+                                    <circle cx="12" cy="12" r="10"></circle>
+                                    <polyline
+                                        points="12 6 12 12 16 14"
+                                    ></polyline>
+                                </svg>
+                                Pour me consulter, il est nécessaire que votre
+                                médecin généraliste fasse une prescrition.
+                            </li>
+                        </ul>
+                    </div>
+                    <img
+                        class="OuMeTrouver__flexbox1__img opacity-animation"
+                        src="./pics/cabinet.png"
+                        alt="Cabinet de Lisa Tastevin"
+                    />
+                </div>
+                <div class="OuMeTrouver__flexbox2">
+                    <button
+                        class="OuMeTrouver__flexbox2__div--form__button OuMeTrouver__flexbox2__div--form__button--appel font-text button buton-to-grow button-to-grey"
+                    >
+                        <a href="tel:0637335510">
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="24"
+                                height="24"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                class="feather feather-calendar icon-to-grow"
+                            >
+                                <rect
+                                    x="3"
+                                    y="4"
+                                    width="18"
+                                    height="18"
+                                    rx="2"
+                                    ry="2"
+                                ></rect>
+                                <line x1="16" y1="2" x2="16" y2="6"></line>
+                                <line x1="8" y1="2" x2="8" y2="6"></line>
+                                <line x1="3" y1="10" x2="21" y2="10"></line>
+                            </svg>
+                            Prendre rendez-vous
+                        </a>
+                    </button>
+                    <div class="OuMeTrouver__flexbox2__div--form">
+                        <button
+                            class="OuMeTrouver__flexbox2__div--form__button OuMeTrouver__flexbox2__div--form__button--form font-text button button-to-grow button-to-grey"
                         >
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
@@ -494,214 +776,76 @@
                                 stroke-width="2"
                                 stroke-linecap="round"
                                 stroke-linejoin="round"
-                                class="feather feather-map-pin"
+                                class="feather feather-edit icon-to-grow"
                             >
                                 <path
-                                    d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"
+                                    d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"
                                 ></path>
-                                <circle cx="12" cy="10" r="3"></circle>
+                                <path
+                                    d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"
+                                ></path>
                             </svg>
-                            69 rue Gustave Delory, Lesquin
-                        </a>
-                    </li>
-                    <li class="OuMeTrouver__ul__li vertical-slide-animation">
-                        <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="24"
-                            height="24"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            stroke="currentColor"
-                            stroke-width="2"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            class="feather feather-mail"
-                        >
-                            <path
-                                d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"
-                            ></path>
-                            <polyline points="22,6 12,13 2,6"></polyline>
-                        </svg>
-                        <div
-                            class="OuMeTrouver__ul__li__clickToUncover mail button"
-                        >
-                            <button
-                                class="OuMeTrouver__ul__li__clickToUncover__button"
+                            <span>Formulaire de contact</span>
+                        </button>
+                        <form class="OuMeTrouver__flexbox2__div--form__form">
+                            <div
+                                class="OuMeTrouver__flexbox2__div--form__form__div font-text"
                             >
-                                <img
-                                    class="OuMeTrouver__ul__li__clickToUncover__button__img"
-                                    src="./pics/arrow.png"
-                                    alt="flèche"
+                                <label
+                                    class="OuMeTrouver__flexbox2__div--form__form__div__label"
+                                    for="name"
+                                    >Nom</label
+                                >
+                                <input
+                                    class="OuMeTrouver__flexbox2__div--form__form__div__input"
+                                    id="name"
+                                    type="name"
                                 />
-                            </button>
-                            <p>Cliquez pour afficher</p>
-                        </div>
-                    </li>
-                    <li class="OuMeTrouver__ul__li vertical-slide-animation">
-                        <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="24"
-                            height="24"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            stroke="currentColor"
-                            stroke-width="2"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            class="feather feather-phone"
-                        >
-                            <path
-                                d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"
-                            ></path>
-                        </svg>
-                        <div
-                            class="OuMeTrouver__ul__li__clickToUncover phone button"
-                        >
+                                <label
+                                    class="OuMeTrouver__flexbox2__div--form__form__div__label font-text"
+                                    for="email"
+                                    >Email</label
+                                >
+                                <input
+                                    class="OuMeTrouver__flexbox2__div--form__form__div__input font-text"
+                                    id="email"
+                                    type="email"
+                                />
+                                <label
+                                    class="OuMeTrouver__flexbox2__div--form__form__div__label font-text"
+                                    for="phone"
+                                    >Téléphone</label
+                                >
+                                <input
+                                    class="OuMeTrouver__flexbox2__div--form__form__div__input"
+                                    id="phone"
+                                    type="phone"
+                                />
+                                <label
+                                    class="OuMeTrouver__flexbox2__div--form__form__div__label font-text"
+                                    for="textarea"
+                                    >Message</label
+                                >
+                            </div>
+                            <textarea
+                                class="OuMeTrouver__flexbox2__div--form__form__textarea"
+                                id="textarea"
+                                placeholder="Ecrivez votre message ici"
+                            ></textarea>
                             <button
-                                class="OuMeTrouver__ul__li__clickToUncover__button"
+                                class="OuMeTrouver__flexbox2__div--form__form__button button font-text"
+                                type="submit"
                             >
-                                <img
-                                    class="OuMeTrouver__ul__li__clickToUncover__button__img"
-                                    src="./pics/arrow.png"
-                                    alt="flèche"
-                                />
+                                Envoyer
                             </button>
-                            <p>Cliquez pour afficher</p>
-                        </div>
-                    </li>
-                    <li class="OuMeTrouver__ul__li vertical-slide-animation">
-                        <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="24"
-                            height="24"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            stroke="currentColor"
-                            stroke-width="2"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            class="feather feather-clock"
-                        >
-                            <circle cx="12" cy="12" r="10"></circle>
-                            <polyline points="12 6 12 12 16 14"></polyline>
-                        </svg>
-                        Pour me consulter, il est nécessaire que votre médecin
-                        généraliste fasse une prescrition.
-                    </li>
-                </ul>
-                <img
-                    class="OuMeTrouver__img opacity-animation"
-                    src="./pics/cabinet.png"
-                    alt="Cabinet de Lisa Tastevin"
-                />
-                <button
-                    class="OuMeTrouver__button OuMeTrouver__button--appel font-text button buton-to-grow button-to-grey"
-                >
-                    <a href="tel:0637335510">
-                        <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="24"
-                            height="24"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            stroke="currentColor"
-                            stroke-width="2"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            class="feather feather-calendar icon-to-grow"
-                        >
-                            <rect
-                                x="3"
-                                y="4"
-                                width="18"
-                                height="18"
-                                rx="2"
-                                ry="2"
-                            ></rect>
-                            <line x1="16" y1="2" x2="16" y2="6"></line>
-                            <line x1="8" y1="2" x2="8" y2="6"></line>
-                            <line x1="3" y1="10" x2="21" y2="10"></line>
-                        </svg>
-                        Prendre rendez-vous
-                    </a>
-                </button>
-                <button
-                    class="OuMeTrouver__button OuMeTrouver__button--form font-text button button-to-grow button-to-grey"
-                >
-                    <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="24"
-                        height="24"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-width="2"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        class="feather feather-edit icon-to-grow"
-                    >
-                        <path
-                            d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"
-                        ></path>
-                        <path
-                            d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"
-                        ></path>
-                    </svg>
-                    <span>Formulaire de contact</span>
-                </button>
-                <form class="OuMeTrouver__form">
-                    <div class="OuMeTrouver__form__div font-text">
-                        <label class="OuMeTrouver__form__div__label" for="name"
-                            >Nom</label
-                        >
-                        <input
-                            class="OuMeTrouver__form__div__input"
-                            id="name"
-                            type="name"
-                        />
-                        <label
-                            class="OuMeTrouver__form__div__label font-text"
-                            for="email"
-                            >Email</label
-                        >
-                        <input
-                            class="OuMeTrouver__form__div__input font-text"
-                            id="email"
-                            type="email"
-                        />
-                        <label
-                            class="OuMeTrouver__form__div__label font-text"
-                            for="phone"
-                            >Téléphone</label
-                        >
-                        <input
-                            class="OuMeTrouver__form__div__input"
-                            id="phone"
-                            type="phone"
-                        />
-                        <label
-                            class="OuMeTrouver__form__div__label font-text"
-                            for="textarea"
-                            >Message</label
-                        >
+                            <div class="loader dont-display">
+                                <div class="loader__a"></div>
+                                <div class="loader__b"></div>
+                                <div class="loader__c"></div>
+                            </div>
+                        </form>
                     </div>
-                    <textarea
-                        class="OuMeTrouver__form__textarea"
-                        id="textarea"
-                        placeholder="Ecrivez votre message ici"
-                    ></textarea>
-                    <button
-                        class="OuMeTrouver__form__button button font-text"
-                        type="submit"
-                    >
-                        Envoyer
-                    </button>
-                    <div class="loader dont-display">
-                        <div class="loader__a"></div>
-                        <div class="loader__b"></div>
-                        <div class="loader__c"></div>
-                    </div>
-                </form>
+                </div>
             </section>
         </main>
         <footer>

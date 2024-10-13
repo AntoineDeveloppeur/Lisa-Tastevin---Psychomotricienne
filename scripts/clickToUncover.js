@@ -1,6 +1,6 @@
 function clickToUncover() {
     const elementToUncover = document.querySelectorAll(
-        '.OuMeTrouver__ul__li__clickToUncover'
+        '.OuMeTrouver__flexbox1__bloc1__ul__li__clickToUncover'
     )
     elementToUncover.forEach((element) => {
         element.addEventListener(

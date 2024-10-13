@@ -313,6 +313,96 @@ html {
 }
 
 /* Menu Mobile fin */
+/* Menu Bureau début */
+.header--desktop {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  display: none;
+  justify-content: space-between;
+  align-items: center;
+  background-color: white;
+  padding: calc(1rem - 10px);
+  z-index: 6;
+  border-bottom: 1px solid #c7a54b;
+}
+.header--desktop__logoAndName {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 1rem;
+}
+.header--desktop__logoAndName__logo {
+  width: 50px;
+}
+.header--desktop__logoAndName__name {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.header--desktop__logoAndName__name__p {
+  font-family: The Nautigal, cursive;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 2rem;
+  color: #c7a54b;
+  white-space: nowrap;
+  margin-top: -8px;
+  margin-bottom: -8px;
+}
+.header--desktop__logoAndName__name__job {
+  font-family: Cardo, serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 16px;
+  color: #c7a54b;
+  padding-top: 5px;
+  margin-top: -4px;
+  margin-bottom: -4px;
+}
+.header--desktop__nav ul {
+  display: flex;
+  align-items: center;
+  margin: 0;
+  gap: 0.1rem;
+}
+.header--desktop__nav ul li {
+  list-style-type: none;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  height: 1.5rem;
+  transition: background-color 0.5s ease-in-out;
+}
+.header--desktop__nav ul li a {
+  position: relative;
+  height: 1rem;
+  color: #c7a54b;
+  font-size: 0.7rem;
+  transition: color 0.5s ease-in-out;
+}
+.header--desktop__nav ul li a:after {
+  position: absolute;
+  content: "";
+  bottom: -3px;
+  left: 0;
+  height: 1px;
+  width: 0;
+  background-color: #c7a54b;
+  transition: all 0.5s ease-in-out;
+}
+.header--desktop__nav ul li a:hover:after {
+  width: 100%;
+}
+
+.menu-couleur-inverse {
+  background-color: #c7a54b;
+}
+
+.white-text {
+  color: white !important;
+}
+
+/* Menu Bureau fin */
 .harmoniser {
   position: relative;
   margin-top: 93px;
@@ -633,22 +723,27 @@ html {
   justify-content: flex-start;
   align-items: center;
 }
-.OuMeTrouver__h1 {
+.OuMeTrouver__flexbox1 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.OuMeTrouver__flexbox1__bloc1__h1 {
   color: #395350;
   margin-bottom: 1rem;
 }
-.OuMeTrouver__ul {
+.OuMeTrouver__flexbox1__bloc1__ul {
   list-style: none;
   padding-left: 3.235rem;
   padding-right: 2rem;
 }
-.OuMeTrouver__ul__li {
+.OuMeTrouver__flexbox1__bloc1__ul__li {
   margin-bottom: 0.8rem;
   position: relative;
   text-align: justify;
   max-width: 14rem;
 }
-.OuMeTrouver__ul__li svg {
+.OuMeTrouver__flexbox1__bloc1__ul__li svg {
   color: #92bbb5;
   content: "";
   position: absolute;
@@ -657,7 +752,7 @@ html {
   width: 16px;
   height: 16px;
 }
-.OuMeTrouver__ul__li__clickToUncover {
+.OuMeTrouver__flexbox1__bloc1__ul__li__clickToUncover {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -666,10 +761,10 @@ html {
   width: 200px;
   background-image: none !important;
 }
-.OuMeTrouver__ul__li__clickToUncover:hover {
+.OuMeTrouver__flexbox1__bloc1__ul__li__clickToUncover:hover {
   transform: scale(1.02);
 }
-.OuMeTrouver__ul__li__clickToUncover__button {
+.OuMeTrouver__flexbox1__bloc1__ul__li__clickToUncover__button {
   border: none;
   background: none;
   padding: 0;
@@ -679,32 +774,34 @@ html {
   justify-content: center;
   align-items: center;
 }
-.OuMeTrouver__ul__li__clickToUncover__button__img {
+.OuMeTrouver__flexbox1__bloc1__ul__li__clickToUncover__button__img {
   transition: translate 0.2s ease-in-out;
   width: 15px;
   height: 15px;
   margin-left: -10px;
 }
-.OuMeTrouver__ul__li__clickToUncover__button__img:hover {
+.OuMeTrouver__flexbox1__bloc1__ul__li__clickToUncover__button__img:hover {
   transform: scale(1.05);
 }
-.OuMeTrouver__img {
+.OuMeTrouver__flexbox1__img {
   width: 75%;
   max-width: 400px;
   min-width: 300px;
   margin-bottom: 1rem;
 }
-.OuMeTrouver__button {
+.OuMeTrouver__flexbox2 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.OuMeTrouver__flexbox2__button {
   height: 2rem;
   width: 230px !important;
   position: relative;
   padding-left: 3rem;
   padding-right: 2rem;
 }
-.OuMeTrouver__button--form {
-  margin-top: 1rem;
-}
-.OuMeTrouver__button svg {
+.OuMeTrouver__flexbox2__button svg {
   position: absolute;
   color: #395350;
   left: 1rem;
@@ -713,11 +810,39 @@ html {
   width: 1rem; /* Largeur de l'image */
   height: 1rem; /* Hauteur de l'image */
 }
-.OuMeTrouver__button span {
+.OuMeTrouver__flexbox2__button span {
   width: -moz-max-content;
   width: max-content;
 }
-.OuMeTrouver__form {
+.OuMeTrouver__flexbox2__div--form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.OuMeTrouver__flexbox2__div--form__button {
+  height: 2rem;
+  width: 230px !important;
+  position: relative;
+  padding-left: 3rem;
+  padding-right: 2rem;
+}
+.OuMeTrouver__flexbox2__div--form__button--form {
+  margin-top: 1rem;
+}
+.OuMeTrouver__flexbox2__div--form__button svg {
+  position: absolute;
+  color: #395350;
+  left: 1rem;
+  top: 50%; /* Décale la puce vers le bas */
+  transform: translate(0, -50%);
+  width: 1rem; /* Largeur de l'image */
+  height: 1rem; /* Hauteur de l'image */
+}
+.OuMeTrouver__flexbox2__div--form__button span {
+  width: -moz-max-content;
+  width: max-content;
+}
+.OuMeTrouver__flexbox2__div--form__form {
   margin-top: 1rem;
   display: flex;
   max-height: 0;
@@ -727,22 +852,22 @@ html {
   justify-content: center;
   align-items: center;
 }
-.OuMeTrouver__form__div {
+.OuMeTrouver__flexbox2__div--form__form__div {
   width: 238px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
 }
-.OuMeTrouver__form__div--message {
+.OuMeTrouver__flexbox2__div--form__form__div--message {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   width: 80vw;
 }
-.OuMeTrouver__form__div__label {
+.OuMeTrouver__flexbox2__div--form__form__div__label {
   margin-bottom: 0.4rem;
 }
-.OuMeTrouver__form__div__input {
+.OuMeTrouver__flexbox2__div--form__form__div__input {
   width: 238px;
   height: 2rem;
   padding-left: 1rem;
@@ -751,13 +876,13 @@ html {
   border-radius: 1.5rem;
   transition: box-shadow 0.2s ease-in-out;
 }
-.OuMeTrouver__form__div__input:focus {
+.OuMeTrouver__flexbox2__div--form__form__div__input:focus {
   outline: none;
   box-shadow: 0 0 18px -10px rgb(249, 218, 109);
   -webkit-box-shadow: 0 0 18px -10px rgb(249, 218, 109);
   -moz-box-shadow: 0 0 18px -10px rgb(249, 218, 109);
 }
-.OuMeTrouver__form__textarea {
+.OuMeTrouver__flexbox2__div--form__form__textarea {
   padding: 1rem;
   width: 80vw;
   max-width: 400px;
@@ -768,13 +893,13 @@ html {
   resize: none;
   transition: box-shadow 0.2s ease-in-out;
 }
-.OuMeTrouver__form__textarea:focus {
+.OuMeTrouver__flexbox2__div--form__form__textarea:focus {
   outline: none;
   box-shadow: 0 0 18px -10px rgb(249, 218, 109);
   -webkit-box-shadow: 0 0 18px -10px rgb(249, 218, 109);
   -moz-box-shadow: 0 0 18px -10px rgb(249, 218, 109);
 }
-.OuMeTrouver__form__button {
+.OuMeTrouver__flexbox2__div--form__form__button {
   padding: 0 0;
   margin-bottom: 1.4rem;
   min-width: 120px;
@@ -816,7 +941,7 @@ html {
   }
 }
 .button-clicked {
-  animation: button-clicked 0.1s ease-in-out 2 alternate;
+  animation: button-clicked 0.2s ease-in-out 2 alternate;
 }
 
 .card-clicked {
@@ -875,7 +1000,7 @@ html {
     transform: scale(1.025);
   }
   100% {
-    transform: scale(0.95);
+    transform: scale(0.99);
   }
 }
 @keyframes card-clicked {
@@ -922,11 +1047,17 @@ footer {
   html {
     font-size: 130%;
   }
+  .header--mobile {
+    display: none;
+  }
+  .header--desktop {
+    display: flex;
+  }
   .harmoniser {
     justify-content: center;
   }
   .harmoniser__img {
-    width: 180px;
+    width: 240px;
   }
   .Pourquoi {
     justify-content: center;
@@ -940,7 +1071,7 @@ footer {
     padding-left: 0;
   }
   .Pourquoi__img {
-    width: 200px;
+    width: 240px;
     -o-object-fit: cover;
        object-fit: cover;
   }
@@ -1013,7 +1144,22 @@ footer {
   .AQuoiRessemble__img {
     display: none;
   }
-  .OuMeTrouver__button {
+  .OuMeTrouver__flexbox1 {
+    display: flex;
+    flex-direction: row-reverse;
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+  .OuMeTrouver__flexbox2__button {
     width: 280px !important;
+  }
+  .OuMeTrouver__flexbox2__div--form__button {
+    width: 280px !important;
+  }
+  .OuMeTrouver__flexbox2__div--form__form__textarea {
+    height: 400px;
+  }
+  .form-visible {
+    max-height: 700px;
   }
 }/*# sourceMappingURL=style.css.map */
