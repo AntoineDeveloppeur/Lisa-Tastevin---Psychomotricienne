@@ -999,7 +999,7 @@ html {
 }
 
 .button-clicked {
-    animation: button-clicked 0.1s ease-in-out 2 alternate;
+    animation: button-clicked 0.2s ease-in-out 2 alternate;
 }
 
 .card-clicked {
@@ -1057,7 +1057,7 @@ html {
         transform: scale(1.025);
     }
     100% {
-        transform: scale(0.95);
+        transform: scale(0.99);
     }
 }
 
