@@ -31,6 +31,39 @@ function addHighlight() {
 
 addHighlight()
 
+function highlightDesktopMenuSection() {
+    const sections = document.querySelectorAll('section')
+    //Créer une liste avec la position de toutes les sections
+    let sectionsPositionY = []
+    sections.forEach((section) => {
+        sectionsPositionY.push(
+            section.getBoundingClientRect().top + window.scrollY - 400
+        )
+    })
+    // Une dernière valeur, correspondant à la positionY du pied de page est ajoutée pour que la boucle for qui arrive puisse fonctionner
+    sectionsPositionY.push(
+        sectionsPositionY[sectionsPositionY.length - 1] +
+            sections[sections.length - 1].scrollHeight
+    )
+    const menuSections = document.querySelectorAll(
+        '.header--desktop__nav__ul__li'
+    )
+    // Change le backgroud-color des sections du menu en fonction de la position de window.scrollY dans la liste des positions des menus
+    for (i = 0; i < sectionsPositionY.length; i++) {
+        if (
+            window.scrollY >= sectionsPositionY[i] &&
+            window.scrollY <= sectionsPositionY[i + 1]
+        ) {
+            menuSections.forEach((section) => {
+                section.classList.remove('menu-couleur-inverse')
+                section.firstElementChild.classList.remove('white-text')
+            })
+            menuSections[i].classList.add('menu-couleur-inverse')
+            menuSections[i].firstElementChild.classList.add('white-text')
+        }
+    }
+}
+
 const actionOnScroll = () => {
     const windowHeight = window.innerHeight
 
@@ -51,7 +84,6 @@ const actionOnScroll = () => {
         }
     })
 
-    //TODO: A réparer
     const iconToGrow = document.querySelectorAll('.icon-to-grow')
     iconToGrow.forEach((button) => {
         const buttonPosition = button.getBoundingClientRect().top
@@ -68,6 +100,7 @@ const actionOnScroll = () => {
             cacheSurlignement.classList.add('showhighlight')
         }
     })
+    highlightDesktopMenuSection()
 }
 window.addEventListener('scroll', actionOnScroll)
 actionOnScroll()

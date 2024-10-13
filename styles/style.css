@@ -313,6 +313,7 @@ html {
 }
 
 /* Menu Mobile fin */
+/* Menu Bureau début */
 .header--desktop {
   position: fixed;
   top: 0;
@@ -367,14 +368,41 @@ html {
 }
 .header--desktop__nav ul li {
   list-style-type: none;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  height: 1.5rem;
+  transition: background-color 0.5s ease-in-out;
 }
 .header--desktop__nav ul li a {
-  padding: 0.5rem;
+  position: relative;
   height: 1rem;
   color: #c7a54b;
   font-size: 0.7rem;
+  transition: color 0.5s ease-in-out;
+}
+.header--desktop__nav ul li a:after {
+  position: absolute;
+  content: "";
+  bottom: -3px;
+  left: 0;
+  height: 1px;
+  width: 0;
+  background-color: #c7a54b;
+  transition: all 0.5s ease-in-out;
+}
+.header--desktop__nav ul li a:hover:after {
+  width: 100%;
 }
 
+.menu-couleur-inverse {
+  background-color: #c7a54b;
+}
+
+.white-text {
+  color: white !important;
+}
+
+/* Menu Bureau fin */
 .harmoniser {
   position: relative;
   margin-top: 93px;
@@ -1029,7 +1057,7 @@ footer {
     justify-content: center;
   }
   .harmoniser__img {
-    width: 180px;
+    width: 240px;
   }
   .Pourquoi {
     justify-content: center;
@@ -1043,7 +1071,7 @@ footer {
     padding-left: 0;
   }
   .Pourquoi__img {
-    width: 200px;
+    width: 240px;
     -o-object-fit: cover;
        object-fit: cover;
   }

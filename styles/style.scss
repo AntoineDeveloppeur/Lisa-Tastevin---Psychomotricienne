@@ -320,6 +320,8 @@ html {
 
 /* Menu Mobile fin */
 
+/* Menu Bureau début */
+
 .header--desktop {
     position: fixed;
     top: 0;
@@ -373,16 +375,44 @@ html {
             gap: 0.1rem;
             & li {
                 list-style-type: none;
+                padding-left: 0.5rem;
+                padding-right: 0.5rem;
+                height: 1.5rem;
+                transition: background-color 0.5s ease-in-out;
+
                 a {
-                    padding: 0.5rem;
+                    position: relative;
                     height: 1rem;
                     color: vars.$color--lightgold;
                     font-size: 0.7rem;
+                    transition: color 0.5s ease-in-out;
+                    &:after {
+                        position: absolute;
+                        content: '';
+                        bottom: -3px;
+                        left: 0;
+                        height: 1px;
+                        width: 0;
+                        background-color: vars.$color--lightgold;
+                        transition: all 0.5s ease-in-out;
+                    }
+                    &:hover:after {
+                        width: 100%;
+                    }
                 }
             }
         }
     }
 }
+
+.menu-couleur-inverse {
+    background-color: vars.$color--lightgold;
+}
+.white-text {
+    color: white !important;
+}
+
+/* Menu Bureau fin */
 
 .harmoniser {
     position: relative;
@@ -1090,7 +1120,7 @@ footer {
     .harmoniser {
         justify-content: center;
         &__img {
-            width: 180px;
+            width: 240px;
         }
     }
 
@@ -1105,7 +1135,7 @@ footer {
             }
         }
         &__img {
-            width: 200px;
+            width: 240px;
             object-fit: cover;
         }
     }
