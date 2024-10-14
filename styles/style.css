@@ -540,17 +540,41 @@ html {
   justify-content: center;
   align-items: center;
   gap: 1rem;
+  background-image: url("../pics/background-blue.jpg");
+  background-size: cover;
+  background-position: top;
+}
+.Lisa::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2rem;
+  background: linear-gradient(to top, rgba(255, 255, 255, 0), rgb(255, 255, 255));
+  z-index: 2;
+}
+.Lisa::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2rem;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgb(255, 255, 255));
+  z-index: 2;
 }
 .Lisa__titleAndPhoto {
   display: flex;
   flex-direction: column;
   align-items: center;
+  z-index: 3;
 }
 .Lisa__titleAndPhoto__h1 {
-  color: #395350;
+  color: #2e425f;
 }
 .Lisa__titleAndPhoto__h2 {
-  color: #395350;
+  color: #2e425f;
   margin-bottom: 1rem;
 }
 .Lisa__titleAndPhoto__img {
@@ -569,6 +593,7 @@ html {
   flex-direction: column;
   align-items: center;
   gap: 1rem;
+  z-index: 3;
 }
 .Lisa__cards__card {
   position: relative;
@@ -591,10 +616,10 @@ html {
   background-color: #eef1f6;
 }
 .Lisa__cards__card--card2 {
-  background-color: #e4eced;
+  background-color: #e7ecf2;
 }
 .Lisa__cards__card--card3 {
-  background-color: #d9e6e4;
+  background-color: #e1e6ef;
 }
 .Lisa__cards__card--extended {
   padding: 1.9rem;
@@ -607,7 +632,7 @@ html {
   gap: 0.5rem;
 }
 .Lisa__cards__card__imgAndTitle__h2 {
-  color: #395350;
+  color: #2e425f;
   font-size: 0.85rem;
   transition: font-size 0.3s ease-in-out 0.23s;
 }
@@ -652,7 +677,6 @@ html {
   justify-content: flex-start;
   align-items: center;
   position: relative;
-  background-image: url("../pics/background-green.jpg");
   background-size: cover; /* Ajuste l'image à la taille spécifiée */
 }
 .AQuoiRessemble__background {
@@ -660,7 +684,7 @@ html {
   position: absolute;
   top: 0;
   left: 0;
-  background-color: rgba(255, 255, 255, 0.85);
+  background-color: rgba(255, 255, 255, 0.7);
   width: 100%;
   height: 100%;
   z-index: 2;
@@ -729,7 +753,7 @@ html {
   align-items: center;
 }
 .OuMeTrouver__flexbox1__bloc1__h1 {
-  color: #395350;
+  color: #2e425f;
   margin-bottom: 1rem;
 }
 .OuMeTrouver__flexbox1__bloc1__ul {
@@ -744,7 +768,7 @@ html {
   max-width: 14rem;
 }
 .OuMeTrouver__flexbox1__bloc1__ul__li svg {
-  color: #92bbb5;
+  color: #577ab0;
   content: "";
   position: absolute;
   left: -2rem;
@@ -803,7 +827,7 @@ html {
 }
 .OuMeTrouver__flexbox2__button svg {
   position: absolute;
-  color: #395350;
+  color: #2e425f;
   left: 1rem;
   top: 50%; /* Décale la puce vers le bas */
   transform: translate(0, -50%);
@@ -831,7 +855,7 @@ html {
 }
 .OuMeTrouver__flexbox2__div--form__button svg {
   position: absolute;
-  color: #395350;
+  color: #2e425f;
   left: 1rem;
   top: 50%; /* Décale la puce vers le bas */
   transform: translate(0, -50%);
@@ -872,7 +896,7 @@ html {
   height: 2rem;
   padding-left: 1rem;
   margin-bottom: 1rem;
-  border: solid 1px #92bbb5;
+  border: solid 1px #577ab0;
   border-radius: 1.5rem;
   transition: box-shadow 0.2s ease-in-out;
 }
@@ -888,7 +912,7 @@ html {
   max-width: 400px;
   height: 200px;
   margin-bottom: 1rem;
-  border: solid 1px #92bbb5;
+  border: solid 1px #577ab0;
   border-radius: 1.5rem;
   resize: none;
   transition: box-shadow 0.2s ease-in-out;
@@ -909,9 +933,9 @@ html {
 .button {
   cursor: pointer;
   text-align: center;
-  border: 1px solid #92bbb5;
+  border: 1px solid #577ab0;
   border-radius: 1.5rem;
-  background-image: url("../pics/background-green.jpg");
+  background-image: url("../pics/background-blue.jpg");
   background-position: center;
   transform: scale(1);
   box-shadow: 0px 2px 2px 1px rgba(0, 0, 0, 0.1);
@@ -952,7 +976,7 @@ html {
   height: 40px;
   stroke: #e2e8f1;
   stroke-opacity: 1;
-  fill: #395350;
+  fill: #2e425f;
   stroke-linecap: round;
   opacity: 1;
   z-index: -1;
@@ -965,11 +989,11 @@ html {
 }
 
 .highlight--card2 {
-  stroke: #c5d6d9;
+  stroke: #c6d0e1;
 }
 
 .highlight--card3 {
-  stroke: #bad2ce;
+  stroke: #bfcbdd;
 }
 
 .text-to-highlight {
@@ -1076,11 +1100,22 @@ footer {
        object-fit: cover;
   }
   .Lisa {
+    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: row;
     gap: 3rem;
+  }
+  .Lisa__background {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgba(255, 255, 255, 0.85);
+    width: 100%;
+    height: 100%;
+    z-index: 2;
   }
   .Lisa__titleAndPhoto {
     justify-content: flex-start;
@@ -1089,7 +1124,6 @@ footer {
     align-items: flex-start;
   }
   .Lisa__titleAndPhoto__h1 {
-    color: #395350;
     text-align: left;
   }
   .Lisa__titleAndPhoto__h2 {

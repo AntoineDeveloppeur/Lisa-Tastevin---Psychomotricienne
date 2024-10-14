@@ -576,15 +576,47 @@ html {
     justify-content: center;
     align-items: center;
     gap: 1rem;
+    background-image: url('../pics/background-blue.jpg');
+    background-size: cover;
+    background-position: top;
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 2rem;
+        background: linear-gradient(
+            to top,
+            rgba(255, 255, 255, 0),
+            rgba(255, 255, 255, 1)
+        );
+        z-index: 2;
+    }
+    &::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 2rem;
+        background: linear-gradient(
+            to bottom,
+            rgba(255, 255, 255, 0),
+            rgba(255, 255, 255, 1)
+        );
+        z-index: 2;
+    }
     &__titleAndPhoto {
         display: flex;
         flex-direction: column;
         align-items: center;
+        z-index: 3;
         &__h1 {
-            color: vars.$color--darkgreen;
+            color: vars.$color--darkblue;
         }
         &__h2 {
-            color: vars.$color--darkgreen;
+            color: vars.$color--darkblue;
             margin-bottom: vars.$paddingMobile--header;
         }
         &__img {
@@ -602,6 +634,8 @@ html {
         flex-direction: column;
         align-items: center;
         gap: 1rem;
+        z-index: 3;
+
         &__card {
             position: relative;
             border-radius: 30px;
@@ -641,7 +675,7 @@ html {
                 justify-content: center;
                 gap: 0.5rem;
                 &__h2 {
-                    color: vars.$color--darkgreen;
+                    color: vars.$color--darkblue;
                     font-size: 0.85rem;
                     transition: font-size 0.3s ease-in-out 0.23s;
                     &--bigger {
@@ -695,14 +729,14 @@ html {
     justify-content: flex-start;
     align-items: center;
     position: relative;
-    background-image: url('../pics/background-green.jpg');
+    // background-image: url('../pics/background-green.jpg');
     background-size: cover; /* Ajuste l'image à la taille spécifiée */
     &__background {
         content: '';
         position: absolute;
         top: 0;
         left: 0;
-        background-color: rgba(255, 255, 255, 0.85);
+        background-color: rgba(255, 255, 255, 0.7);
         width: 100%;
         height: 100%;
         z-index: 2;
@@ -782,7 +816,7 @@ html {
         align-items: center;
         &__bloc1 {
             &__h1 {
-                color: vars.$color--darkgreen;
+                color: vars.$color--darkblue;
                 margin-bottom: vars.$paddingMobile--header;
             }
             &__ul {
@@ -795,7 +829,7 @@ html {
                     text-align: justify;
                     max-width: 14rem;
                     & svg {
-                        color: vars.$color--lightgreen;
+                        color: vars.$color--blue;
                         content: '';
                         position: absolute;
                         left: -2rem;
@@ -860,7 +894,7 @@ html {
             padding-right: vars.$paddingMobile--p;
             & svg {
                 position: absolute;
-                color: vars.$color--darkgreen;
+                color: vars.$color--darkblue;
                 left: 1rem;
                 top: 50%; /* Décale la puce vers le bas */
                 transform: translate(0, -50%);
@@ -886,7 +920,7 @@ html {
                 }
                 & svg {
                     position: absolute;
-                    color: vars.$color--darkgreen;
+                    color: vars.$color--darkblue;
                     left: 1rem;
                     top: 50%; /* Décale la puce vers le bas */
                     transform: translate(0, -50%);
@@ -925,7 +959,7 @@ html {
                         height: 2rem;
                         padding-left: 1rem;
                         margin-bottom: 1rem;
-                        border: solid 1px vars.$color--lightgreen;
+                        border: solid 1px vars.$color--blue;
                         border-radius: 1.5rem;
                         transition: box-shadow 0.2s ease-in-out;
                         &:focus {
@@ -942,7 +976,7 @@ html {
                     max-width: 400px;
                     height: 200px;
                     margin-bottom: 1rem;
-                    border: solid 1px vars.$color--lightgreen;
+                    border: solid 1px vars.$color--blue;
                     border-radius: 1.5rem;
                     resize: none;
                     transition: box-shadow 0.2s ease-in-out;
@@ -967,9 +1001,9 @@ html {
 .button {
     cursor: pointer;
     text-align: center;
-    border: 1px solid vars.$color--lightgreen;
+    border: 1px solid vars.$color--blue;
     border-radius: 1.5rem;
-    background-image: url('../pics/background-green.jpg');
+    background-image: url('../pics/background-blue.jpg');
     background-position: center;
     transform: scale(1);
     box-shadow: 0px 2px 2px 1px rgba(0, 0, 0, 0.1);
@@ -1010,7 +1044,7 @@ html {
     height: 40px;
     stroke: vars.$color--strokecolor;
     stroke-opacity: 1;
-    fill: vars.$color--darkgreen;
+    fill: vars.$color--darkblue;
     stroke-linecap: round;
     opacity: 1;
     z-index: -1;
@@ -1141,18 +1175,28 @@ footer {
     }
 
     .Lisa {
+        position: relative;
         display: flex;
         justify-content: center;
         align-items: center;
         flex-direction: row;
         gap: 3rem;
+        &__background {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            background-color: rgba(255, 255, 255, 0.85);
+            width: 100%;
+            height: 100%;
+            z-index: 2;
+        }
         &__titleAndPhoto {
             justify-content: flex-start;
             max-height: 400px;
             align-self: flex-start;
             align-items: flex-start;
             &__h1 {
-                color: vars.$color--darkgreen;
                 text-align: left;
             }
             &__h2 {
