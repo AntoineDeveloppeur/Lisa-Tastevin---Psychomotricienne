@@ -2,16 +2,19 @@ function addHighlight() {
     let textToHighlight = document.querySelectorAll('.text-to-highlight')
 
     textToHighlight.forEach((text) => {
+        // Met en forme le SVG
         const numberOfCaracter = text.textContent.length
         const width = numberOfCaracter * 7.5 + 60 / numberOfCaracter
         const strokeWidth = 8000 / width
 
-        const lastClass = text.classList[1] && text.classList[1]
+        //add specific color
 
+        const specificColor = text.classList[text.classList.length - 1]
+        console.log('specificColor', specificColor)
         const svgHighlight = `<span class="hindHighlight"><svg
                                 xmlns="http://www.w3.org/2000/svg"
                                 viewBox="-40 45 600 10"
-                                class="highlight ${lastClass}"
+                                class="highlight ${specificColor}"
                                 width="${width}px"
                                 stroke-width="${strokeWidth}";
 
@@ -31,8 +34,91 @@ function addHighlight() {
 
 addHighlight()
 
+const actionOnScroll = () => {
+    const windowHeight = window.innerHeight
+
+    //Fait apparaître le texte de manière douce lors du défilement
+    const textsToAppear = document.querySelectorAll('.vertical-slide-animation')
+    textsToAppear.forEach((text) => {
+        const textPosition = text.getBoundingClientRect().top
+        if (textPosition < windowHeight - 70) {
+            text.classList.add('vertical-slide-animated')
+        }
+    })
+    // Fait apparaître les images de manière douce lors du défilement
+    const picsToAppear = document.querySelectorAll('.opacity-animation')
+    picsToAppear.forEach((pic) => {
+        const picPosition = pic.getBoundingClientRect().top
+        if (picPosition < windowHeight - 70) {
+            pic.classList.add('opacity-animated')
+        }
+    })
+    //Grossi puis retréci les icones lors du défilement
+    const iconToGrow = document.querySelectorAll('.icon-to-grow')
+    iconToGrow.forEach((button) => {
+        const buttonPosition = button.getBoundingClientRect().top
+        if (buttonPosition < windowHeight - 50) {
+            button.classList.add('grow')
+        }
+    })
+
+    //Enlève la partie blanche qui cache le surlignement
+    const animationSurligner = document.querySelectorAll('.hindHighlight')
+    animationSurligner.forEach((cacheSurlignement) => {
+        const cachePosition = cacheSurlignement.getBoundingClientRect().top
+        if (cachePosition < windowHeight - 50) {
+            cacheSurlignement.classList.add('showhighlight')
+        }
+    })
+    highlightDesktopMenuSection()
+}
+window.addEventListener('scroll', actionOnScroll)
+
+//Initie une première fois pour afficher les éléments qui sont visibles à l'ouverture du site
+actionOnScroll()
+
+/*
+ ****** Menu related fonctions *****
+ */
+
+function hideMobileMenu() {
+    const linkToSections = document.querySelectorAll('.link-to-section')
+    const checkbox = document.getElementById('checkbox')
+    linkToSections.forEach((link) =>
+        link.addEventListener('click', () => (checkbox.checked = false))
+    )
+}
+hideMobileMenu()
+
+//Améliore la précision des liens du menu vers les sections
+function goToSectionFromMenu() {
+    document.querySelectorAll('.link-to-section').forEach((link) => {
+        link.addEventListener('click', function (event) {
+            event.preventDefault() // Empêche le comportement par défaut du saut d'ancre
+
+            const targetId = this.getAttribute('href').substring(1) // Récupère l'ID de l'ancre
+            console.log('this', this)
+            console.log('targetId', targetId)
+            const targetElement = document.getElementById(targetId)
+            console.log('targetElement', targetElement)
+
+            const offset = 60 // Décalage souhaité en pixels
+            const elementPosition =
+                targetElement.getBoundingClientRect().top + window.scrollY
+            const offsetPosition = elementPosition - offset
+
+            window.scrollTo({
+                top: offsetPosition,
+                behavior: 'smooth', // Ajoute un défilement fluide
+            })
+        })
+    })
+}
+goToSectionFromMenu()
+
 function highlightDesktopMenuSection() {
     const sections = document.querySelectorAll('section')
+
     //Créer une liste avec la position de toutes les sections
     let sectionsPositionY = []
     sections.forEach((section) => {
@@ -64,82 +150,9 @@ function highlightDesktopMenuSection() {
     }
 }
 
-const actionOnScroll = () => {
-    const windowHeight = window.innerHeight
-
-    //Fait apparaître le texte de manière douce au fur et à mesure du scroll
-    const textsToAppear = document.querySelectorAll('.vertical-slide-animation')
-    textsToAppear.forEach((text) => {
-        const textPosition = text.getBoundingClientRect().top
-        if (textPosition < windowHeight - 70) {
-            text.classList.add('vertical-slide-animated')
-        }
-    })
-
-    const picsToAppear = document.querySelectorAll('.opacity-animation')
-    picsToAppear.forEach((pic) => {
-        const picPosition = pic.getBoundingClientRect().top
-        if (picPosition < windowHeight - 70) {
-            pic.classList.add('opacity-animated')
-        }
-    })
-
-    const iconToGrow = document.querySelectorAll('.icon-to-grow')
-    iconToGrow.forEach((button) => {
-        const buttonPosition = button.getBoundingClientRect().top
-        if (buttonPosition < windowHeight - 50) {
-            button.classList.add('grow')
-        }
-    })
-
-    //Enlève la partie blanche qui cache le surlignement
-    const animationSurligner = document.querySelectorAll('.hindHighlight')
-    animationSurligner.forEach((cacheSurlignement) => {
-        const cachePosition = cacheSurlignement.getBoundingClientRect().top
-        if (cachePosition < windowHeight - 50) {
-            cacheSurlignement.classList.add('showhighlight')
-        }
-    })
-    highlightDesktopMenuSection()
-}
-window.addEventListener('scroll', actionOnScroll)
-actionOnScroll()
-
-function hideMenu() {
-    const linkToSections = document.querySelectorAll('.link-to-section')
-    const checkbox = document.getElementById('checkbox')
-    console.log(checkbox)
-    linkToSections.forEach((link) =>
-        link.addEventListener('click', () => (checkbox.checked = false))
-    )
-}
-hideMenu()
-
-function goToSectionFromMenu() {
-    document.querySelectorAll('.link-to-section').forEach((link) => {
-        link.addEventListener('click', function (event) {
-            event.preventDefault() // Empêche le comportement par défaut du saut d'ancre
-
-            const targetId = this.getAttribute('href').substring(1) // Récupère l'ID de l'ancre
-            console.log('this', this)
-            console.log('targetId', targetId)
-            const targetElement = document.getElementById(targetId)
-            console.log('targetElement', targetElement)
-
-            const offset = 60 // Décalage souhaité en pixels
-            const elementPosition =
-                targetElement.getBoundingClientRect().top + window.scrollY
-            const offsetPosition = elementPosition - offset
-
-            window.scrollTo({
-                top: offsetPosition,
-                behavior: 'smooth', // Ajoute un défilement fluide
-            })
-        })
-    })
-}
-goToSectionFromMenu()
-
+/*
+ ***** Fonctions liés aux buttons *****
+ */
 function clickAnimationForButton() {
     document.querySelectorAll('.button').forEach((button) => {
         button.addEventListener('click', () => {
