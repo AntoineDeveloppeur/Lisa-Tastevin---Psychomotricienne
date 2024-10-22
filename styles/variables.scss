@@ -58,8 +58,11 @@ $color--lightgold: #c7a54b;
 $color--darkgold: #958340;
 $color--blue: #577ab0;
 $color--darkblue: #2e425f;
-$color--lightgreen: #92bbb5;
-$color--darkgreen: #395350;
+// $color--lightgreen: #92bbb5;
+$color--lightgreen: #577ab0;
+
+// $color--darkgreen: #395350;
+$color--darkgreen: #2e425f;
 
 //Shadows colors
 // $color--shadowgold: #fffdf8;
@@ -71,8 +74,8 @@ $color--strokecolor: lighten($color--blue, 40);
 
 //Cards colors
 $color--card1: #eef1f6;
-$color--card2: #e4eced;
-$color--card3: #d9e6e4;
+$color--card2: darken(#eef1f6, 2);
+$color--card3: darken(#eef1f6, 4);
 
 //Shapes
 $border-radius: 59% 41% 30% 70% / 55% 35% 66% 46%;
