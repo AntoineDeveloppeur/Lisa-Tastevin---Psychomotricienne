@@ -94,7 +94,7 @@
 
 .carousel__track {
   display: flex;
-  justify-content: space-around;
+  justify-content: flex-start;
   align-items: center;
   width: auto;
   padding-bottom: 40px;
