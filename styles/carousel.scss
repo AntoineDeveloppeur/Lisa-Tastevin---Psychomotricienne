@@ -99,7 +99,7 @@
     width: auto;
     padding-bottom: 40px;
     flex-shrink: 0;
-    scroll-snap-type: x mandatory;
+    // scroll-snap-type: x mandatory;
     transition: transform 0.5s ease 0s;
 }
 
@@ -115,7 +115,7 @@
     padding-right: 0;
     margin-left: 15%;
     margin-right: 15%;
-    scroll-snap-align: center;
+    // scroll-snap-align: center;
     &__h2 {
         color: vars.$color--darkgreen;
         font-size: map-get(vars.$fontTitleh1, font-size);

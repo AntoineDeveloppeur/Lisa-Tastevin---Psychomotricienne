@@ -531,6 +531,7 @@ html {
 }
 
 .Lisa {
+  position: relative;
   padding-top: 2.4rem;
   padding-bottom: 2.4rem;
   padding-left: 1.4rem;
@@ -543,6 +544,16 @@ html {
   background-image: url("../pics/background-blue.jpg");
   background-size: cover;
   background-position: top;
+}
+.Lisa__background {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: rgba(255, 255, 255, 0.85);
+  width: 100%;
+  height: 100%;
+  z-index: 2;
 }
 .Lisa::before {
   content: "";
@@ -687,26 +698,6 @@ html {
   background-color: rgba(255, 255, 255, 0.7);
   width: 100%;
   height: 100%;
-  z-index: 2;
-}
-.AQuoiRessemble::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 2rem;
-  background: linear-gradient(to top, rgba(255, 255, 255, 0), rgb(255, 255, 255));
-  z-index: 2;
-}
-.AQuoiRessemble::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 2rem;
-  background: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgb(255, 255, 255));
   z-index: 2;
 }
 .AQuoiRessemble__containText--center {
@@ -1100,22 +1091,11 @@ footer {
        object-fit: cover;
   }
   .Lisa {
-    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: row;
     gap: 3rem;
-  }
-  .Lisa__background {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    background-color: rgba(255, 255, 255, 0.85);
-    width: 100%;
-    height: 100%;
-    z-index: 2;
   }
   .Lisa__titleAndPhoto {
     justify-content: flex-start;
@@ -1153,7 +1133,6 @@ footer {
     padding-bottom: 4.4rem;
     padding-left: 1rem;
     padding-right: 1rem;
-    z-index: 3;
     position: relative;
     flex-direction: row;
     justify-content: center;
