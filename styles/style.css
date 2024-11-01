@@ -756,7 +756,7 @@ html {
   margin-bottom: 0.8rem;
   position: relative;
   text-align: justify;
-  max-width: 14rem;
+  max-width: 16rem;
 }
 .OuMeTrouver__flexbox1__bloc1__ul__li svg {
   color: #577ab0;
@@ -811,7 +811,7 @@ html {
 }
 .OuMeTrouver__flexbox2__button {
   height: 2rem;
-  width: 230px !important;
+  min-width: 230px !important;
   position: relative;
   padding-left: 3rem;
   padding-right: 2rem;
@@ -836,7 +836,7 @@ html {
 }
 .OuMeTrouver__flexbox2__div--form__button {
   height: 2rem;
-  width: 230px !important;
+  min-width: 230px !important;
   position: relative;
   padding-left: 3rem;
   padding-right: 2rem;
@@ -1146,7 +1146,7 @@ footer {
   .AQuoiRessemble__containText--center__containText--left__p {
     padding-left: 0;
     padding-right: 0;
-    width: 350px;
+    max-width: 350px;
   }
   .AQuoiRessemble__img {
     display: none;
@@ -1158,10 +1158,10 @@ footer {
     margin-bottom: 1rem;
   }
   .OuMeTrouver__flexbox2__button {
-    width: 280px !important;
+    min-width: 280px !important;
   }
   .OuMeTrouver__flexbox2__div--form__button {
-    width: 280px !important;
+    min-width: 280px !important;
   }
   .OuMeTrouver__flexbox2__div--form__form__textarea {
     height: 400px;
