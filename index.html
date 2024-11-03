@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html lang="fr">
     <head>
-        <title>Lisa Tastevin - psychomotricienne</title>
+        <title
+            >Psychomotricienne Lille, Approche Bienveillante pour Adultes</title
+        >
         <meta
             name="description"
             content="Psychomotricienne pour les adultes à Lille. Je vous aide à retrouver bien-être et confiance dans un cadre bienveillant adapté à vos besoins."
@@ -422,20 +424,40 @@
                         >dans leur quotidien.
                     </p>
                 </div>
-                <img
-                    class="harmoniser__img"
-                    src="./pics/silhouette2.png"
-                    alt="dessin d'une silhouette"
-                />
+                <picture>
+                    <source
+                        media="(max-width: 768px)"
+                        srcset="./pics/silhouette2-110w.webp"
+                    />
+                    <source
+                        media="(min-width: 769px)"
+                        srcset="./pics/silhouette2-240w.webp"
+                    />
+                    <img
+                        class="Pourquoi__img"
+                        src="./pics/silhouette4-240w.webp"
+                        alt="dessin d'une silhouette"
+                    />
+                </picture>
             </section>
             <section id="section2" class="Pourquoi section">
                 <span class="Pourquoi__background"></span>
 
-                <img
-                    class="Pourquoi__img"
-                    src="./pics/silhouette4.png"
-                    alt="dessin d'une silhouette"
-                />
+                <picture>
+                    <source
+                        media="(max-width: 768px)"
+                        srcset="./pics/silhouette4-120w.webp"
+                    />
+                    <source
+                        media="(min-width: 769px)"
+                        srcset="./pics/silhouette4-240w.webp"
+                    />
+                    <img
+                        class="Pourquoi__img"
+                        src="./pics/silhouette4-240w.webp"
+                        alt="dessin d'une silhouette"
+                    />
+                </picture>
                 <div class="Pourquoi__content">
                     <h1 class="Pourquoi__content__h1 font-title-h1"
                         >Pourquoi me rencontrer&nbsp;?</h1
@@ -582,7 +604,7 @@
                             >
                             <img
                                 class="carousel__track__slide__img opacity-animation"
-                                src="./pics/carousel_sacs.jpg"
+                                src="./pics/carousel_sacs.png"
                                 alt="sacs lestés de différentes couleurs"
                             />
                             <p class="font-text carousel__track__slide__p"
@@ -599,7 +621,7 @@
                             >
                             <img
                                 class="carousel__track__slide__img opacity-animation"
-                                src="./pics/carousel_automassage.jpg"
+                                src="./pics/carousel_automassage.png"
                                 alt="les deux mais d'une même personne qui se caresse"
                             />
                             <p class="font-text carousel__track__slide__p"
@@ -896,6 +918,7 @@
                         class="OuMeTrouver__flexbox1__img opacity-animation"
                         src="./pics/cabinet.png"
                         alt="Cabinet de Lisa Tastevin"
+                        style="display: none"
                     />
                 </div>
                 <div class="OuMeTrouver__flexbox2">

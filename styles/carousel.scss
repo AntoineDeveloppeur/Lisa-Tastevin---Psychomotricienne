@@ -8,7 +8,7 @@
     position: relative;
     height: auto;
     width: 85vw;
-    max-width: 500px;
+    max-width: 400px;
     overflow: hidden;
     list-style: none;
     margin-top: vars.$paddingMobile--p;
@@ -203,5 +203,6 @@
 @media (min-width: 768px) {
     .carousel {
         margin-top: 0;
+        max-width: 500px;
     }
 }
