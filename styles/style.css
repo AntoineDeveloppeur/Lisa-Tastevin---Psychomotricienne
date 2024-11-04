@@ -295,7 +295,7 @@ html {
   background-color: #fdfdfb;
 }
 
-#menu li {
+#menu ul li {
   list-style-type: none;
   padding: 10px 0;
   transition-delay: 2s;
@@ -303,11 +303,11 @@ html {
   font-family: EB Garamond, serif;
   color: #c7a54b;
 }
-#menu li a {
+#menu ul li a {
   color: #c7a54b;
 }
 
-#menuToggle input:checked ~ ul {
+#menuToggle input:checked ~ div {
   transform: none;
 }
 

@@ -35,6 +35,27 @@
             href="https://fonts.googleapis.com/css2?family=Cardo:ital,wght@0,400;0,700;1,400&family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Manrope&family=Montserrat&family=The+Nautigal:wght@400;700&display=swap"
             rel="stylesheet"
         />
+        <!-- Précharger les images -->
+        <link
+            rel="preload"
+            href="./pics/background-blue-287w.webp"
+            as="image"
+        />
+        <link
+            rel="preload"
+            href="./pics/background-blue-627w.webp"
+            as="image"
+        />
+        <link
+            rel="preload"
+            href="./pics/background-blue-1024w.webp"
+            as="image"
+        />
+        <link
+            rel="preload"
+            href="./pics/background-blue-1440w.webp"
+            as="image"
+        />
 
         <!-- CSS -->
         <link href="./styles/style.css" rel="stylesheet" />
@@ -281,7 +302,7 @@
                 <a href="./index.html" class="header--mobile__logoAndName">
                     <img
                         class="header--mobile__logoAndName__logo"
-                        src="./pics/logo-50w.webp"
+                        src="./pics/logo-150w.webp"
                         alt="logo de Lisa Tastevin"
                     />
                     <div class="header--mobile__logoAndName__name">
@@ -296,42 +317,48 @@
                 </a>
                 <nav role="navigation">
                     <div id="menuToggle">
-                        <input id="checkbox" type="checkbox" />
+                        <input
+                            id="checkbox"
+                            type="checkbox"
+                            aria-label="cliquez pour afficher le menu"
+                        />
                         <span></span>
                         <span></span>
                         <span></span>
-                        <ul id="menu">
+                        <div id="menu">
                             <img
                                 src="./pics/silhouette-127w.webp"
                                 id="menuToggle__img"
                                 alt="silhouette dessinée"
                             />
-                            <li>
-                                <a class="link-to-section" href="#section1"
-                                    >Accueil</a
+                            <ul>
+                                <li>
+                                    <a class="link-to-section" href="#section1"
+                                        >Accueil</a
+                                    >
+                                </li>
+                                <li
+                                    ><a class="link-to-section" href="#section2"
+                                        >Pourquoi me rencontrer&nbsp;?</a
+                                    ></li
                                 >
-                            </li>
-                            <li
-                                ><a class="link-to-section" href="#section2"
-                                    >Pourquoi me rencontrer&nbsp;?</a
-                                ></li
-                            >
-                            <li
-                                ><a class="link-to-section" href="#section3"
-                                    >Une séance avec moi</a
-                                ></li
-                            >
-                            <li
-                                ><a class="link-to-section" href="#section4"
-                                    >Votre Psychomotricienne</a
-                                ></li
-                            >
-                            <li
-                                ><a class="link-to-section" href="#section5"
-                                    >Contact</a
-                                ></li
-                            >
-                        </ul>
+                                <li
+                                    ><a class="link-to-section" href="#section3"
+                                        >Une séance avec moi</a
+                                    ></li
+                                >
+                                <li
+                                    ><a class="link-to-section" href="#section4"
+                                        >Votre Psychomotricienne</a
+                                    ></li
+                                >
+                                <li
+                                    ><a class="link-to-section" href="#section5"
+                                        >Contact</a
+                                    ></li
+                                >
+                            </ul>
+                        </div>
                     </div>
                 </nav>
             </div>
@@ -339,7 +366,7 @@
                 <a href="./index.html" class="header--desktop__logoAndName">
                     <img
                         class="header--desktop__logoAndName__logo"
-                        src="./pics/logo-50w.webp"
+                        src="./pics/logo-150w.webp"
                         alt="logo de Lisa Tastevin"
                     />
                     <div class="header--desktop__logoAndName__name">
