@@ -120,8 +120,8 @@
   font-size: 1.235rem;
 }
 .carousel__track .carousel__track__slide__img {
-  height: 120px;
-  max-width: 150px;
+  height: 110px;
+  width: 150px;
   -o-object-fit: COVER;
      object-fit: COVER;
   border-radius: 59% 41% 30% 70%/55% 35% 66% 46%;

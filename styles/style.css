@@ -170,6 +170,7 @@ html {
 }
 .header--mobile__logoAndName__logo {
   width: 50px;
+  height: 50px;
 }
 .header--mobile__logoAndName__name {
   display: flex;
@@ -497,7 +498,8 @@ html {
   z-index: 3;
 }
 .Pourquoi__img {
-  width: 120px;
+  width: 110px;
+  height: 183px;
   -o-object-fit: cover;
      object-fit: cover;
 }
@@ -527,6 +529,57 @@ html {
   font-size: 1rem;
   color: #577ab0;
   z-index: 10;
+}
+
+.AQuoiRessemble {
+  padding-top: 2.4rem;
+  padding-bottom: 2.4rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  position: relative;
+  background-size: cover; /* Ajuste l'image à la taille spécifiée */
+}
+.AQuoiRessemble__background {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: rgba(255, 255, 255, 0.7);
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+}
+.AQuoiRessemble__containText--center {
+  max-width: 27rem;
+  position: relative;
+}
+.AQuoiRessemble__containText--center__containText--left {
+  width: 75%;
+}
+.AQuoiRessemble__containText--center__containText--left__h1 {
+  color: #958340;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  margin-bottom: 1rem;
+  z-index: 3;
+  position: relative;
+}
+.AQuoiRessemble__containText--center__containText--left__p {
+  padding-left: 1rem;
+  padding-right: 1rem;
+  z-index: 3;
+  position: relative;
+}
+.AQuoiRessemble__img {
+  position: absolute;
+  top: 50%;
+  right: -10px;
+  transform: translate(0%, -50%);
+  width: 137px;
+  height: 229px;
+  z-index: 1;
 }
 
 .Lisa {
@@ -590,6 +643,7 @@ html {
 .Lisa__titleAndPhoto__img {
   border-radius: 53% 41% 37% 64%/57% 29% 60% 43%;
   width: 200px;
+  height: 162px;
   margin-bottom: 1rem;
   -o-object-fit: contain;
      object-fit: contain;
@@ -641,6 +695,10 @@ html {
   justify-content: center;
   gap: 0.5rem;
 }
+.Lisa__cards__card__imgAndTitle__img {
+  width: 24px;
+  height: 24px;
+}
 .Lisa__cards__card__imgAndTitle__h2 {
   color: #2e425f;
   font-size: 0.85rem;
@@ -678,57 +736,6 @@ html {
 .Lisa__cards__card__p--visible {
   max-height: 380px;
   padding-bottom: 1.4rem;
-}
-
-.AQuoiRessemble {
-  padding-top: 2.4rem;
-  padding-bottom: 2.4rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
-  position: relative;
-  background-size: cover; /* Ajuste l'image à la taille spécifiée */
-}
-.AQuoiRessemble__background {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  background-color: rgba(255, 255, 255, 0.7);
-  width: 100%;
-  height: 100%;
-  z-index: 2;
-}
-.AQuoiRessemble__containText--center {
-  max-width: 27rem;
-  position: relative;
-}
-.AQuoiRessemble__containText--center__containText--left {
-  width: 75%;
-}
-.AQuoiRessemble__containText--center__containText--left__h1 {
-  color: #958340;
-  padding-left: 1rem;
-  padding-right: 1rem;
-  margin-bottom: 1rem;
-  z-index: 3;
-  position: relative;
-}
-.AQuoiRessemble__containText--center__containText--left__p {
-  padding-left: 1rem;
-  padding-right: 1rem;
-  z-index: 3;
-  position: relative;
-}
-.AQuoiRessemble__img {
-  position: absolute;
-  top: 50%;
-  right: 10px;
-  transform: translate(0%, -50%);
-  width: 30%;
-  max-width: 180px;
-  z-index: 1;
 }
 
 .OuMeTrouver {
@@ -1074,6 +1081,7 @@ footer {
   }
   .harmoniser__img {
     width: 240px;
+    height: 400px;
   }
   .Pourquoi {
     justify-content: center;
@@ -1088,6 +1096,7 @@ footer {
   }
   .Pourquoi__img {
     width: 240px;
+    height: 400px;
     -o-object-fit: cover;
        object-fit: cover;
   }
@@ -1100,7 +1109,6 @@ footer {
   }
   .Lisa__titleAndPhoto {
     justify-content: flex-start;
-    max-height: 400px;
     align-self: flex-start;
     align-items: flex-start;
   }
@@ -1189,5 +1197,9 @@ footer {
   }
   .Lisa {
     background-image: url("../pics/background-blue-1440w.webp");
+  }
+  .harmoniser__div {
+    width: 562px;
+    height: 228px;
   }
 }/*# sourceMappingURL=style.css.map */

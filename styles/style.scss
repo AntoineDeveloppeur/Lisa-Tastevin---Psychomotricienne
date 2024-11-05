@@ -173,6 +173,7 @@ html {
         gap: 1rem;
         &__logo {
             width: 50px;
+            height: 50px;
         }
         &__name {
             display: flex;
@@ -521,7 +522,8 @@ html {
         z-index: 3;
     }
     &__img {
-        width: 120px;
+        width: 110px;
+        height: 183px;
         object-fit: cover;
     }
     &__content {
@@ -562,6 +564,61 @@ html {
             //     background-size: cover; /* Ajuste l'image à la taille spécifiée */
             // }
         }
+    }
+}
+
+.AQuoiRessemble {
+    padding-top: calc(vars.$paddingMobile--section + 1rem);
+    padding-bottom: calc(vars.$paddingMobile--section + 1rem);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    position: relative;
+    // background-image: url('../pics/background-green.jpg');
+    background-size: cover; /* Ajuste l'image à la taille spécifiée */
+    &__background {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: rgba(255, 255, 255, 0.7);
+        width: 100%;
+        height: 100%;
+        z-index: 2;
+    }
+    &__containText--center {
+        max-width: vars.$maxWidthText;
+        // min-width: 300px;
+        position: relative;
+        &__containText--left {
+            width: 75%;
+            // min-width: 300px;
+            &__h1 {
+                color: vars.$color--darkgold;
+                padding-left: vars.$paddingMobile--p - 1rem;
+                padding-right: vars.$paddingMobile--p - 1rem;
+                margin-bottom: vars.$paddingMobile--header;
+                z-index: 3;
+                position: relative;
+            }
+            &__p {
+                padding-left: vars.$paddingMobile--p - 1rem;
+                padding-right: vars.$paddingMobile--p - 1rem;
+                z-index: 3;
+                position: relative;
+            }
+        }
+    }
+    &__img {
+        position: absolute;
+        top: 50%;
+        right: -10px;
+        transform: translate(0%, -50%);
+        // margin-right: 16px;
+        width: 137px;
+        height: 229px;
+        z-index: 1;
     }
 }
 
@@ -632,6 +689,7 @@ html {
         &__img {
             border-radius: 53% 41% 37% 64% / 57% 29% 60% 43%;
             width: 200px;
+            height: 162px;
             margin-bottom: 1rem;
             object-fit: contain;
             object-position: center;
@@ -679,11 +737,14 @@ html {
             }
             &__imgAndTitle {
                 margin-top: 1rem;
-
                 display: flex;
                 align-items: center;
                 justify-content: center;
                 gap: 0.5rem;
+                &__img {
+                    width: 24px;
+                    height: 24px;
+                }
                 &__h2 {
                     color: vars.$color--darkblue;
                     font-size: 0.85rem;
@@ -729,61 +790,6 @@ html {
                 padding-bottom: calc(vars.$paddingMobile--section);
             }
         }
-    }
-}
-
-.AQuoiRessemble {
-    padding-top: calc(vars.$paddingMobile--section + 1rem);
-    padding-bottom: calc(vars.$paddingMobile--section + 1rem);
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-    position: relative;
-    // background-image: url('../pics/background-green.jpg');
-    background-size: cover; /* Ajuste l'image à la taille spécifiée */
-    &__background {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        background-color: rgba(255, 255, 255, 0.7);
-        width: 100%;
-        height: 100%;
-        z-index: 2;
-    }
-    &__containText--center {
-        max-width: vars.$maxWidthText;
-        // min-width: 300px;
-        position: relative;
-        &__containText--left {
-            width: 75%;
-            // min-width: 300px;
-            &__h1 {
-                color: vars.$color--darkgold;
-                padding-left: vars.$paddingMobile--p - 1rem;
-                padding-right: vars.$paddingMobile--p - 1rem;
-                margin-bottom: vars.$paddingMobile--header;
-                z-index: 3;
-                position: relative;
-            }
-            &__p {
-                padding-left: vars.$paddingMobile--p - 1rem;
-                padding-right: vars.$paddingMobile--p - 1rem;
-                z-index: 3;
-                position: relative;
-            }
-        }
-    }
-    &__img {
-        position: absolute;
-        top: 50%;
-        right: 10px;
-        transform: translate(0%, -50%);
-        // margin-right: 16px;
-        width: 30%;
-        max-width: 180px;
-        z-index: 1;
     }
 }
 
@@ -1139,6 +1145,7 @@ footer {
         justify-content: center;
         &__img {
             width: 240px;
+            height: 400px;
         }
     }
 
@@ -1154,6 +1161,7 @@ footer {
         }
         &__img {
             width: 240px;
+            height: 400px;
             object-fit: cover;
         }
     }
@@ -1166,7 +1174,6 @@ footer {
         gap: 3rem;
         &__titleAndPhoto {
             justify-content: flex-start;
-            max-height: 400px;
             align-self: flex-start;
             align-items: flex-start;
             &__h1 {
@@ -1270,5 +1277,11 @@ footer {
 
     .Lisa {
         background-image: url('../pics/background-blue-1440w.webp');
+    }
+
+    //Avoid Layout shifting
+    .harmoniser__div {
+        width: 562px;
+        height: 228px;
     }
 }

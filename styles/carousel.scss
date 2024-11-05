@@ -121,8 +121,8 @@
         font-size: map-get(vars.$fontTitleh1, font-size);
     }
     &__img {
-        height: 120px;
-        max-width: 150px;
+        height: 110px;
+        width: 150px;
         object-fit: COVER;
         border-radius: vars.$border-radius;
         margin-top: calc(vars.$paddingMobile--p - 20px);
