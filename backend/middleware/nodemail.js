@@ -8,7 +8,7 @@ const transporter = nodemailer.createTransport({
         pass: process.env.EMAIL_PASSWORD, // Votre mot de passe ou un mot de passe d'application
     },
     tls: {
-        rejectUnauthorized: false, // Désactiver la vérification SSL
+        rejectUnauthorized: true, // Désactiver la vérification SSL
     },
 })
 

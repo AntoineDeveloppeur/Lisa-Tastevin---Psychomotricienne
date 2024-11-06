@@ -23,7 +23,11 @@ app.use(express.json())
 
 //TODO: Changer l'astérix lorsque le nom de domaine sera connu
 app.use((req, res, next) => {
-    res.setHeader('Access-Control-Allow-Origin', '*')
+    res.setHeader(
+        'Access-Control-Allow-Origin',
+        '*'
+        // 'https://lisa-tastevin-psychomotricienne.fr'
+    )
     res.setHeader(
         'Access-Control-Allow-Headers',
         'Origin, X-Requested-With, Content, Accept, Content-Type, Authorization'
@@ -35,7 +39,8 @@ app.use((req, res, next) => {
     next()
 })
 
-app.post('/form', emailNotification, sendSMS, (req, res, next) => {
+//TODO: Ajouter "sendSMS" pour la production
+app.post('/form', emailNotification, (req, res, next) => {
     console.log("je suis dans app.use de l'envoi de la réponse au client")
     console.log('req.body', req.body)
     res.status(200).json({

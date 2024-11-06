@@ -1,3 +1,7 @@
+import { responsivePreload } from './responsivePreload.js'
+
+responsivePreload()
+
 function addHighlight() {
     let textToHighlight = document.querySelectorAll('.text-to-highlight')
 
@@ -10,7 +14,6 @@ function addHighlight() {
         //add specific color
 
         const specificColor = text.classList[text.classList.length - 1]
-        console.log('specificColor', specificColor)
         const svgHighlight = `<span class="hindHighlight"><svg
                                 xmlns="http://www.w3.org/2000/svg"
                                 viewBox="-40 45 600 10"
@@ -97,10 +100,7 @@ function goToSectionFromMenu() {
             event.preventDefault() // Empêche le comportement par défaut du saut d'ancre
 
             const targetId = this.getAttribute('href').substring(1) // Récupère l'ID de l'ancre
-            console.log('this', this)
-            console.log('targetId', targetId)
             const targetElement = document.getElementById(targetId)
-            console.log('targetElement', targetElement)
 
             const offset = 60 // Décalage souhaité en pixels
             const elementPosition =
@@ -135,7 +135,7 @@ function highlightDesktopMenuSection() {
         '.header--desktop__nav__ul__li'
     )
     // Change le backgroud-color des sections du menu en fonction de la position de window.scrollY dans la liste des positions des menus
-    for (i = 0; i < sectionsPositionY.length; i++) {
+    for (let i = 0; i < sectionsPositionY.length; i++) {
         if (
             window.scrollY >= sectionsPositionY[i] &&
             window.scrollY <= sectionsPositionY[i + 1]
@@ -180,9 +180,6 @@ function greyButtonWhenClicked() {
                     'OuMeTrouver__flexbox2__div--form__button--appel'
                 )
             ) {
-                console.log(
-                    'le boutton appuyer est OuMeTrouver__flexbox2__div--form__button--appel '
-                )
                 setTimeout(() => button.classList.remove('darkenButton'), 1000)
             }
         })
@@ -199,7 +196,6 @@ function showForm() {
     const formButton = document.querySelector(
         '.OuMeTrouver__flexbox2__div--form__button--form'
     )
-    console.log('formButton', formButton)
     const form = document.querySelector(
         '.OuMeTrouver__flexbox2__div--form__form'
     )
@@ -220,9 +216,7 @@ function showLoader() {
     )
     buttonSend.classList.add('dont-display')
     const loader = document.querySelector('.loader')
-    console.log('loader', loader)
     loader.classList.remove('dont-display')
-    console.log('loader classList', loader.classList)
 }
 
 function dontShowLoader() {
@@ -231,9 +225,7 @@ function dontShowLoader() {
     )
     buttonSend.classList.remove('dont-display')
     const loader = document.querySelector('.loader')
-    console.log('loader', loader)
     loader.classList.add('dont-display')
-    console.log('loader classList', loader.classList)
 }
 
 function deleteForm() {
@@ -285,7 +277,6 @@ function sendForm() {
                 phone: document.getElementById('phone').value,
                 message: document.getElementById('name').value,
             }
-            console.log('je suis dans la fonction submit avec le fetch')
             fetch('http://localhost:3000/form/', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
@@ -301,12 +292,9 @@ function sendForm() {
                 })
                 .catch((error) => {
                     !alert("votre requête n'a pu aboutir")
-                    console.log(error)
                     deleteForm()
                     showFailureInSendingTheForm()
                 })
-
-            console.log(data)
         })
 }
 
@@ -329,7 +317,6 @@ function clickAnimationForCard() {
 clickAnimationForCard()
 
 function rotateArrow(arrow) {
-    console.log('arrow dans rotateArrow', arrow)
     arrow.classList.contains('Lisa__cards__card__arrow--down')
         ? arrow.classList.remove('Lisa__cards__card__arrow--down')
         : arrow.classList.add('Lisa__cards__card__arrow--down')
