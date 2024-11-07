@@ -4,11 +4,12 @@ const nodemailer = require('nodemailer')
 const transporter = nodemailer.createTransport({
     service: 'gmail', // ou un autre service comme 'yahoo', 'outlook', etc.
     auth: {
-        user: process.env.EMAIL_SENDER_USER, // Votre email
-        pass: process.env.EMAIL_PASSWORD, // Votre mot de passe ou un mot de passe d'application
-    },
-    tls: {
-        rejectUnauthorized: true, // Désactiver la vérification SSL
+        type: 'OAuth2',
+        user: process.env.EMAIL_SENDER_USER,
+        pass: process.env.EMAIL_PASSWORD,
+        clientId: process.env.GMAIL_CLIENTID,
+        clientSecret: process.env.GMAIL_CLIENTSECRET,
+        refreshToken: process.env.OAUTH_REFRESH_CODE,
     },
 })
 
