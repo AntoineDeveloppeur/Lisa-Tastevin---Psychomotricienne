@@ -6,7 +6,7 @@ const transporter = nodemailer.createTransport({
     auth: {
         type: 'OAuth2',
         user: process.env.EMAIL_SENDER_USER,
-        pass: process.env.EMAIL_PASSWORD,
+        // pass: process.env.EMAIL_PASSWORD,
         clientId: process.env.GMAIL_CLIENTID,
         clientSecret: process.env.GMAIL_CLIENTSECRET,
         refreshToken: process.env.OAUTH_REFRESH_CODE,
