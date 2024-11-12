@@ -299,7 +299,6 @@ function sendForm() {
 }
 
 sendForm()
-
 /*
  ***** Animations des cartes de la section Lisa *****
  */
