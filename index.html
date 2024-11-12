@@ -233,7 +233,12 @@
                 }
             }
         </script>
-        <script src="https://www.google.com/recaptcha/api.js"></script>
+        <script src="https://www.google.com/recaptcha/api.js?render=6LdQu3kqAAAAAMR21RJ5KddypGkJjJB3qYViGGYv"></script>
+        <script>
+            function onSubmit(token) {
+                document.getElementById('demo-form').submit()
+            }
+        </script>
     </head>
     <body>
         <header>
@@ -820,8 +825,12 @@
                                     class="OuMeTrouver__flexbox1__bloc1__ul__li__clickToUncover mail button"
                                 >
                                     <button
-                                        class="OuMeTrouver__flexbox1__bloc1__ul__li__clickToUncover__button"
+                                        class="OuMeTrouver__flexbox1__bloc1__ul__li__clickToUncover__button g-recaptcha"
+                                        data-sitekey="reCAPTCHA_site_key"
+                                        data-callback="onSubmit"
+                                        data-action="submit"
                                     >
+                                        >
                                         <img
                                             class="OuMeTrouver__flexbox1__bloc1__ul__li__clickToUncover__button__img"
                                             src="./pics/arrow-20w.webp"
