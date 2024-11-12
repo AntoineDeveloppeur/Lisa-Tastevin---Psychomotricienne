@@ -192,23 +192,23 @@ greyButtonWhenClicked()
  ***** Formulaire *****
  */
 
-function showForm() {
-    const formButton = document.querySelector(
-        '.OuMeTrouver__flexbox2__div--form__button--form'
-    )
-    const form = document.querySelector(
-        '.OuMeTrouver__flexbox2__div--form__form'
-    )
-    const clickOnFormButton = () => {
-        if (form.classList.contains('form-visible')) {
-            form.classList.remove('form-visible')
-        } else {
-            form.classList.add('form-visible')
-        }
-    }
-    formButton.addEventListener('click', clickOnFormButton)
-}
-showForm()
+// function showForm() {
+//     const formButton = document.querySelector(
+//         '.OuMeTrouver__flexbox2__div--form__button--form'
+//     )
+//     const form = document.querySelector(
+//         '.OuMeTrouver__flexbox2__div--form__form'
+//     )
+//     const clickOnFormButton = () => {
+//         if (form.classList.contains('form-visible')) {
+//             form.classList.remove('form-visible')
+//         } else {
+//             form.classList.add('form-visible')
+//         }
+//     }
+//     formButton.addEventListener('click', clickOnFormButton)
+// }
+// showForm()
 
 function showLoader() {
     const buttonSend = document.querySelector(
@@ -265,40 +265,41 @@ function showFailureInSendingTheForm() {
     actionOnScroll()
 }
 
-function sendForm() {
-    document
-        .querySelector('.OuMeTrouver__flexbox2__div--form__form')
-        .addEventListener('submit', (e) => {
-            e.preventDefault()
-            showLoader()
-            const data = {
-                name: document.getElementById('name').value,
-                email: document.getElementById('email').value,
-                phone: document.getElementById('phone').value,
-                message: document.getElementById('name').value,
-            }
-            fetch('http://localhost:3000/form/', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(data),
-            })
-                .then((response) => {
-                    deleteForm()
-                    if (!response.ok) {
-                        showFailureInSendingTheForm()
-                    } else {
-                        showSuccessInSendingTheForm()
-                    }
-                })
-                .catch((error) => {
-                    !alert("votre requête n'a pu aboutir")
-                    deleteForm()
-                    showFailureInSendingTheForm()
-                })
-        })
-}
+// function sendForm() {
+//     document
+//         .querySelector('.OuMeTrouver__flexbox2__div--form__form')
+//         .addEventListener('submit', (e) => {
+//             e.preventDefault()
+//             showLoader()
+//             const data = {
+//                 name: document.getElementById('name').value,
+//                 email: document.getElementById('email').value,
+//                 phone: document.getElementById('phone').value,
+//                 message: document.getElementById('name').value,
+//             }
+//             fetch('http://localhost:3000/form/', {
+//                 method: 'POST',
+//                 headers: { 'Content-Type': 'application/json' },
+//                 body: JSON.stringify(data),
+//             })
+//                 .then((response) => {
+//                     deleteForm()
+//                     if (!response.ok) {
+//                         showFailureInSendingTheForm()
+//                     } else {
+//                         showSuccessInSendingTheForm()
+//                     }
+//                 })
+//                 .catch((error) => {
+//                     !alert("votre requête n'a pu aboutir")
+//                     deleteForm()
+//                     showFailureInSendingTheForm()
+//                 })
+//         })
+// }
 
-sendForm()
+// sendForm()
+
 /*
  ***** Animations des cartes de la section Lisa *****
  */
