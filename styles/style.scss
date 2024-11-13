@@ -541,7 +541,6 @@ html {
             text-align: left;
         }
         &__ul {
-            // padding-left: calc(vars.$paddingMobile--p + 1.235rem);
             padding-right: vars.$paddingMobile--p;
             z-index: 3;
             &__li {
@@ -552,17 +551,6 @@ html {
                     z-index: 10;
                 }
             }
-
-            // & li::before {
-            //     content: '';
-            //     position: absolute;
-            //     left: -1.235rem;
-            //     top: 0.3rem; /* Décale la puce vers le bas */
-            //     width: 16px; /* Largeur de l'image */
-            //     height: 16px; /* Hauteur de l'image */
-            //     background-image: url('../pics/puce.png');
-            //     background-size: cover; /* Ajuste l'image à la taille spécifiée */
-            // }
         }
     }
 }
@@ -858,6 +846,15 @@ html {
                                 &:hover {
                                     transform: scale(1.05);
                                 }
+                            }
+                        }
+                    }
+                    &__prescriptionUl {
+                        margin-left: 1rem;
+                        & li {
+                            &::marker {
+                                font-size: 1rem;
+                                color: vars.$color--blue;
                             }
                         }
                     }
