@@ -1,2 +1,6 @@
 backend/node_modules
+backend/my-api-0.0.1.tar
+backend/tmp
 .env
+frontend/tmp
+frontend/my-frontend-0.0.1.tar

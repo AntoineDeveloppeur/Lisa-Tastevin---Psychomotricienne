@@ -1,6 +1,6 @@
 const express = require('express')
 const http = require('http')
-require('dotenv').config({ path: '../.env' })
+require('dotenv').config({ path: './.env' })
 const sendSMS = require('./middleware/sms')
 const emailNotification = require('./middleware/nodemail')
 
@@ -39,8 +39,8 @@ app.use((req, res, next) => {
     next()
 })
 
-//TODO: Ajouter "sendSMS" pour la production
-app.post('/form', emailNotification, (req, res, next) => {
+//TODO: Ajouter "sendSMS" et "emailNotification" pour la production
+app.post('/form', (req, res, next) => {
     console.log("je suis dans app.use de l'envoi de la réponse au client")
     console.log('req.body', req.body)
     res.status(200).json({

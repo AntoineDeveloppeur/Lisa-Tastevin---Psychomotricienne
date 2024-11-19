@@ -1,0 +1,81 @@
+/* Fonts */
+$fontSignature: (
+    font-family: (
+        'The Nautigal',
+        cursive,
+    ),
+    font-weight: 400,
+    font-style: normal,
+    font-size: 2rem,
+);
+
+$fontTitleh1: (
+    font-family: (
+        'Cardo',
+        serif,
+    ),
+    font-weight: 600,
+    font-style: normal,
+    font-size: 1.235rem,
+);
+
+$fontTitleh2: (
+    font-family: (
+        'Cardo',
+        serif,
+    ),
+    font-weight: 600,
+    font-style: normal,
+    font-size: 1.1rem,
+);
+
+$fontParagraph: (
+    font-family: (
+        'EB Garamond',
+        serif,
+    ),
+    font-optical-sizing: auto,
+    font-weight: 400,
+    font-style: normal,
+    font-size: 1rem,
+    line-height: 1.5,
+);
+
+/* Spacing */
+
+$paddingMobile--header: 1rem; //utiliser pour les côtés et au-dessus et en-dessous
+$paddingMobile--title: 1.5rem;
+$paddingMobile--p: 2rem;
+
+$paddingMobile--section: 1.4rem; //utilisé pour le dessus et le dessous et sur les côté
+$maxWidthText: 27rem;
+
+$paddingDesktop--side: 2rem;
+
+/* Colors */
+$color--main: black;
+$color--lightgold: #c7a54b;
+$color--darkgold: #958340;
+$color--blue: #577ab0;
+$color--darkblue: #2e425f;
+// $color--lightgreen: #92bbb5;
+$color--lightgreen: #577ab0;
+
+// $color--darkgreen: #395350;
+$color--darkgreen: #2e425f;
+
+//Shadows colors
+// $color--shadowgold: #fffdf8;
+$color--shadowgold: lighten(#958340, 57);
+$color--shadowgold2: #f7e7bf;
+
+//Strokes colors
+$color--strokecolor: lighten($color--blue, 40);
+
+//Cards colors
+$color--card1: #eef1f6;
+$color--card2: darken(#eef1f6, 2);
+$color--card3: darken(#eef1f6, 4);
+
+//Shapes
+$border-radius: 59% 41% 30% 70% / 55% 35% 66% 46%;
