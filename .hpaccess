@@ -1,0 +1,18 @@
+# Rediriger /index vers /
+RewriteEngine On
+RewriteCond %{THE_REQUEST} /index\.html [NC]
+RewriteRule ^index\.html$ / [L,R=301]
+
+
+# 1. Rediriger les URLs avec .html vers des URLs sans .html (Redirection externe 301)
+RewriteCond %{THE_REQUEST} /([^.]+)\.html [NC]
+RewriteRule ^ /%1 [R=301,L]
+
+# 2. Mapper les URLs sans extension aux fichiers .html existants (Réécriture interne)
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME}.html -f
+RewriteRule ^(.*)$ $1.html [L]
+
+# Rediriger /politique-de-confidentialite vers /pages/politiqueDeConfidentialite.html
+#RewriteRule /pages/politiqueDeConfidentialite.html ^politique-de-confidentialite$  [L]
