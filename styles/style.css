@@ -805,6 +805,13 @@ html {
 .OuMeTrouver__flexbox1__bloc1__ul__li__clickToUncover__button__img:hover {
   transform: scale(1.05);
 }
+.OuMeTrouver__flexbox1__bloc1__ul__li__prescriptionUl {
+  margin-left: 1rem;
+}
+.OuMeTrouver__flexbox1__bloc1__ul__li__prescriptionUl li::marker {
+  font-size: 1rem;
+  color: #577ab0;
+}
 .OuMeTrouver__flexbox1__img {
   width: 75%;
   max-width: 400px;
