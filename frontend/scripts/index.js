@@ -277,7 +277,9 @@ function sendForm() {
                 phone: document.getElementById('phone').value,
                 message: document.getElementById('name').value,
             }
-            fetch('46.202.129.223', {
+            //en production
+            fetch('/api', {
+                //en local fetch('http://localhost:3000', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(data),

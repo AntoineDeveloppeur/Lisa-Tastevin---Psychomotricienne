@@ -10,13 +10,17 @@ console.log('le server tourne')
 const app = express()
 
 //Configurer l'application pour qu'elle se branche sur le port 3000
-app.set('port', process.env.PORT || 3000)
+app.set('port', 3000)
 
 //Créer un serveur avec la fonction internet http qui fonctionne avec l'application nommée "app"
 const server = http.createServer(app)
 
 //Déclencher l'écoute du serveur
-server.listen(process.env.PORT || 3000)
+// TODO : faire une version local car je ne suis pas sûr que ça fonctionne
+const port = 3000
+app.listen(port, '127.0.0.1', () => {
+    console.log(`Server is running on http://127.0.0.1:${port}`)
+})
 
 // Middleware pour traiter les données JSON
 app.use(express.json())
@@ -40,7 +44,9 @@ app.use((req, res, next) => {
 })
 
 //TODO: Ajouter "sendSMS" et "emailNotification" pour la production
-app.post('/form', (req, res, next) => {
+// en production:
+app.post('/', (req, res, next) => {
+    //en local : app.post('/form', (req, res, next) => {
     console.log("je suis dans app.use de l'envoi de la réponse au client")
     console.log('req.body', req.body)
     res.status(200).json({
