@@ -265,6 +265,11 @@ function showFailureInSendingTheForm() {
     actionOnScroll()
 }
 
+//en production
+const api_url = '/api'
+//en local
+// const api_url = http://localhost:3000
+
 function sendForm() {
     document
         .querySelector('.OuMeTrouver__flexbox2__div--form__form')
@@ -277,9 +282,7 @@ function sendForm() {
                 phone: document.getElementById('phone').value,
                 message: document.getElementById('name').value,
             }
-            //en production
-            fetch('/api', {
-                //en local fetch('http://localhost:3000', {
+            fetch(api_url, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(data),
