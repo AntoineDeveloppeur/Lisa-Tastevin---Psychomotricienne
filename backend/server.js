@@ -25,11 +25,12 @@ app.listen(port, '127.0.0.1', () => {
 // Middleware pour traiter les données JSON
 app.use(express.json())
 
-//TODO: Changer l'astérix lorsque le nom de domaine sera connu
+// la configuration CORS ne sert que pour le développement. En production le frontend et le backend sont
+//sur le même serveur donc il n'y a pas de conflit
 app.use((req, res, next) => {
     res.setHeader(
         'Access-Control-Allow-Origin',
-        '46.200.123.123'
+        'http://127.0.0.1:5501'
         // 'https://lisa-tastevin-psychomotricienne.fr'
     )
     res.setHeader(
