@@ -72,3 +72,52 @@ app.post('/', mailjetMiddleware, async (req, res) => {
 //    'Le formulaire a été envoyé avec succès, je reviens vers vous rapidement.',
 //})
 //})
+
+// Route pour vérifier le reCAPTCHA
+app.post('/verify-recaptcha', async (req, res) => {
+    const { token } = req.body
+
+    if (!token) {
+        return res
+            .status(400)
+            .json({ success: false, message: 'Token manquant.' })
+    }
+
+    try {
+        // Effectuez la requête avec fetch
+        const response = await fetch(
+            `https://www.google.com/recaptcha/api/siteverify`,
+            {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: new URLSearchParams({
+                    secret: process.env.RECAPTCHA_SECRET_KEY,
+                    response: token,
+                }),
+            }
+        )
+
+        const data = await response.json() // Parsez la réponse JSON
+
+        const { success, score } = data
+
+        if (success && score >= 0.5) {
+            // Validation réussie (score > 0.5 recommandé)
+            return res.json({ success: true, message: 'reCAPTCHA validé.' })
+        } else {
+            // Échec de la validation
+            return res.status(400).json({
+                success: false,
+                message: 'Validation échouée.',
+                score: score || 0,
+            })
+        }
+    } catch (error) {
+        console.error('Erreur lors de la vérification reCAPTCHA :', error)
+        return res
+            .status(500)
+            .json({ success: false, message: 'Erreur serveur.' })
+    }
+})

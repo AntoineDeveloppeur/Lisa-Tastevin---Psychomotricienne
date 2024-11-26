@@ -266,9 +266,9 @@ function showFailureInSendingTheForm() {
 }
 
 //en production
-const api_url = '/api'
+// const api_url = '/api'
 //en local
-//const api_url = 'http://localhost:3000'
+const api_url = 'http://localhost:3000'
 
 function sendForm() {
     document
@@ -369,3 +369,34 @@ function animateCards() {
 }
 
 animateCards()
+
+document.getElementById('secureButton').addEventListener('click', () => {
+    // Obtenez le jeton reCAPTCHA
+    console.log('je vois le clique sur le securebutton')
+    grecaptcha.ready(() => {
+        grecaptcha
+            .execute('6LfI5ooqAAAAALgz_7QAZleuziMuAylELYN57', {
+                action: 'submit',
+            })
+            .then((token) => {
+                // Envoyez le jeton au serveur pour vérification
+                fetch('/verify-recaptcha', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ token }),
+                })
+                    .then((response) => response.json())
+                    .then((data) => {
+                        if (data.success) {
+                            alert('Validation réussie !')
+                            clickToUncover('secureButton')
+                        } else {
+                            alert('Échec de la validation reCAPTCHA.')
+                        }
+                    })
+                    .catch((error) => console.error('Erreur :', error))
+            })
+    })
+})
