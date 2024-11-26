@@ -55,6 +55,7 @@ app.post('/', mailjetMiddleware, async (req, res) => {
             message:
                 'Le formulaire a été envoyé avec succès, je reviens vers vous rapidement.',
         })
+        console.log('je suis dans post à la fin du try')
     } catch (error) {
         res.status(500).json({ error: 'Failed to send email' })
     }

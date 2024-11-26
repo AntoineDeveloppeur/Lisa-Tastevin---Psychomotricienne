@@ -266,9 +266,9 @@ function showFailureInSendingTheForm() {
 }
 
 //en production
-//const api_url = '/api'
+const api_url = '/api'
 //en local
-const api_url = 'http://localhost:3000'
+//const api_url = 'http://localhost:3000'
 
 function sendForm() {
     document
