@@ -969,7 +969,10 @@
                             </svg>
                             <span>Formulaire de contact</span>
                         </button>
-                        <form class="OuMeTrouver__flexbox2__div--form__form">
+                        <form
+                            class="OuMeTrouver__flexbox2__div--form__form"
+                            id="form"
+                        >
                             <div
                                 class="OuMeTrouver__flexbox2__div--form__form__div font-text"
                             >
@@ -982,6 +985,7 @@
                                     class="OuMeTrouver__flexbox2__div--form__form__div__input"
                                     id="name"
                                     type="name"
+                                    required
                                 />
                                 <label
                                     class="OuMeTrouver__flexbox2__div--form__form__div__label font-text"
@@ -992,6 +996,7 @@
                                     class="OuMeTrouver__flexbox2__div--form__form__div__input font-text"
                                     id="email"
                                     type="email"
+                                    required
                                 />
                                 <label
                                     class="OuMeTrouver__flexbox2__div--form__form__div__label font-text"
@@ -1001,7 +1006,8 @@
                                 <input
                                     class="OuMeTrouver__flexbox2__div--form__form__div__input"
                                     id="phone"
-                                    type="phone"
+                                    type="tel"
+                                    required
                                 />
                                 <label
                                     class="OuMeTrouver__flexbox2__div--form__form__div__label font-text"
@@ -1013,10 +1019,10 @@
                                 class="OuMeTrouver__flexbox2__div--form__form__textarea"
                                 id="textarea"
                                 placeholder="Ecrivez votre message ici"
+                                required
                             ></textarea>
                             <button
-                                class="OuMeTrouver__flexbox2__div--form__form__button button font-text secureButton"
-                                id="form"
+                                class="OuMeTrouver__flexbox2__div--form__form__button button font-text"
                                 type="submit"
                             >
                                 Envoyer

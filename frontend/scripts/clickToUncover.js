@@ -24,7 +24,13 @@
 //     })
 // }
 
+import { isHuman } from './index.js'
+
 export function clickToUncover(buttonId) {
+    console.log(isHuman())
+    if (!isHuman()) {
+        return
+    }
     const element = document.getElementById(buttonId)
     console.log(buttonId)
     if (element.id === 'phoneToUncover') {

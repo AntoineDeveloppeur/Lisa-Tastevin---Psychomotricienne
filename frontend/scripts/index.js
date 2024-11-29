@@ -272,32 +272,50 @@ function showFailureInSendingTheForm() {
 const api_url = 'http://localhost:3000'
 
 function sendForm() {
-    showLoader()
-    const data = {
-        name: document.getElementById('name').value,
-        email: document.getElementById('email').value,
-        phone: document.getElementById('phone').value,
-        message: document.getElementById('name').value,
-    }
-    fetch(api_url, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data),
-    })
-        .then((response) => {
-            deleteForm()
-            if (!response.ok) {
+    document.getElementById('form').addEventListener('submit', async (e) => {
+        e.preventDefault()
+
+        //test si le formulaire est valide
+        // const form = e.target
+        // if (!form.checkValidity()) {
+        //     // Si le formulaire n'est pas valide, affiche les messages d'erreur natifs
+        //     form.reportValidity()
+        //     return // Ne pas aller plus loin si la validation échoue
+        // }
+
+        showLoader()
+        if (!isHuman()) {
+            dontShowLoader()
+            return
+        }
+
+        const data = {
+            name: document.getElementById('name').value,
+            email: document.getElementById('email').value,
+            phone: document.getElementById('phone').value,
+            message: document.getElementById('name').value,
+        }
+        fetch(api_url, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(data),
+        })
+            .then((response) => {
+                deleteForm()
+                if (!response.ok) {
+                    showFailureInSendingTheForm()
+                } else {
+                    showSuccessInSendingTheForm()
+                }
+            })
+            .catch((error) => {
+                deleteForm()
                 showFailureInSendingTheForm()
-            } else {
-                showSuccessInSendingTheForm()
-            }
-        })
-        .catch((error) => {
-            !alert("votre requête n'a pu aboutir")
-            deleteForm()
-            showFailureInSendingTheForm()
-        })
+            })
+    })
 }
+
+sendForm()
 
 /*
  ***** Animations des cartes de la section Lisa *****
@@ -364,43 +382,76 @@ function animateCards() {
 
 animateCards()
 
-document.querySelectorAll('.secureButton').forEach((secureButton) => {
-    secureButton.addEventListener('click', (e) => {
-        e.preventDefault()
-        e.stopPropagation()
-        if (secureButton.id === 'form') {
-            showLoader()
-        }
-        // Obtenez le jeton reCAPTCHA
-        console.log('je vois le clique sur le securebutton')
-        grecaptcha.ready(() => {
-            grecaptcha
-                .execute('6LfI5ooqAAAAALgz_7QAZleuziMuAylELYN57-6j', {
-                    action: 'submit',
+// Vérification captcha
+
+export function isHuman() {
+    grecaptcha.ready(() => {
+        grecaptcha
+            .execute('6LfI5ooqAAAAALgz_7QAZleuziMuAylELYN57-6j', {
+                action: 'submit',
+            })
+            .then((token) => {
+                // Envoyez le jeton au serveur pour vérification
+                fetch(`${api_url}/verify-recaptcha`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ token }),
                 })
-                .then((token) => {
-                    // Envoyez le jeton au serveur pour vérification
-                    fetch(`${api_url}/verify-recaptcha`, {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json',
-                        },
-                        body: JSON.stringify({ token }),
+                    .then((response) => response.json())
+                    .then((data) => {
+                        if (data.success) {
+                            console.log('succcès vérification captcha')
+                            return true
+                        } else {
+                            alert('Échec de la validation reCAPTCHA.')
+                            return false
+                        }
                     })
-                        .then((response) => response.json())
-                        .then((data) => {
-                            if (data.success) {
-                                if (secureButton.id === 'form') {
-                                    console.log('pasage captcha réussi')
-                                    sendForm()
-                                }
-                                clickToUncover(secureButton.id)
-                            } else {
-                                alert('Échec de la validation reCAPTCHA.')
-                            }
-                        })
-                        .catch((error) => console.error('Erreur :', error))
-                })
-        })
+                    .catch((error) => console.error('Erreur :', error))
+            })
     })
+}
+
+document.querySelectorAll('.secureButton').forEach((secureButton) => {
+    secureButton.addEventListener('click', () =>
+        clickToUncover(secureButton.id)
+    )
+    //         e.preventDefault()
+    //         e.stopPropagation()
+    //         if (secureButton.id === 'form') {
+    //             showLoader()
+    //         }
+    //         // Obtenez le jeton reCAPTCHA
+    //         console.log('je vois le clique sur le securebutton')
+    //         grecaptcha.ready(() => {
+    //             grecaptcha
+    //                 .execute('6LfI5ooqAAAAALgz_7QAZleuziMuAylELYN57-6j', {
+    //                     action: 'submit',
+    //                 })
+    //                 .then((token) => {
+    //                     // Envoyez le jeton au serveur pour vérification
+    //                     fetch(`${api_url}/verify-recaptcha`, {
+    //                         method: 'POST',
+    //                         headers: {
+    //                             'Content-Type': 'application/json',
+    //                         },
+    //                         body: JSON.stringify({ token }),
+    //                     })
+    //                         .then((response) => response.json())
+    //                         .then((data) => {
+    //                             if (data.success) {
+    //                                 if (secureButton.id === 'form') {
+    //                                     console.log('pasage captcha réussi')
+    //                                     sendForm()
+    //                                 }
+    //                                 clickToUncover(secureButton.id)
+    //                             } else {
+    //                                 alert('Échec de la validation reCAPTCHA.')
+    //                             }
+    //                         })
+    //                         .catch((error) => console.error('Erreur :', error))
+    //                 })
+    //         })
 })
