@@ -24,13 +24,14 @@
 //     })
 // }
 
-function clickToUncover(secureButton) {
-    const element = document.getElementById(secureButton)
-    if (element.classList.contains('phone')) {
+export function clickToUncover(buttonId) {
+    const element = document.getElementById(buttonId)
+    console.log(buttonId)
+    if (element.id === 'phoneToUncover') {
         element.innerHTML = ''
         element.innerHTML = "<a href='tel:+33637335510'>06 37 33 55 10</a>"
     }
-    if (element.classList.contains('mail')) {
+    if (element.id === 'emailToUncover') {
         element.innerHTML = ''
         element.innerHTML = `
     <a style="margin='auto'" href="mailto:lisatastevin.psychomot@gmail.com?subject=Demande%20d'information&body=Bonjour,%20je%20souhaite%20plus%20d'informations.">

@@ -1,4 +1,5 @@
 import { responsivePreload } from './responsivePreload.js'
+import { clickToUncover } from './clickToUncover.js'
 
 responsivePreload()
 
@@ -271,39 +272,32 @@ function showFailureInSendingTheForm() {
 const api_url = 'http://localhost:3000'
 
 function sendForm() {
-    document
-        .querySelector('.OuMeTrouver__flexbox2__div--form__form')
-        .addEventListener('submit', (e) => {
-            e.preventDefault()
-            showLoader()
-            const data = {
-                name: document.getElementById('name').value,
-                email: document.getElementById('email').value,
-                phone: document.getElementById('phone').value,
-                message: document.getElementById('name').value,
+    showLoader()
+    const data = {
+        name: document.getElementById('name').value,
+        email: document.getElementById('email').value,
+        phone: document.getElementById('phone').value,
+        message: document.getElementById('name').value,
+    }
+    fetch(api_url, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+    })
+        .then((response) => {
+            deleteForm()
+            if (!response.ok) {
+                showFailureInSendingTheForm()
+            } else {
+                showSuccessInSendingTheForm()
             }
-            fetch(api_url, {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(data),
-            })
-                .then((response) => {
-                    deleteForm()
-                    if (!response.ok) {
-                        showFailureInSendingTheForm()
-                    } else {
-                        showSuccessInSendingTheForm()
-                    }
-                })
-                .catch((error) => {
-                    !alert("votre requête n'a pu aboutir")
-                    deleteForm()
-                    showFailureInSendingTheForm()
-                })
+        })
+        .catch((error) => {
+            !alert("votre requête n'a pu aboutir")
+            deleteForm()
+            showFailureInSendingTheForm()
         })
 }
-
-sendForm()
 
 /*
  ***** Animations des cartes de la section Lisa *****
@@ -370,33 +364,43 @@ function animateCards() {
 
 animateCards()
 
-document.getElementById('secureButton').addEventListener('click', () => {
-    // Obtenez le jeton reCAPTCHA
-    console.log('je vois le clique sur le securebutton')
-    grecaptcha.ready(() => {
-        grecaptcha
-            .execute('6LfI5ooqAAAAALgz_7QAZleuziMuAylELYN57', {
-                action: 'submit',
-            })
-            .then((token) => {
-                // Envoyez le jeton au serveur pour vérification
-                fetch('/verify-recaptcha', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify({ token }),
+document.querySelectorAll('.secureButton').forEach((secureButton) => {
+    secureButton.addEventListener('click', (e) => {
+        e.preventDefault()
+        e.stopPropagation()
+        if (secureButton.id === 'form') {
+            showLoader()
+        }
+        // Obtenez le jeton reCAPTCHA
+        console.log('je vois le clique sur le securebutton')
+        grecaptcha.ready(() => {
+            grecaptcha
+                .execute('6LfI5ooqAAAAALgz_7QAZleuziMuAylELYN57-6j', {
+                    action: 'submit',
                 })
-                    .then((response) => response.json())
-                    .then((data) => {
-                        if (data.success) {
-                            alert('Validation réussie !')
-                            clickToUncover('secureButton')
-                        } else {
-                            alert('Échec de la validation reCAPTCHA.')
-                        }
+                .then((token) => {
+                    // Envoyez le jeton au serveur pour vérification
+                    fetch(`${api_url}/verify-recaptcha`, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({ token }),
                     })
-                    .catch((error) => console.error('Erreur :', error))
-            })
+                        .then((response) => response.json())
+                        .then((data) => {
+                            if (data.success) {
+                                if (secureButton.id === 'form') {
+                                    console.log('pasage captcha réussi')
+                                    sendForm()
+                                }
+                                clickToUncover(secureButton.id)
+                            } else {
+                                alert('Échec de la validation reCAPTCHA.')
+                            }
+                        })
+                        .catch((error) => console.error('Erreur :', error))
+                })
+        })
     })
 })

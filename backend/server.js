@@ -43,36 +43,6 @@ app.use((req, res, next) => {
     next()
 })
 
-app.post('/', mailjetMiddleware, async (req, res) => {
-    console.log("je suis dans app.use de l'envoi de la réponse au client")
-    try {
-        //const { to, subject, text } = req.body
-        const to = 'antoine.verove@gmail.com'
-        const subject = `Quelqu'un t'as envoyé un message depuis le formulaire de ton site`
-        const text = `Bonjour Lisa,\n\n${req.body.name} a écrit ce message :\n${req.body.message}\n\nVoici les coordonnées de ${req.body.name}:\n${req.body.email}\n${req.body.phone}\n\nBonne journée`
-        await req.sendEmail({ to, subject, text })
-        res.status(200).json({
-            message:
-                'Le formulaire a été envoyé avec succès, je reviens vers vous rapidement.',
-        })
-        console.log('je suis dans post à la fin du try')
-    } catch (error) {
-        res.status(500).json({ error: 'Failed to send email' })
-    }
-})
-
-//TODO: Ajouter "sendSMS" et "emailNotification" pour la production
-// en production:
-//app.post('/', (req, res, next) => {
-//  //en local : app.post('/form', (req, res, next) => {
-//console.log("je suis dans app.use de l'envoi de la réponse au client")
-//console.log('req.body', req.body)
-//res.status(200).json({
-//  message:
-//    'Le formulaire a été envoyé avec succès, je reviens vers vous rapidement.',
-//})
-//})
-
 // Route pour vérifier le reCAPTCHA
 app.post('/verify-recaptcha', async (req, res) => {
     const { token } = req.body
@@ -121,3 +91,33 @@ app.post('/verify-recaptcha', async (req, res) => {
             .json({ success: false, message: 'Erreur serveur.' })
     }
 })
+
+app.post('/', mailjetMiddleware, async (req, res) => {
+    console.log("je suis dans app.use de l'envoi de la réponse au client")
+    try {
+        //const { to, subject, text } = req.body
+        const to = 'antoine.verove@gmail.com'
+        const subject = `Quelqu'un t'as envoyé un message depuis le formulaire de ton site`
+        const text = `Bonjour Lisa,\n\n${req.body.name} a écrit ce message :\n${req.body.message}\n\nVoici les coordonnées de ${req.body.name}:\n${req.body.email}\n${req.body.phone}\n\nBonne journée`
+        await req.sendEmail({ to, subject, text })
+        res.status(200).json({
+            message:
+                'Le formulaire a été envoyé avec succès, je reviens vers vous rapidement.',
+        })
+        console.log('je suis dans post à la fin du try')
+    } catch (error) {
+        res.status(500).json({ error: 'Failed to send email' })
+    }
+})
+
+//TODO: Ajouter "sendSMS" et "emailNotification" pour la production
+// en production:
+//app.post('/', (req, res, next) => {
+//  //en local : app.post('/form', (req, res, next) => {
+//console.log("je suis dans app.use de l'envoi de la réponse au client")
+//console.log('req.body', req.body)
+//res.status(200).json({
+//  message:
+//    'Le formulaire a été envoyé avec succès, je reviens vers vous rapidement.',
+//})
+//})
