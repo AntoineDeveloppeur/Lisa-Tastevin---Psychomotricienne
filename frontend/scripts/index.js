@@ -193,23 +193,23 @@ greyButtonWhenClicked()
  ***** Formulaire *****
  */
 
-// function showForm() {
-//     const formButton = document.querySelector(
-//         '.OuMeTrouver__flexbox2__div--form__button--form'
-//     )
-//     const form = document.querySelector(
-//         '.OuMeTrouver__flexbox2__div--form__form'
-//     )
-//     const clickOnFormButton = () => {
-//         if (form.classList.contains('form-visible')) {
-//             form.classList.remove('form-visible')
-//         } else {
-//             form.classList.add('form-visible')
-//         }
-//     }
-//     formButton.addEventListener('click', clickOnFormButton)
-// }
-// showForm()
+function showForm() {
+    const formButton = document.querySelector(
+        '.OuMeTrouver__flexbox2__div--form__button--form'
+    )
+    const form = document.querySelector(
+        '.OuMeTrouver__flexbox2__div--form__form'
+    )
+    const clickOnFormButton = () => {
+        if (form.classList.contains('form-visible')) {
+            form.classList.remove('form-visible')
+        } else {
+            form.classList.add('form-visible')
+        }
+    }
+    formButton.addEventListener('click', clickOnFormButton)
+}
+showForm()
 
 function showLoader() {
     const buttonSend = document.querySelector(
@@ -311,6 +311,8 @@ async function sendForm() {
         }
     })
 }
+
+sendForm()
 
 /*
  ***** Animations des cartes de la section Lisa *****
