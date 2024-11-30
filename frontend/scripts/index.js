@@ -384,35 +384,113 @@ animateCards()
 
 // Vérification captcha
 
-export function isHuman() {
-    grecaptcha.ready(() => {
-        grecaptcha
-            .execute('6LfI5ooqAAAAALgz_7QAZleuziMuAylELYN57-6j', {
+export async function isHuman() {
+    try {
+        await new Promise((resolve) => grecaptcha.ready(resolve))
+
+        const token = await grecaptcha.execute(
+            '6LfI5ooqAAAAALgz_7QAZleuziMuAylELYN57-6j',
+            {
                 action: 'submit',
-            })
-            .then((token) => {
-                // Envoyez le jeton au serveur pour vérification
-                fetch(`${api_url}/verify-recaptcha`, {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify({ token }),
-                })
-                    .then((response) => response.json())
-                    .then((data) => {
-                        if (data.success) {
-                            console.log('succcès vérification captcha')
-                            return true
-                        } else {
-                            alert('Échec de la validation reCAPTCHA.')
-                            return false
-                        }
-                    })
-                    .catch((error) => console.error('Erreur :', error))
-            })
-    })
+            }
+        )
+
+        const response = await fetch(`${api_url}/verify-recaptcha`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ token }),
+        })
+
+        const data = await response.json()
+
+        if (data.success) {
+            console.log('succès vérification captcha')
+            return true
+        } else {
+            console.log('Échec de la validation reCAPTCHA.')
+            return false
+        }
+    } catch (error) {
+        console.error('Erreur :', error)
+        throw error
+    }
 }
+
+// Autre façon de faire
+
+// export function isHuman() {
+//     return new Promise((resolve, reject) => {
+//         grecaptcha.ready(() => {
+//             grecaptcha
+//                 .execute('6LfI5ooqAAAAALgz_7QAZleuziMuAylELYN57-6j', {
+//                     action: 'submit',
+//                 })
+//                 .then((token) => {
+//                     return fetch(`${api_url}/verify-recaptcha`, {
+//                         method: 'POST',
+//                         headers: {
+//                             'Content-Type': 'application/json',
+//                         },
+//                         body: JSON.stringify({ token }),
+//                     })
+//                 })
+//                 .then((response) => response.json())
+//                 .then((data) => {
+//                     if (data.success) {
+//                         console.log('succès vérification captcha')
+//                         resolve(true)
+//                     } else {
+//                         console.log('Échec de la validation reCAPTCHA.')
+//                         resolve(false)
+//                     }
+//                 })
+//                 .catch((error) => {
+//                     console.error('Erreur :', error)
+//                     reject(error)
+//                 })
+//         })
+//     })
+// }
+
+// Autre façon de faire
+
+// export function isHuman() {
+//     return new Promise((resolve, reject) => {
+//         grecaptcha.ready(async () => {
+//             try {
+//                 const token = await grecaptcha.execute(
+//                     '6LfI5ooqAAAAALgz_7QAZleuziMuAylELYN57-6j',
+//                     {
+//                         action: 'submit',
+//                     }
+//                 )
+
+//                 const response = await fetch(`${api_url}/verify-recaptcha`, {
+//                     method: 'POST',
+//                     headers: {
+//                         'Content-Type': 'application/json',
+//                     },
+//                     body: JSON.stringify({ token }),
+//                 })
+
+//                 const data = await response.json()
+
+//                 if (data.success) {
+//                     console.log('succès vérification captcha')
+//                     resolve(true)
+//                 } else {
+//                     console.log('Échec de la validation reCAPTCHA.')
+//                     resolve(false)
+//                 }
+//             } catch (error) {
+//                 console.error('Erreur :', error)
+//                 reject(error)
+//             }
+//         })
+//     })
+// }
 
 document.querySelectorAll('.secureButton').forEach((secureButton) => {
     secureButton.addEventListener('click', () =>
