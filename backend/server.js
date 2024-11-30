@@ -4,6 +4,7 @@ require('dotenv').config({ path: './.env' })
 const sendSMS = require('./middleware/sms')
 const mailjetMiddleware = require('./middleware/mailjetMiddleware')
 console.log('le server tourne')
+const lisaData = require('./data/lisa_data.json')
 
 //Créer l'application avec le framework express
 const app = express()
@@ -75,7 +76,11 @@ app.post('/verify-recaptcha', async (req, res) => {
 
         if (success && score >= 0.5) {
             // Validation réussie (score > 0.5 recommandé)
-            return res.json({ success: true, message: 'reCAPTCHA validé.' })
+            return res.json({
+                success: true,
+                message: 'reCAPTCHA validé.',
+                ...lisaData,
+            })
         } else {
             // Échec de la validation
             return res.status(400).json({

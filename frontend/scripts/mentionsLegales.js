@@ -4,10 +4,7 @@ function goToSectionFromMenu() {
             event.preventDefault() // Empêche le comportement par défaut du saut d'ancre
 
             const targetId = this.getAttribute('href').substring(13) // Récupère l'ID de l'ancre
-            console.log('this', this)
-            console.log('targetId', targetId)
             const targetElement = document.getElementById(targetId)
-            console.log('targetElement', targetElement)
 
             const offset = 60 // Décalage souhaité en pixels
             const elementPosition =

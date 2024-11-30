@@ -271,47 +271,44 @@ function showFailureInSendingTheForm() {
 //en local
 const api_url = 'http://localhost:3000'
 
-function sendForm() {
+async function sendForm() {
     document.getElementById('form').addEventListener('submit', async (e) => {
         e.preventDefault()
-
-        //test si le formulaire est valide
-        // const form = e.target
-        // if (!form.checkValidity()) {
-        //     // Si le formulaire n'est pas valide, affiche les messages d'erreur natifs
-        //     form.reportValidity()
-        //     return // Ne pas aller plus loin si la validation échoue
-        // }
-
         showLoader()
-        if (!isHuman()) {
-            dontShowLoader()
-            return
-        }
 
-        const data = {
-            name: document.getElementById('name').value,
-            email: document.getElementById('email').value,
-            phone: document.getElementById('phone').value,
-            message: document.getElementById('name').value,
-        }
-        fetch(api_url, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(data),
-        })
-            .then((response) => {
-                deleteForm()
-                if (!response.ok) {
+        try {
+            const { success } = await isHuman()
+            if (!success) {
+                dontShowLoader()
+                return
+            }
+
+            const data = {
+                name: document.getElementById('name').value,
+                email: document.getElementById('email').value,
+                phone: document.getElementById('phone').value,
+                message: document.getElementById('name').value,
+            }
+            fetch(api_url, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(data),
+            })
+                .then((response) => {
+                    deleteForm()
+                    if (!response.ok) {
+                        showFailureInSendingTheForm()
+                    } else {
+                        showSuccessInSendingTheForm()
+                    }
+                })
+                .catch((error) => {
+                    deleteForm()
                     showFailureInSendingTheForm()
-                } else {
-                    showSuccessInSendingTheForm()
-                }
-            })
-            .catch((error) => {
-                deleteForm()
-                showFailureInSendingTheForm()
-            })
+                })
+        } catch (error) {
+            console.error("Erreur lors de l'envoi du formulaire:", error)
+        }
     })
 }
 
@@ -404,13 +401,10 @@ export async function isHuman() {
         })
 
         const data = await response.json()
-
         if (data.success) {
-            console.log('succès vérification captcha')
-            return true
+            return data
         } else {
-            console.log('Échec de la validation reCAPTCHA.')
-            return false
+            return data
         }
     } catch (error) {
         console.error('Erreur :', error)

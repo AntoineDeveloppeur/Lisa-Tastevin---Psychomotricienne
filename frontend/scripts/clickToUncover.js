@@ -28,19 +28,23 @@ import { isHuman } from './index.js'
 
 export async function clickToUncover(buttonId) {
     try {
-        const condition = await isHuman()
-        if (!condition) {
+        const { success, phone, email } = await isHuman()
+        if (!success) {
             return
         }
         const element = document.getElementById(buttonId)
-        console.log(buttonId)
         if (element.id === 'phoneToUncover') {
-            element.innerHTML = "<a href='tel:+33637335510'>06 37 33 55 10</a>"
+            // let phoneWithSpaces = ''
+            // for (let i = 0; i < phone.length; i += 2) {
+            //     phoneWithSpaces += phone[i] + phone[i + 1] + ' '
+            // }
+            const phoneWithSpaces = phone.match(/.{1,2}/g).join(' ')
+            element.innerHTML = `<a href='tel:${phone}'>${phoneWithSpaces}</a>`
         }
         if (element.id === 'emailToUncover') {
             element.innerHTML = `
-          <a style="margin='auto'" href="mailto:lisatastevin.psychomot@gmail.com?subject=Demande%20d'information&body=Bonjour,%20je%20souhaite%20plus%20d'informations.">
-            lisatastevin.psychomot@gmail.com
+          <a style="margin='auto'" href="mailto:${email}?subject=Demande%20d'information&body=Bonjour,%20je%20souhaite%20plus%20d'informations%20à%20propos%20de...">
+            ${email}
           </a>`
         }
     } catch (error) {
@@ -51,12 +55,10 @@ export async function clickToUncover(buttonId) {
 
 // export async function clickToUncover(buttonId) {
 //     const condition = await isHuman()
-//     console.log('condition', condition)
 //     if (!condition) {
 //         return
 //     }
 //     const element = document.getElementById(buttonId)
-//     console.log(buttonId)
 //     if (element.id === 'phoneToUncover') {
 //         element.innerHTML = ''
 //         element.innerHTML = "<a href='tel:+33637335510'>06 37 33 55 10</a>"
