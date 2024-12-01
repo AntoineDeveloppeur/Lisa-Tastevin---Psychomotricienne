@@ -392,7 +392,8 @@ export async function isHuman() {
             }
         )
 
-        const response = await fetch(`${api_url}/verify-recaptcha`, {
+        // const response = await fetch(`${api_url}/verify-recaptcha`, {
+        const response = await fetch(`${api_url}`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
