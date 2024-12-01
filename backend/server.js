@@ -44,86 +44,76 @@ app.use((req, res, next) => {
     next()
 })
 
-// test résolution problème
-
-// app.post('/api/verify-recaptcha', async (req, res) => {
-//     console.log('Received request to /api/verify-recaptcha')
-//     console.log('Request body:', req.body)
-//     // Reste de votre logique ici
-// })
-
 // Route pour vérifier le reCAPTCHA
-// app.post('/verify-recaptcha', async (req, res) => {
-app.post('/', async (req, res) => {
+app.post('/verify-recaptcha', async (req, res) => {
     const { token } = req.body
-    console.log('token', token)
-    res.status(201).json({ message: 'route verify-recaptcha correcte' })
-    // if (!token) {
-    //     return res
-    //         .status(400)
-    //         .json({ success: false, message: 'Token manquant.' })
-    // }
 
-    // try {
-    //     // Effectuez la requête avec fetch
-    //     const response = await fetch(
-    //         `https://www.google.com/recaptcha/api/siteverify`,
-    //         {
-    //             method: 'POST',
-    //             headers: {
-    //                 'Content-Type': 'application/x-www-form-urlencoded',
-    //             },
-    //             body: new URLSearchParams({
-    //                 secret: process.env.RECAPTCHA_SECRET_KEY,
-    //                 response: token,
-    //             }),
-    //         }
-    //     )
+    if (!token) {
+        return res
+            .status(400)
+            .json({ success: false, message: 'Token manquant.' })
+    }
 
-    //     const data = await response.json() // Parsez la réponse JSON
+    try {
+        // Effectuez la requête avec fetch
+        const response = await fetch(
+            `https://www.google.com/recaptcha/api/siteverify`,
+            {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: new URLSearchParams({
+                    secret: process.env.RECAPTCHA_SECRET_KEY,
+                    response: token,
+                }),
+            }
+        )
 
-    //     const { success, score } = data
+        const data = await response.json() // Parsez la réponse JSON
 
-    //     if (success && score >= 0.5) {
-    //         // Validation réussie (score > 0.5 recommandé)
-    //         return res.json({
-    //             success: true,
-    //             message: 'reCAPTCHA validé.',
-    //             ...lisaData,
-    //         })
-    //     } else {
-    //         // Échec de la validation
-    //         return res.status(400).json({
-    //             success: false,
-    //             message: 'Validation échouée.',
-    //             score: score || 0,
-    //         })
-    //     }
-    // } catch (error) {
-    //     console.error('Erreur lors de la vérification reCAPTCHA :', error)
-    //     return res
-    //         .status(500)
-    //         .json({ success: false, message: 'Erreur serveur.' })
-    // }
+        const { success, score } = data
+
+        if (success && score >= 0.5) {
+            // Validation réussie (score > 0.5 recommandé)
+            return res.json({
+                success: true,
+                message: 'reCAPTCHA validé.',
+                ...lisaData,
+            })
+        } else {
+            // Échec de la validation
+            return res.status(400).json({
+                success: false,
+                message: 'Validation échouée.',
+                score: score || 0,
+            })
+        }
+    } catch (error) {
+        console.error('Erreur lors de la vérification reCAPTCHA :', error)
+        return res
+            .status(500)
+            .json({ success: false, message: 'Erreur serveur.' })
+    }
 })
 
-// app.post('/', mailjetMiddleware, async (req, res) => {
-//     console.log("je suis dans app.use de l'envoi de la réponse au client")
-//     try {
-//         //const { to, subject, text } = req.body
-//         const to = 'antoine.verove@gmail.com'
-//         const subject = `Quelqu'un t'as envoyé un message depuis le formulaire de ton site`
-//         const text = `Bonjour Lisa,\n\n${req.body.name} a écrit ce message :\n${req.body.message}\n\nVoici les coordonnées de ${req.body.name}:\n${req.body.email}\n${req.body.phone}\n\nBonne journée`
-//         await req.sendEmail({ to, subject, text })
-//         res.status(200).json({
-//             message:
-//                 'Le formulaire a été envoyé avec succès, je reviens vers vous rapidement.',
-//         })
-//         console.log('je suis dans post à la fin du try')
-//     } catch (error) {
-//         res.status(500).json({ error: 'Failed to send email' })
-//     }
-// })
+app.post('/', mailjetMiddleware, async (req, res) => {
+    console.log("je suis dans app.use de l'envoi de la réponse au client")
+    try {
+        //const { to, subject, text } = req.body
+        const to = 'antoine.verove@gmail.com'
+        const subject = `Quelqu'un t'as envoyé un message depuis le formulaire de ton site`
+        const text = `Bonjour Lisa,\n\n${req.body.name} a écrit ce message :\n${req.body.message}\n\nVoici les coordonnées de ${req.body.name}:\n${req.body.email}\n${req.body.phone}\n\nBonne journée`
+        await req.sendEmail({ to, subject, text })
+        res.status(200).json({
+            message:
+                'Le formulaire a été envoyé avec succès, je reviens vers vous rapidement.',
+        })
+        console.log('je suis dans post à la fin du try')
+    } catch (error) {
+        res.status(500).json({ error: 'Failed to send email' })
+    }
+})
 
 //TODO: Ajouter "sendSMS" et "emailNotification" pour la production
 // en production:

@@ -277,11 +277,11 @@ async function sendForm() {
         showLoader()
 
         try {
-            // const { success } = await isHuman()
-            // if (!success) {
-            //     dontShowLoader()
-            //     return
-            // }
+            const { success } = await isHuman()
+            if (!success) {
+                dontShowLoader()
+                return
+            }
 
             const data = {
                 name: document.getElementById('name').value,
@@ -392,8 +392,7 @@ export async function isHuman() {
             }
         )
 
-        // const response = await fetch(`${api_url}/verify-recaptcha`, {
-        const response = await fetch(`${api_url}`, {
+        const response = await fetch(`${api_url}/verify-recaptcha`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
