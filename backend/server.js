@@ -53,7 +53,7 @@ app.use((req, res, next) => {
 // })
 
 // Route pour vérifier le reCAPTCHA
-app.post('/api/verify-recaptcha', async (req, res) => {
+app.post('/verify-recaptcha', async (req, res) => {
     const { token } = req.body
 
     if (!token) {

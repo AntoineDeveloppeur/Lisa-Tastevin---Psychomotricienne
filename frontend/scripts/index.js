@@ -267,9 +267,9 @@ function showFailureInSendingTheForm() {
 }
 
 //en production
-//const api_url = '/api'
+const api_url = '/api'
 //en local
-const api_url = 'http://localhost:3000'
+//const api_url = 'http://localhost:3000'
 
 async function sendForm() {
     document.getElementById('form').addEventListener('submit', async (e) => {
@@ -391,7 +391,6 @@ export async function isHuman() {
                 action: 'submit',
             }
         )
-        console.log('token', token)
 
         const response = await fetch(`${api_url}/verify-recaptcha`, {
             method: 'POST',
