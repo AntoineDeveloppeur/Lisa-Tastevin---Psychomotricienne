@@ -44,6 +44,14 @@ app.use((req, res, next) => {
     next()
 })
 
+// test résolution problème
+
+app.post('/api/verify-recaptcha', async (req, res) => {
+    console.log('Received request to /api/verify-recaptcha')
+    console.log('Request body:', req.body)
+    // Reste de votre logique ici
+})
+
 // Route pour vérifier le reCAPTCHA
 app.post('/verify-recaptcha', async (req, res) => {
     const { token } = req.body

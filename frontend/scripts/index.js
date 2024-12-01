@@ -267,9 +267,9 @@ function showFailureInSendingTheForm() {
 }
 
 //en production
-const api_url = '/api'
+//const api_url = '/api'
 //en local
-//const api_url = 'http://localhost:3000'
+const api_url = 'http://localhost:3000'
 
 async function sendForm() {
     document.getElementById('form').addEventListener('submit', async (e) => {
@@ -490,40 +490,4 @@ document.querySelectorAll('.secureButton').forEach((secureButton) => {
     secureButton.addEventListener('click', () =>
         clickToUncover(secureButton.id)
     )
-    //         e.preventDefault()
-    //         e.stopPropagation()
-    //         if (secureButton.id === 'form') {
-    //             showLoader()
-    //         }
-    //         // Obtenez le jeton reCAPTCHA
-    //         console.log('je vois le clique sur le securebutton')
-    //         grecaptcha.ready(() => {
-    //             grecaptcha
-    //                 .execute('6LfI5ooqAAAAALgz_7QAZleuziMuAylELYN57-6j', {
-    //                     action: 'submit',
-    //                 })
-    //                 .then((token) => {
-    //                     // Envoyez le jeton au serveur pour vérification
-    //                     fetch(`${api_url}/verify-recaptcha`, {
-    //                         method: 'POST',
-    //                         headers: {
-    //                             'Content-Type': 'application/json',
-    //                         },
-    //                         body: JSON.stringify({ token }),
-    //                     })
-    //                         .then((response) => response.json())
-    //                         .then((data) => {
-    //                             if (data.success) {
-    //                                 if (secureButton.id === 'form') {
-    //                                     console.log('pasage captcha réussi')
-    //                                     sendForm()
-    //                                 }
-    //                                 clickToUncover(secureButton.id)
-    //                             } else {
-    //                                 alert('Échec de la validation reCAPTCHA.')
-    //                             }
-    //                         })
-    //                         .catch((error) => console.error('Erreur :', error))
-    //                 })
-    //         })
 })
