@@ -277,11 +277,11 @@ async function sendForm() {
         showLoader()
 
         try {
-            const { success } = await isHuman()
-            if (!success) {
-                dontShowLoader()
-                return
-            }
+            // const { success } = await isHuman()
+            // if (!success) {
+            //     dontShowLoader()
+            //     return
+            // }
 
             const data = {
                 name: document.getElementById('name').value,
