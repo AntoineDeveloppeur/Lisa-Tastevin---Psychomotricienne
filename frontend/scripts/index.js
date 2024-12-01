@@ -391,6 +391,7 @@ export async function isHuman() {
                 action: 'submit',
             }
         )
+        console.log('token', token)
 
         const response = await fetch(`${api_url}/verify-recaptcha`, {
             method: 'POST',
