@@ -29,7 +29,7 @@ app.use(express.json())
 app.use((req, res, next) => {
     res.setHeader(
         'Access-Control-Allow-Origin',
-        'http://127.0.0.1:5501'
+        '*'
         // 'https://lisa-tastevin-psychomotricienne.fr'
     )
     res.setHeader(
