@@ -276,39 +276,39 @@ async function sendForm() {
         e.preventDefault()
         showLoader()
 
-        // try {
-        //     const { success } = await isHuman()
-        //     if (!success) {
-        //         dontShowLoader()
-        //         return
-        //     }
+        try {
+            const { success } = await isHuman()
+            if (!success) {
+                dontShowLoader()
+                return
+            }
 
-        const data = {
-            name: document.getElementById('name').value,
-            email: document.getElementById('email').value,
-            phone: document.getElementById('phone').value,
-            message: document.getElementById('name').value,
-        }
-        fetch(api_url, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(data),
-        })
-            .then((response) => {
-                deleteForm()
-                if (!response.ok) {
+            const data = {
+                name: document.getElementById('name').value,
+                email: document.getElementById('email').value,
+                phone: document.getElementById('phone').value,
+                message: document.getElementById('name').value,
+            }
+            fetch(api_url, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(data),
+            })
+                .then((response) => {
+                    deleteForm()
+                    if (!response.ok) {
+                        showFailureInSendingTheForm()
+                    } else {
+                        showSuccessInSendingTheForm()
+                    }
+                })
+                .catch((error) => {
+                    deleteForm()
                     showFailureInSendingTheForm()
-                } else {
-                    showSuccessInSendingTheForm()
-                }
-            })
-            .catch((error) => {
-                deleteForm()
-                showFailureInSendingTheForm()
-            })
-        // } catch(error) {
-        //     console.error("Erreur lors de l'envoi du formulaire:", error)
-        // }
+                })
+        } catch (error) {
+            console.error("Erreur lors de l'envoi du formulaire:", error)
+        }
     })
 }
 
@@ -402,6 +402,7 @@ export async function isHuman() {
 
         const data = await response.json()
         if (data.success) {
+            console.log('data', data)
             return data
         } else {
             return data
