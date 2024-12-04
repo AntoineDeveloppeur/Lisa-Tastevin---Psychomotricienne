@@ -46,26 +46,27 @@ app.use((req, res, next) => {
 // Route pour vérifier le reCAPTCHA
 app.post('/verify-recaptcha', async (req, res) => {
     const { token } = req.body
-    res.status(201).json ( {message : "test  recaptcha vide"})
-    // if (!token) {
-    //     return res
-    //         .status(400)
-    //         .json({ success: false, message: 'Token manquant.' })
-    // }
+    console.log('je suis dans la veriication du captacha dans le serveur')
 
-    // try {
-    //     // Effectuez la requête avec fetch
-    //     const response = await fetch(
-    //         `https://www.google.com/recaptcha/api/siteverify`,
-    //         {
-    //             method: 'POST',
-    //             headers: {
-    //                 'Content-Type': 'application/x-www-form-urlencoded',
-    //             },
-    //             body: new URLSearchParams({
-    //                 secret: process.env.RECAPTCHA_SECRET_KEY,
-    //                 response: token,
-    //             }),
+    if (!token) {
+        return res
+            .status(400)
+            .json({ success: false, message: 'Token manquant.' })
+    }
+
+    try {
+        // Effectuez la requête avec fetch
+        const response = await fetch(
+            `https://www.google.com/recaptcha/api/siteverify`,
+            {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: new URLSearchParams({
+                    secret: process.env.RECAPTCHA_SECRET_KEY,
+                    response: token,
+                }),
             }
         )
 
