@@ -10,7 +10,6 @@ const lisaData = require('./data/lisa_data.json')
 const app = express()
 
 //Configurer l'application pour qu'elle se branche sur le port 3000
-app.set('port', 3000)
 
 //Créer un serveur avec la fonction internet http qui fonctionne avec l'application nommée "app"
 const server = http.createServer(app)
@@ -18,7 +17,7 @@ const server = http.createServer(app)
 //Déclencher l'écoute du serveur
 // TODO : faire une version local car je ne suis pas sûr que ça fonctionne
 const port = 3000
-app.listen(port, '127.0.0.1', () => {
+server.listen(port, '127.0.0.1', () => {
     console.log(`Server is running on http://127.0.0.1:${port}`)
 })
 
