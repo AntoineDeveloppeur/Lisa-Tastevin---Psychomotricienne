@@ -30,10 +30,10 @@ const sendEmail = async (options) => {
 
     try {
         const result = await request
-        console.log('Email sent successfully:', result.body)
+        console.log('Email sent successfully:')
         return result.body
     } catch (error) {
-        console.error('Error sending email:', error)
+        console.error('Error sending email:')
         throw error
     }
 }

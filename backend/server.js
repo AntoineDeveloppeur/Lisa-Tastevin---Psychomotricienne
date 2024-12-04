@@ -3,7 +3,6 @@ const http = require('http')
 require('dotenv').config({ path: './.env' })
 const sendSMS = require('./middleware/sms')
 const mailjetMiddleware = require('./middleware/mailjetMiddleware')
-console.log('le server tourne')
 const lisaData = require('./data/lisa_data.json')
 
 //Créer l'application avec le framework express
