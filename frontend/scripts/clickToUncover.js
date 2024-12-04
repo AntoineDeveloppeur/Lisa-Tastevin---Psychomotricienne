@@ -28,10 +28,10 @@ import { isHuman } from './index.js'
 
 export async function clickToUncover(buttonId) {
     try {
-        // const { success, phone, email } = await isHuman()
-        // if (!success) {
-        //     return
-        // }
+        const { success, phone, email } = await isHuman()
+        if (!success) {
+            return
+        }
         const element = document.getElementById(buttonId)
         if (element.id === 'phoneToUncover') {
             // let phoneWithSpaces = ''
