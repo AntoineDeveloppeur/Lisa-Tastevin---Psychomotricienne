@@ -283,33 +283,33 @@ async function sendForm() {
         //         return
         //     }
 
-            const data = {
-                name: document.getElementById('name').value,
-                email: document.getElementById('email').value,
-                phone: document.getElementById('phone').value,
-                message: document.getElementById('name').value,
-            }
-            fetch(api_url, {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(data),
-            })
-                .then((response) => {
-                    deleteForm()
-                    if (!response.ok) {
-                        showFailureInSendingTheForm()
-                    } else {
-                        showSuccessInSendingTheForm()
-                    }
-                })
-                .catch((error) => {
-                    deleteForm()
-                    showFailureInSendingTheForm()
-                })
-        } catch(error) {
-            console.error("Erreur lors de l'envoi du formulaire:", error)
+        const data = {
+            name: document.getElementById('name').value,
+            email: document.getElementById('email').value,
+            phone: document.getElementById('phone').value,
+            message: document.getElementById('name').value,
         }
-    )
+        fetch(api_url, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(data),
+        })
+            .then((response) => {
+                deleteForm()
+                if (!response.ok) {
+                    showFailureInSendingTheForm()
+                } else {
+                    showSuccessInSendingTheForm()
+                }
+            })
+            .catch((error) => {
+                deleteForm()
+                showFailureInSendingTheForm()
+            })
+        // } catch(error) {
+        //     console.error("Erreur lors de l'envoi du formulaire:", error)
+        // }
+    })
 }
 
 sendForm()
