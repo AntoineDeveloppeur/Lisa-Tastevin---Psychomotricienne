@@ -168,14 +168,11 @@ function clickAnimationForButton() {
 clickAnimationForButton()
 
 function greyButtonWhenClicked() {
-    const button = document.querySelectorAll('.button-to-grey')
-    button.forEach((button) => {
+    const buttons = document.querySelectorAll('.button-to-grey')
+    buttons.forEach((button) => {
         button.addEventListener('click', () => {
-            if (button.classList.contains('darkenButton')) {
-                button.classList.remove('darkenButton')
-            } else {
-                button.classList.add('darkenButton')
-            }
+            button.classList.toggle('darkenButton')
+            // Enlève le grisement pour le boutton d'appel au bout de 1s
             if (
                 button.classList.contains(
                     'OuMeTrouver__flexbox2__div--form__button--appel'
@@ -201,11 +198,7 @@ function showForm() {
         '.OuMeTrouver__flexbox2__div--form__form'
     )
     const clickOnFormButton = () => {
-        if (form.classList.contains('form-visible')) {
-            form.classList.remove('form-visible')
-        } else {
-            form.classList.add('form-visible')
-        }
+        form.classList.toggle('form-visible')
     }
     formButton.addEventListener('click', clickOnFormButton)
 }
@@ -267,9 +260,9 @@ function showFailureInSendingTheForm() {
 }
 
 //en production
-const api_url = '/api'
+//const api_url = '/api'
 //en local
-//const api_url = 'http://localhost:3000'
+const api_url = 'http://localhost:3000'
 
 async function sendForm() {
     document.getElementById('form').addEventListener('submit', async (e) => {
