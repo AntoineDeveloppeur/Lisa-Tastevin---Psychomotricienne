@@ -56,6 +56,7 @@ app.post('/verify-recaptcha', async (req, res) => {
 
     try {
         // Effectuez la requête avec fetch
+        console.log('je suis dans le try de app.post(verifycapte)')
         const response = await fetch(
             `https://www.google.com/recaptcha/api/siteverify`,
             {
@@ -83,6 +84,7 @@ app.post('/verify-recaptcha', async (req, res) => {
             })
         } else {
             // Échec de la validation
+            console.log('echec de la validation du captache')
             return res.status(400).json({
                 success: false,
                 message: 'Validation échouée.',
