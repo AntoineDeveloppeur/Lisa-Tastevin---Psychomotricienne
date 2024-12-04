@@ -45,10 +45,8 @@ app.use((req, res, next) => {
 // Route pour vérifier le reCAPTCHA
 app.post('/verify-recaptcha', async (req, res) => {
     const { token } = req.body
-    console.log('je suis dans la veriication du captacha dans le serveur')
 
     if (!token) {
-        console.log('je suis dans la boucle if qui vérifie le token')
         return res
             .status(400)
             .json({ success: false, message: 'Token manquant.' })
@@ -84,7 +82,7 @@ app.post('/verify-recaptcha', async (req, res) => {
             })
         } else {
             // Échec de la validation
-            console.log('echec de la validation du captache')
+            ;('echec de la validation du captache')
             return res.status(400).json({
                 success: false,
                 message: 'Validation échouée.',
@@ -100,7 +98,6 @@ app.post('/verify-recaptcha', async (req, res) => {
 })
 
 app.post('/', mailjetMiddleware, async (req, res) => {
-    console.log("je suis dans app.use de l'envoi de la réponse au client")
     try {
         //const { to, subject, text } = req.body
         const to = 'antoine.verove@gmail.com'
@@ -111,7 +108,6 @@ app.post('/', mailjetMiddleware, async (req, res) => {
             message:
                 'Le formulaire a été envoyé avec succès, je reviens vers vous rapidement.',
         })
-        console.log('je suis dans post à la fin du try')
     } catch (error) {
         res.status(500).json({ error: 'Failed to send email' })
     }
