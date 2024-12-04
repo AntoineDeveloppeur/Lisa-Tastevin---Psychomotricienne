@@ -48,6 +48,7 @@ app.post('/verify-recaptcha', async (req, res) => {
     console.log('je suis dans la veriication du captacha dans le serveur')
 
     if (!token) {
+        console.log('je suis dans la boucle if qui vérifie le token')
         return res
             .status(400)
             .json({ success: false, message: 'Token manquant.' })
