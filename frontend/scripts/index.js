@@ -276,12 +276,12 @@ async function sendForm() {
         e.preventDefault()
         showLoader()
 
-        try {
-            const { success } = await isHuman()
-            if (!success) {
-                dontShowLoader()
-                return
-            }
+        // try {
+        //     const { success } = await isHuman()
+        //     if (!success) {
+        //         dontShowLoader()
+        //         return
+        //     }
 
             const data = {
                 name: document.getElementById('name').value,
@@ -306,10 +306,10 @@ async function sendForm() {
                     deleteForm()
                     showFailureInSendingTheForm()
                 })
-        } catch (error) {
+        } catch(error) {
             console.error("Erreur lors de l'envoi du formulaire:", error)
         }
-    })
+    )
 }
 
 sendForm()
