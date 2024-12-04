@@ -405,10 +405,11 @@ export async function isHuman() {
             console.log('data', data)
             return data
         } else {
+            console.log('data si la la réponse nest pas un ssccès', data)
             return data
         }
     } catch (error) {
-        console.error('Erreur :', error)
+        console.error('Erreur au try de isHumen :', error)
         throw error
     }
 }
