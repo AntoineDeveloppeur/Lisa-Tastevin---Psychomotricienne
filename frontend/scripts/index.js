@@ -198,7 +198,10 @@ function showForm() {
         '.OuMeTrouver__flexbox2__div--form__form'
     )
     const clickOnFormButton = () => {
-        form.classList.toggle('form-visible')
+        form.classList.contains('form-visible')
+            ? form.classList.remove('form-visible')
+            : form.classList.add('form-visible')
+        // form.classList.toggle('form-visible')
     }
     formButton.addEventListener('click', clickOnFormButton)
 }
