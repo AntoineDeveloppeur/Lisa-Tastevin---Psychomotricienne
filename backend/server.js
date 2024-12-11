@@ -102,7 +102,7 @@ app.post('/', mailjetMiddleware, async (req, res) => {
         //const { to, subject, text } = req.body
         const to = 'antoine.verove@gmail.com'
         const subject = `Quelqu'un t'as envoyé un message depuis le formulaire de ton site`
-        const text = `Bonjour Lisa,<br><br>${req.body.name} a écrit ce message :<br>${req.body.message}<br><br>Voici les coordonnées de ${req.body.name}:<br>${req.body.email}<br>${req.body.phone}<br>Bonne journée &#x1F60A;`
+        const html = `Bonjour Lisa,<br><br>${req.body.name} a écrit ce message :<br>${req.body.message}<br><br>Voici les coordonnées de ${req.body.name}:<br>${req.body.email}<br>${req.body.phone}<br>Bonne journée &#x1F60A;`
         await req.sendEmail({ to, subject, html })
         res.status(200).json({
             message:
