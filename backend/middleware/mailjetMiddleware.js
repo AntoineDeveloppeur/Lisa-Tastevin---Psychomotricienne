@@ -7,7 +7,7 @@ const mailjet = new Mailjet({
 })
 
 const sendEmail = async (options) => {
-    const { to, subject, text, html } = options
+    const { to, subject, html } = options
 
     const request = mailjet.post('send', { version: 'v3.1' }).request({
         Messages: [
@@ -22,7 +22,6 @@ const sendEmail = async (options) => {
                     },
                 ],
                 Subject: subject,
-                TextPart: text,
                 HTMLPart: html || text,
             },
         ],
