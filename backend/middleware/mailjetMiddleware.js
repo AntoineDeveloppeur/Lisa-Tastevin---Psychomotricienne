@@ -22,7 +22,7 @@ const sendEmail = async (options) => {
                     },
                 ],
                 Subject: subject,
-                HTMLPart: html || text,
+                HTMLPart: html,
             },
         ],
     })
