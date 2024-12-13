@@ -100,7 +100,7 @@ app.post('/verify-recaptcha', async (req, res) => {
 app.post('/', mailjetMiddleware, async (req, res) => {
     try {
         //const { to, subject, text } = req.body
-        const to = 'antoine.verove@gmail.com'
+        const to = process.env.EMAIL_RECEIVER
         const subject = `Quelqu'un t'as envoyé un message depuis le formulaire de ton site`
         const text = `Bonjour Lisa,
 
