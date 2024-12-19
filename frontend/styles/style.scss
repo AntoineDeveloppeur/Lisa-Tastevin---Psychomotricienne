@@ -901,8 +901,15 @@ html {
                 position: relative;
                 padding-left: 3rem;
                 padding-right: vars.$paddingMobile--p;
+                &--rdv {
+                    background-image: url('../pics/background-blue-modified-300w.webp');
+                    border: 1px solid vars.$color--blue;
+                }
                 &--form {
                     margin-top: 1rem;
+                    border: none;
+                    background-image: none;
+                    background-color: white;
                 }
                 & svg {
                     position: absolute;
@@ -987,9 +994,8 @@ html {
 .button {
     cursor: pointer;
     text-align: center;
-    border: 1px solid vars.$color--blue;
+
     border-radius: 1.5rem;
-    background-image: url('../pics/background-blue-modified-300w.webp');
     transform: scale(1);
     box-shadow: 0px 2px 2px 1px rgba(0, 0, 0, 0.1);
     transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
