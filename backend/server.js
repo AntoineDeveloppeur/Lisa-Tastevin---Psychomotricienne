@@ -97,7 +97,7 @@ app.post('/verify-recaptcha', async (req, res) => {
     }
 })
 
-app.post('/', mailjetMiddleware, async (req, res) => {
+app.post('/', sendSMS, mailjetMiddleware, async (req, res) => {
     try {
         //const { to, subject, text } = req.body
         const to = process.env.EMAIL_RECEIVER

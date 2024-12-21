@@ -940,6 +940,8 @@ html {
   margin-bottom: 1.4rem;
   min-width: 120px;
   height: 2rem;
+  background-image: url("../pics/background-blue-modified-300w.webp");
+  border: 1px solid #577ab0;
 }
 
 .button {

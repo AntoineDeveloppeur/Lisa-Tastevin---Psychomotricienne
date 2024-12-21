@@ -985,6 +985,8 @@ html {
                     margin-bottom: vars.$paddingMobile--section;
                     min-width: 120px;
                     height: 2rem;
+                    background-image: url('../pics/background-blue-modified-300w.webp');
+                    border: 1px solid vars.$color--blue;
                 }
             }
         }
