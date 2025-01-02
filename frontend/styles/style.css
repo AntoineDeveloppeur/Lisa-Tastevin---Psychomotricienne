@@ -825,6 +825,7 @@ html {
   max-height: 250px;
   aspect-ratio: 1/1.2;
   max-width: 400px;
+  width: 100%;
   background-color: #eef1f6;
   z-index: -1;
   border-radius: 59% 41% 30% 70%/55% 35% 66% 46%;
