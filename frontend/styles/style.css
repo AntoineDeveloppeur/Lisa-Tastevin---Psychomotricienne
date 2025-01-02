@@ -740,6 +740,8 @@ html {
 
 .OuMeTrouver {
   padding-top: 2.4rem;
+  padding-left: 1.4rem;
+  padding-right: 1.4rem;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -812,11 +814,28 @@ html {
   font-size: 1rem;
   color: #577ab0;
 }
-.OuMeTrouver__flexbox1__img {
-  width: 75%;
+.OuMeTrouver__flexbox1__pic {
+  position: relative;
+}
+.OuMeTrouver__flexbox1__pic::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  max-height: 250px;
+  aspect-ratio: 1/1.2;
   max-width: 400px;
-  min-width: 300px;
+  background-color: #eef1f6;
+  z-index: -1;
+  border-radius: 59% 41% 30% 70%/55% 35% 66% 46%;
+  transform: scale(1.05) rotate(-10deg);
+}
+.OuMeTrouver__flexbox1__img {
+  width: 100%;
+  max-height: 250px;
+  max-width: 400px;
   margin-bottom: 1rem;
+  border-radius: 59% 41% 30% 70%/55% 35% 66% 46%;
 }
 .OuMeTrouver__flexbox2 {
   display: flex;
@@ -1185,6 +1204,16 @@ footer {
     flex-direction: row-reverse;
     gap: 1rem;
     margin-bottom: 1rem;
+  }
+  .OuMeTrouver__flexbox1__pic::after {
+    width: 75%;
+    max-height: none;
+    min-width: 300px;
+  }
+  .OuMeTrouver__flexbox1__img {
+    width: 75%;
+    max-height: none;
+    min-width: 300px;
   }
   .OuMeTrouver__flexbox2__button {
     min-width: 280px !important;

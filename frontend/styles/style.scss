@@ -783,6 +783,9 @@ html {
 
 .OuMeTrouver {
     padding-top: calc(vars.$paddingMobile--section + 1rem);
+    padding-left: vars.$paddingMobile--section;
+    padding-right: vars.$paddingMobile--section;
+
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -861,11 +864,32 @@ html {
                 }
             }
         }
+        &__pic {
+            position: relative;
+            &::after {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                max-height: 250px;
+                aspect-ratio: 1/1.2;
+                max-width: 400px;
+                // min-width: 300px;
+                background-color: vars.$color--card1;
+                z-index: -1;
+                // border-radius: 76% 24% 59% 41% / 31% 57% 43% 69%;
+                border-radius: vars.$border-radius;
+                transform: scale(1.05) rotate(-10deg);
+            }
+        }
         &__img {
-            width: 75%;
+            width: 100%;
+            max-height: 250px;
             max-width: 400px;
-            min-width: 300px;
+            // min-width: 300px;
             margin-bottom: 1rem;
+            border-radius: vars.$border-radius;
+            // border-radius: 71% 29% 30% 70% / 68% 39% 61% 32%;
         }
     }
     &__flexbox2 {
@@ -1245,6 +1269,19 @@ footer {
             flex-direction: row-reverse;
             gap: 1rem;
             margin-bottom: 1rem;
+
+            &__pic {
+                &::after {
+                    width: 75%;
+                    max-height: none;
+                    min-width: 300px;
+                }
+            }
+            &__img {
+                width: 75%;
+                max-height: none;
+                min-width: 300px;
+            }
         }
         &__flexbox2 {
             &__button {
