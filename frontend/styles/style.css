@@ -95,7 +95,7 @@ html {
 }
 
 .font-text {
-  font-family: EB Garamond, serif;
+  font-family: EB Garamond, Garamond, Libre Baskerville, Times New Roman, Times, serif;
   font-optical-sizing: auto;
   font-weight: 400;
   font-style: normal;
@@ -110,7 +110,7 @@ html {
 }
 
 .font-title-h1 {
-  font-family: Cardo, serif;
+  font-family: Cardo, Palatino Linotype, Book Antiqua, Palatino, Georgia, serif;
   font-weight: 600;
   font-style: normal;
   font-size: 1.235rem;
@@ -118,7 +118,7 @@ html {
 }
 
 .font-title-h2 {
-  font-family: Cardo, serif;
+  font-family: Cardo, Palatino Linotype, Book Antiqua, Palatino, Georgia, serif;
   font-weight: 600;
   font-style: normal;
   font-size: 1.1rem;
@@ -178,7 +178,7 @@ html {
   align-items: center;
 }
 .header--mobile__logoAndName__name__p {
-  font-family: The Nautigal, cursive;
+  font-family: The Nautigal, Arial Brush Script MT, cursive;
   font-weight: 400;
   font-style: normal;
   font-size: 2rem;
@@ -188,7 +188,7 @@ html {
   margin-bottom: -8px;
 }
 .header--mobile__logoAndName__name__job {
-  font-family: Cardo, serif;
+  font-family: Cardo, Palatino Linotype, Book Antiqua, Palatino, Georgia, serif;
   font-weight: 400;
   font-style: normal;
   font-size: 16px;
@@ -301,7 +301,7 @@ html {
   padding: 10px 0;
   transition-delay: 2s;
   text-align: right;
-  font-family: EB Garamond, serif;
+  font-family: EB Garamond, Garamond, Libre Baskerville, Times New Roman, Times, serif;
   color: #c7a54b;
 }
 #menu ul li a {
@@ -341,7 +341,7 @@ html {
   align-items: center;
 }
 .header--desktop__logoAndName__name__p {
-  font-family: The Nautigal, cursive;
+  font-family: The Nautigal, Arial Brush Script MT, cursive;
   font-weight: 400;
   font-style: normal;
   font-size: 2rem;
@@ -351,7 +351,7 @@ html {
   margin-bottom: -8px;
 }
 .header--desktop__logoAndName__name__job {
-  font-family: Cardo, serif;
+  font-family: Cardo, Palatino Linotype, Book Antiqua, Palatino, Georgia, serif;
   font-weight: 400;
   font-style: normal;
   font-size: 16px;
