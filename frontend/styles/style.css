@@ -80,6 +80,11 @@ select {
   font: inherit;
 }
 
+.grecaptcha-badge {
+  visibility: hidden !important;
+  opacity: 0 !important;
+}
+
 /*
 *
 ******CSS reset ends*****
