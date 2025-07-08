@@ -1,4 +1,4 @@
-#  ✨ Lisa Tastevin - Psychomotricienne ✨
+# ✨ Lisa Tastevin - Psychomotricienne ✨
 
 [![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)](https://developer.mozilla.org/fr/docs/Web/HTML)
 [![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)](https://developer.mozilla.org/fr/docs/Web/CSS)
@@ -7,12 +7,37 @@
 [![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=node.js&logoColor=white)](https://nodejs.org/)
 [![Express](https://img.shields.io/badge/Express-000000?style=for-the-badge&logo=express&logoColor=white)](https://expressjs.com/)
 
-Une professionnelle de santé m'a confié la création de son site vitrine. 🌟
-Le défi ? Concevoir un design qui reflète douceur et sécurité, tout en intégrant des animations subtiles pour capter l'attention des visiteurs. 🎨
+Une professionnelle de santé m'a confié la création de son site vitrine. 🌟 Le
+défi ? Concevoir un design qui reflète douceur et sécurité, tout en intégrant
+des animations subtiles pour capter l'attention des visiteurs. 🎨
 
-Nous avons trouvé ensemble un équilibre entre esthétique et expérience utilisateur. ✨
+Nous avons trouvé ensemble un équilibre entre esthétique et expérience
+utilisateur. ✨
 
-🔗 [lisa-tastevin-psychomotricienne.fr](https://lisa-tastevin-psychomotricienne.fr)
+🔗
+[lisa-tastevin-psychomotricienne.fr](https://lisa-tastevin-psychomotricienne.fr)
+
+<br>
+
+## 🛠️ Technologies utilisées
+
+- **Frontend** : HTML, SCSS, JavaScript
+- **Backend** : Node.js, Express
+- **APIs** :
+  [![Twilio](https://img.shields.io/badge/Twilio-F22F46?style=for-the-badge&logo=twilio&logoColor=white)](https://www.twilio.com/)
+  [![Google ReCaptcha](https://img.shields.io/badge/Google_ReCaptcha-4285F4?style=for-the-badge&logo=google&logoColor=white)](https://www.google.com/recaptcha/)
+  [![Mailjet](https://img.shields.io/badge/Mailjet-1A82E2?style=for-the-badge&logo=mailjet&logoColor=white)](https://www.mailjet.com/)
+
+<br>
+
+## ✨ Fonctionnalités
+
+- 📬 **Formulaire de contact** : Lorsqu'un utilisateur rempli le formulaire de
+  contact un sms et un email sont envoyé respectivement via Les API Twilio et
+  Mailjet à Lisa
+- 🔒 **Google ReCaptcha** pour protéger son adresse email et numéro de téléphone
+
+<br>
 
 ## 🚀 Installation et démarrage
 
@@ -22,19 +47,7 @@ Nous avons trouvé ensemble un équilibre entre esthétique et expérience utili
 
 ### 🏁 Démarrage du projet
 
-- Seule la partie frontend vous sera accessible : clique droit sur index.html puis 'Ouvrir avec live server'
-- La partie backend ne fonctionne qu'avec les clés de connexion aux différents services
-
-## 🛠️ Technologies utilisées
-
-- **Frontend** : HTML, SCSS, JavaScript
-- **Backend** : Node.js, Express
-- **APIs** : 
-  [![Twilio](https://img.shields.io/badge/Twilio-F22F46?style=for-the-badge&logo=twilio&logoColor=white)](https://www.twilio.com/)
-  [![Google ReCaptcha](https://img.shields.io/badge/Google_ReCaptcha-4285F4?style=for-the-badge&logo=google&logoColor=white)](https://www.google.com/recaptcha/)
-  [![Mailjet](https://img.shields.io/badge/Mailjet-1A82E2?style=for-the-badge&logo=mailjet&logoColor=white)](https://www.mailjet.com/)
-
-## ✨ Fonctionnalités
-
-  - 📬 **Formulaire de contact** : Lorsqu'un utilisateur rempli le formulaire de contact un sms et un email sont envoyé respectivement via Les API Twilio et Mailjet à Lisa
-  - 🔒 **Google ReCaptcha** pour protéger son adresse email et numéro de téléphone
+- Seule la partie frontend vous sera accessible : clique droit sur index.html
+  puis 'Ouvrir avec live server'
+- La partie backend ne fonctionne qu'avec les clés de connexion aux différents
+  services
