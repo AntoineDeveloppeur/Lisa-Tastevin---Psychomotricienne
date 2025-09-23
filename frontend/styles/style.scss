@@ -723,6 +723,9 @@ html {
       &--card3 {
         background-color: vars.$color--card3;
       }
+      &--card4 {
+        background-color: vars.$color--card4;
+      }
       &--extended {
         padding: calc(vars.$paddingMobile--section + 0.5rem);
       }
@@ -1082,6 +1085,10 @@ html {
 
 .highlight--card3 {
   stroke: darken(vars.$color--card3, 10);
+}
+
+.highlight--card4 {
+  stroke: darken(vars.$color--card4, 10);
 }
 
 .text-to-highlight {

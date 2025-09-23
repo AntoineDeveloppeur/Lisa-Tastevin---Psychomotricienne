@@ -685,10 +685,13 @@ html {
   background-color: #eef1f6;
 }
 .Lisa__cards__card--card2 {
-  background-color: #e7ecf2;
+  background-color: #e9edf3;
 }
 .Lisa__cards__card--card3 {
-  background-color: #e1e6ef;
+  background-color: #e4e9f1;
+}
+.Lisa__cards__card--card4 {
+  background-color: #dfe5ee;
 }
 .Lisa__cards__card--extended {
   padding: 1.9rem;
@@ -1025,11 +1028,15 @@ html {
 }
 
 .highlight--card2 {
-  stroke: #c6d0e1;
+  stroke: #c8d1e2;
 }
 
 .highlight--card3 {
-  stroke: #bfcbdd;
+  stroke: #c3cddf;
+}
+
+.highlight--card4 {
+  stroke: #bec9dc;
 }
 
 .text-to-highlight {

@@ -74,8 +74,9 @@ $color--strokecolor: lighten($color--blue, 40);
 
 //Cards colors
 $color--card1: #eef1f6;
-$color--card2: darken(#eef1f6, 2);
-$color--card3: darken(#eef1f6, 4);
+$color--card2: darken(#eef1f6, 1.5);
+$color--card3: darken(#eef1f6, 3);
+$color--card4: darken(#eef1f6, 4.5);
 
 //Shapes
 $border-radius: 59% 41% 30% 70% / 55% 35% 66% 46%;
