@@ -39,11 +39,11 @@ utilisateur. ✨
 
 <br>
 
-## 🚀 Installation et démarrage
+## 🚀 Installation et démarrage en local
 
 ### 📋 Prérequis
 
-- Un IDE avec la possibilié d'ouvrir un 'live server'
+- Un IDE avec la possibilité d'ouvrir un 'live server'
 
 ### 🏁 Démarrage du projet
 
@@ -51,3 +51,15 @@ utilisateur. ✨
   puis 'Ouvrir avec live server'
 - La partie backend ne fonctionne qu'avec les clés de connexion aux différents
   services
+
+## Déploiement pour l'admin
+
+- Push les changement sur la branch main
+- Se connecter sur le vps et pull la branch main dans le dossier contenant la
+  codebase de Lisa.
+- Redémarrer le serveur si changement sur le backend
+
+```
+pm2 list
+pm2 restart <numéro-du-backend-de-Lisa>
+```
