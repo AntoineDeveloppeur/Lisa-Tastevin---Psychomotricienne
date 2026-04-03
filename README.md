@@ -54,6 +54,8 @@ utilisateur. ✨
 
 ## Déploiement pour l'admin
 
+- Vérifier dans frontend/scripts/index.js que l'url de l'api soit celui de
+  production
 - Push les changement sur la branch main
 - Se connecter sur le vps et pull la branch main dans le dossier contenant la
   codebase de Lisa.
