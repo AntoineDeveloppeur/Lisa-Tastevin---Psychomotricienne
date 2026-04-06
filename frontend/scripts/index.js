@@ -1,21 +1,21 @@
-import { responsivePreload } from './responsivePreload.js'
-import { clickToUncover } from './clickToUncover.js'
+import { responsivePreload } from "./responsivePreload.js"
+import { clickToUncover } from "./clickToUncover.js"
 
 responsivePreload()
 
 function addHighlight() {
-    let textToHighlight = document.querySelectorAll('.text-to-highlight')
+  let textToHighlight = document.querySelectorAll(".text-to-highlight")
 
-    textToHighlight.forEach((text) => {
-        // Met en forme le SVG
-        const numberOfCaracter = text.textContent.length
-        const width = numberOfCaracter * 7.5 + 60 / numberOfCaracter
-        const strokeWidth = 8000 / width
+  textToHighlight.forEach((text) => {
+    // Met en forme le SVG
+    const numberOfCaracter = text.textContent.length
+    const width = numberOfCaracter * 7.5 + 60 / numberOfCaracter
+    const strokeWidth = 8000 / width
 
-        //add specific color
+    //add specific color
 
-        const specificColor = text.classList[text.classList.length - 1]
-        const svgHighlight = `<span class="hindHighlight"><svg
+    const specificColor = text.classList[text.classList.length - 1]
+    const svgHighlight = `<span class="hindHighlight"><svg
                                 xmlns="http://www.w3.org/2000/svg"
                                 viewBox="-40 45 600 10"
                                 class="highlight ${specificColor}"
@@ -32,51 +32,51 @@ function addHighlight() {
                             </span>
 
                             `
-        text.innerHTML += svgHighlight
-    })
+    text.innerHTML += svgHighlight
+  })
 }
 
 addHighlight()
 
 const actionOnScroll = () => {
-    const windowHeight = window.innerHeight
+  const windowHeight = window.innerHeight
 
-    //Fait apparaître le texte de manière douce lors du défilement
-    const textsToAppear = document.querySelectorAll('.vertical-slide-animation')
-    textsToAppear.forEach((text) => {
-        const textPosition = text.getBoundingClientRect().top
-        if (textPosition < windowHeight - 70) {
-            text.classList.add('vertical-slide-animated')
-        }
-    })
-    // Fait apparaître les images de manière douce lors du défilement
-    const picsToAppear = document.querySelectorAll('.opacity-animation')
-    picsToAppear.forEach((pic) => {
-        const picPosition = pic.getBoundingClientRect().top
-        if (picPosition < windowHeight - 70) {
-            pic.classList.add('opacity-animated')
-        }
-    })
-    //Grossi puis retréci les icones lors du défilement
-    const iconToGrow = document.querySelectorAll('.icon-to-grow')
-    iconToGrow.forEach((button) => {
-        const buttonPosition = button.getBoundingClientRect().top
-        if (buttonPosition < windowHeight - 50) {
-            button.classList.add('grow')
-        }
-    })
+  //Fait apparaître le texte de manière douce lors du défilement
+  const textsToAppear = document.querySelectorAll(".vertical-slide-animation")
+  textsToAppear.forEach((text) => {
+    const textPosition = text.getBoundingClientRect().top
+    if (textPosition < windowHeight - 70) {
+      text.classList.add("vertical-slide-animated")
+    }
+  })
+  // Fait apparaître les images de manière douce lors du défilement
+  const picsToAppear = document.querySelectorAll(".opacity-animation")
+  picsToAppear.forEach((pic) => {
+    const picPosition = pic.getBoundingClientRect().top
+    if (picPosition < windowHeight - 70) {
+      pic.classList.add("opacity-animated")
+    }
+  })
+  //Grossi puis retréci les icones lors du défilement
+  const iconToGrow = document.querySelectorAll(".icon-to-grow")
+  iconToGrow.forEach((button) => {
+    const buttonPosition = button.getBoundingClientRect().top
+    if (buttonPosition < windowHeight - 50) {
+      button.classList.add("grow")
+    }
+  })
 
-    //Enlève la partie blanche qui cache le surlignement
-    const animationSurligner = document.querySelectorAll('.hindHighlight')
-    animationSurligner.forEach((cacheSurlignement) => {
-        const cachePosition = cacheSurlignement.getBoundingClientRect().top
-        if (cachePosition < windowHeight - 50) {
-            cacheSurlignement.classList.add('showhighlight')
-        }
-    })
-    highlightDesktopMenuSection()
+  //Enlève la partie blanche qui cache le surlignement
+  const animationSurligner = document.querySelectorAll(".hindHighlight")
+  animationSurligner.forEach((cacheSurlignement) => {
+    const cachePosition = cacheSurlignement.getBoundingClientRect().top
+    if (cachePosition < windowHeight - 50) {
+      cacheSurlignement.classList.add("showhighlight")
+    }
+  })
+  highlightDesktopMenuSection()
 }
-window.addEventListener('scroll', actionOnScroll)
+window.addEventListener("scroll", actionOnScroll)
 
 //Initie une première fois pour afficher les éléments qui sont visibles à l'ouverture du site
 actionOnScroll()
@@ -86,102 +86,102 @@ actionOnScroll()
  */
 
 function hideMobileMenu() {
-    const linkToSections = document.querySelectorAll('.link-to-section')
-    const checkbox = document.getElementById('checkbox')
-    linkToSections.forEach((link) =>
-        link.addEventListener('click', () => (checkbox.checked = false))
-    )
+  const linkToSections = document.querySelectorAll(".link-to-section")
+  const checkbox = document.getElementById("checkbox")
+  linkToSections.forEach((link) =>
+    link.addEventListener("click", () => (checkbox.checked = false)),
+  )
 }
 hideMobileMenu()
 
 //Améliore la précision des liens du menu vers les sections
 function goToSectionFromMenu() {
-    document.querySelectorAll('.link-to-section').forEach((link) => {
-        link.addEventListener('click', function (event) {
-            event.preventDefault() // Empêche le comportement par défaut du saut d'ancre
+  document.querySelectorAll(".link-to-section").forEach((link) => {
+    link.addEventListener("click", function (event) {
+      event.preventDefault() // Empêche le comportement par défaut du saut d'ancre
 
-            const targetId = this.getAttribute('href').substring(1) // Récupère l'ID de l'ancre
-            const targetElement = document.getElementById(targetId)
+      const targetId = this.getAttribute("href").substring(1) // Récupère l'ID de l'ancre
+      const targetElement = document.getElementById(targetId)
 
-            const offset = 60 // Décalage souhaité en pixels
-            const elementPosition =
-                targetElement.getBoundingClientRect().top + window.scrollY
-            const offsetPosition = elementPosition - offset
+      const offset = 60 // Décalage souhaité en pixels
+      const elementPosition =
+        targetElement.getBoundingClientRect().top + window.scrollY
+      const offsetPosition = elementPosition - offset
 
-            window.scrollTo({
-                top: offsetPosition,
-                behavior: 'smooth', // Ajoute un défilement fluide
-            })
-        })
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth", // Ajoute un défilement fluide
+      })
     })
+  })
 }
 goToSectionFromMenu()
 
 function highlightDesktopMenuSection() {
-    const sections = document.querySelectorAll('section')
+  const sections = document.querySelectorAll("section")
 
-    //Créer une liste avec la position de toutes les sections
-    let sectionsPositionY = []
-    sections.forEach((section) => {
-        sectionsPositionY.push(
-            section.getBoundingClientRect().top + window.scrollY - 400
-        )
-    })
-    // Une dernière valeur, correspondant à la positionY du pied de page est ajoutée pour que la boucle for qui arrive puisse fonctionner
+  //Créer une liste avec la position de toutes les sections
+  let sectionsPositionY = []
+  sections.forEach((section) => {
     sectionsPositionY.push(
-        sectionsPositionY[sectionsPositionY.length - 1] +
-            sections[sections.length - 1].scrollHeight
+      section.getBoundingClientRect().top + window.scrollY - 400,
     )
-    const menuSections = document.querySelectorAll(
-        '.header--desktop__nav__ul__li'
-    )
-    // Change le backgroud-color des sections du menu en fonction de la position de window.scrollY dans la liste des positions des menus
-    for (let i = 0; i < sectionsPositionY.length; i++) {
-        if (
-            window.scrollY >= sectionsPositionY[i] &&
-            window.scrollY <= sectionsPositionY[i + 1]
-        ) {
-            menuSections.forEach((section) => {
-                section.classList.remove('menu-couleur-inverse')
-                section.firstElementChild.classList.remove('white-text')
-            })
-            menuSections[i].classList.add('menu-couleur-inverse')
-            menuSections[i].firstElementChild.classList.add('white-text')
-        }
+  })
+  // Une dernière valeur, correspondant à la positionY du pied de page est ajoutée pour que la boucle for qui arrive puisse fonctionner
+  sectionsPositionY.push(
+    sectionsPositionY[sectionsPositionY.length - 1] +
+      sections[sections.length - 1].scrollHeight,
+  )
+  const menuSections = document.querySelectorAll(
+    ".header--desktop__nav__ul__li",
+  )
+  // Change le backgroud-color des sections du menu en fonction de la position de window.scrollY dans la liste des positions des menus
+  for (let i = 0; i < sectionsPositionY.length; i++) {
+    if (
+      window.scrollY >= sectionsPositionY[i] &&
+      window.scrollY <= sectionsPositionY[i + 1]
+    ) {
+      menuSections.forEach((section) => {
+        section.classList.remove("menu-couleur-inverse")
+        section.firstElementChild.classList.remove("white-text")
+      })
+      menuSections[i].classList.add("menu-couleur-inverse")
+      menuSections[i].firstElementChild.classList.add("white-text")
     }
+  }
 }
 
 /*
  ***** Fonctions liés aux buttons *****
  */
 function clickAnimationForButton() {
-    document.querySelectorAll('.button').forEach((button) => {
-        button.addEventListener('click', () => {
-            button.classList.add('button-clicked')
-            setTimeout(() => {
-                button.classList.remove('button-clicked')
-            }, 250)
-        })
+  document.querySelectorAll(".button").forEach((button) => {
+    button.addEventListener("click", () => {
+      button.classList.add("button-clicked")
+      setTimeout(() => {
+        button.classList.remove("button-clicked")
+      }, 250)
     })
+  })
 }
 
 clickAnimationForButton()
 
 function greyButtonWhenClicked() {
-    const buttons = document.querySelectorAll('.button-to-grey')
-    buttons.forEach((button) => {
-        button.addEventListener('click', () => {
-            button.classList.toggle('darkenButton')
-            // Enlève le grisement pour le boutton d'appel au bout de 1s
-            if (
-                button.classList.contains(
-                    'OuMeTrouver__flexbox2__div--form__button--appel'
-                )
-            ) {
-                setTimeout(() => button.classList.remove('darkenButton'), 1000)
-            }
-        })
+  const buttons = document.querySelectorAll(".button-to-grey")
+  buttons.forEach((button) => {
+    button.addEventListener("click", () => {
+      button.classList.toggle("darkenButton")
+      // Enlève le grisement pour le boutton d'appel au bout de 1s
+      if (
+        button.classList.contains(
+          "OuMeTrouver__flexbox2__div--form__button--appel",
+        )
+      ) {
+        setTimeout(() => button.classList.remove("darkenButton"), 1000)
+      }
     })
+  })
 }
 
 greyButtonWhenClicked()
@@ -191,121 +191,113 @@ greyButtonWhenClicked()
  */
 
 function showForm() {
-    const formButton = document.querySelector(
-        '.OuMeTrouver__flexbox2__div--form__button--form'
-    )
-    const form = document.querySelector(
-        '.OuMeTrouver__flexbox2__div--form__form'
-    )
-    const clickOnFormButton = () => {
-        form.classList.contains('form-visible')
-            ? form.classList.remove('form-visible')
-            : form.classList.add('form-visible')
-        // form.classList.toggle('form-visible')
-    }
-    formButton.addEventListener('click', clickOnFormButton)
+  const formButton = document.querySelector(
+    ".OuMeTrouver__flexbox2__div--form__button--form",
+  )
+  const form = document.querySelector(".OuMeTrouver__flexbox2__div--form__form")
+  const clickOnFormButton = () => {
+    form.classList.contains("form-visible")
+      ? form.classList.remove("form-visible")
+      : form.classList.add("form-visible")
+    // form.classList.toggle('form-visible')
+  }
+  formButton.addEventListener("click", clickOnFormButton)
 }
 showForm()
 
 function showLoader() {
-    const buttonSend = document.querySelector(
-        '.OuMeTrouver__flexbox2__div--form__form__button'
-    )
-    buttonSend.classList.add('dont-display')
-    const loader = document.querySelector('.loader')
-    loader.classList.remove('dont-display')
+  const buttonSend = document.querySelector(
+    ".OuMeTrouver__flexbox2__div--form__form__button",
+  )
+  buttonSend.classList.add("dont-display")
+  const loader = document.querySelector(".loader")
+  loader.classList.remove("dont-display")
 }
 
 function dontShowLoader() {
-    const buttonSend = document.querySelector(
-        '.OuMeTrouver__flexbox2__div--form__form__button'
-    )
-    buttonSend.classList.remove('dont-display')
-    const loader = document.querySelector('.loader')
-    loader.classList.add('dont-display')
+  const buttonSend = document.querySelector(
+    ".OuMeTrouver__flexbox2__div--form__form__button",
+  )
+  buttonSend.classList.remove("dont-display")
+  const loader = document.querySelector(".loader")
+  loader.classList.add("dont-display")
 }
 
 function deleteForm() {
-    const form = document.querySelector(
-        '.OuMeTrouver__flexbox2__div--form__form'
-    )
-    form.innerHTML = ''
+  const form = document.querySelector(".OuMeTrouver__flexbox2__div--form__form")
+  form.innerHTML = ""
 }
 
 function showSuccessInSendingTheForm() {
-    const form = document.querySelector(
-        '.OuMeTrouver__flexbox2__div--form__form'
-    )
-    const message = document.createElement('p')
-    message.classList.add('font-text')
-    message.style.margin = '20px'
-    message.style.textAlign = 'center'
-    message.innerHTML =
-        "<strong class='text-to-highlight'>Succès !</strong><br>J'ai bien reçu votre message, je vous recontacte très vite."
-    form.appendChild(message)
-    addHighlight()
-    actionOnScroll()
+  const form = document.querySelector(".OuMeTrouver__flexbox2__div--form__form")
+  const message = document.createElement("p")
+  message.classList.add("font-text")
+  message.style.margin = "20px"
+  message.style.textAlign = "center"
+  message.innerHTML =
+    "<strong class='text-to-highlight'>Succès !</strong><br>J'ai bien reçu votre message, je vous recontacte très vite."
+  form.appendChild(message)
+  addHighlight()
+  actionOnScroll()
 }
 
 function showFailureInSendingTheForm() {
-    const form = document.querySelector(
-        '.OuMeTrouver__flexbox2__div--form__form'
-    )
-    const message = document.createElement('p')
-    message.classList.add('font-text')
-    message.style.margin = '20px'
-    message.style.textAlign = 'center'
-    message.innerHTML =
-        "<strong class='text-to-highlight'>Malheureusement,</strong> il y a eu un problème avec le formulaire<br>Contactez-moi directement par téléphone au 06 37 33 55 10."
-    form.appendChild(message)
-    addHighlight()
-    actionOnScroll()
+  const form = document.querySelector(".OuMeTrouver__flexbox2__div--form__form")
+  const message = document.createElement("p")
+  message.classList.add("font-text")
+  message.style.margin = "20px"
+  message.style.textAlign = "center"
+  message.innerHTML =
+    "<strong class='text-to-highlight'>Malheureusement,</strong> il y a eu un problème avec le formulaire<br>Contactez-moi directement par téléphone au 06 37 33 55 10."
+  form.appendChild(message)
+  addHighlight()
+  actionOnScroll()
 }
 
 //en production
-const api_url = '/api'
+const api_url = "/api"
 //en local
-//const api_url = 'http://localhost:3000'
+// const api_url = "http://localhost:3000"
 
 async function sendForm() {
-    document.getElementById('form').addEventListener('submit', async (e) => {
-        e.preventDefault()
-        showLoader()
+  document.getElementById("form").addEventListener("submit", async (e) => {
+    e.preventDefault()
+    showLoader()
 
-        try {
-            const { success } = await isHuman()
-            if (!success) {
-                dontShowLoader()
-                return
-            }
+    try {
+      const { success } = await isHuman()
+      if (!success) {
+        dontShowLoader()
+        return
+      }
 
-            const data = {
-                name: document.getElementById('name').value,
-                email: document.getElementById('email').value,
-                phone: document.getElementById('phone').value,
-                message: document.getElementById('name').value,
-            }
-            fetch(api_url, {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(data),
-            })
-                .then((response) => {
-                    deleteForm()
-                    if (!response.ok) {
-                        showFailureInSendingTheForm()
-                    } else {
-                        showSuccessInSendingTheForm()
-                    }
-                })
-                .catch((error) => {
-                    deleteForm()
-                    showFailureInSendingTheForm()
-                })
-        } catch (error) {
-            console.error("Erreur lors de l'envoi du formulaire:", error)
-        }
-    })
+      const data = {
+        name: document.getElementById("name").value,
+        email: document.getElementById("email").value,
+        phone: document.getElementById("phone").value,
+        message: document.getElementById("textarea").value,
+      }
+      fetch(api_url, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      })
+        .then((response) => {
+          deleteForm()
+          if (!response.ok) {
+            showFailureInSendingTheForm()
+          } else {
+            showSuccessInSendingTheForm()
+          }
+        })
+        .catch((error) => {
+          deleteForm()
+          showFailureInSendingTheForm()
+        })
+    } catch (error) {
+      console.error("Erreur lors de l'envoi du formulaire:", error)
+    }
+  })
 }
 
 sendForm()
@@ -315,62 +307,60 @@ sendForm()
  */
 
 function clickAnimationForCard() {
-    document.querySelectorAll('.Lisa__cards__card').forEach((card) => {
-        card.addEventListener('click', () => {
-            card.classList.add('card-clicked')
-            setTimeout(() => {
-                card.classList.remove('card-clicked')
-            }, 201)
-        })
+  document.querySelectorAll(".Lisa__cards__card").forEach((card) => {
+    card.addEventListener("click", () => {
+      card.classList.add("card-clicked")
+      setTimeout(() => {
+        card.classList.remove("card-clicked")
+      }, 201)
     })
+  })
 }
 clickAnimationForCard()
 
 function rotateArrow(arrow) {
-    arrow.classList.contains('Lisa__cards__card__arrow--down')
-        ? arrow.classList.remove('Lisa__cards__card__arrow--down')
-        : arrow.classList.add('Lisa__cards__card__arrow--down')
+  arrow.classList.contains("Lisa__cards__card__arrow--down")
+    ? arrow.classList.remove("Lisa__cards__card__arrow--down")
+    : arrow.classList.add("Lisa__cards__card__arrow--down")
 }
 
 function showOrDontShowText(text) {
-    text.classList.contains('Lisa__cards__card__p--visible')
-        ? text.classList.remove('Lisa__cards__card__p--visible')
-        : text.classList.add('Lisa__cards__card__p--visible')
+  text.classList.contains("Lisa__cards__card__p--visible")
+    ? text.classList.remove("Lisa__cards__card__p--visible")
+    : text.classList.add("Lisa__cards__card__p--visible")
 }
 
 function changeTitleSize(title) {
-    title.classList.contains('Lisa__cards__card__imgAndTitle__h2--bigger')
-        ? title.classList.remove('Lisa__cards__card__imgAndTitle__h2--bigger')
-        : title.classList.add('Lisa__cards__card__imgAndTitle__h2--bigger')
+  title.classList.contains("Lisa__cards__card__imgAndTitle__h2--bigger")
+    ? title.classList.remove("Lisa__cards__card__imgAndTitle__h2--bigger")
+    : title.classList.add("Lisa__cards__card__imgAndTitle__h2--bigger")
 }
 
 function animateOneCard(arrow) {
-    rotateArrow(arrow)
-    const pSibling = arrow.parentElement.querySelector('.Lisa__cards__card__p')
-    showOrDontShowText(pSibling)
+  rotateArrow(arrow)
+  const pSibling = arrow.parentElement.querySelector(".Lisa__cards__card__p")
+  showOrDontShowText(pSibling)
 
-    const title = arrow.closest('.Lisa__cards__card').querySelector('h2')
-    changeTitleSize(title)
+  const title = arrow.closest(".Lisa__cards__card").querySelector("h2")
+  changeTitleSize(title)
 }
 
 function animateCards() {
-    const cards = document.querySelectorAll('.Lisa__cards__card')
-    cards.forEach((card) => {
-        card.addEventListener('click', () => {
-            const arrowAlreadyDown = document.querySelector(
-                '.Lisa__cards__card__arrow--down'
-            )
-            const arrowChildOfCard = card.querySelector(
-                '.Lisa__cards__card__arrow'
-            )
-            if (arrowAlreadyDown) {
-                animateOneCard(arrowAlreadyDown)
-            }
-            if (arrowAlreadyDown != arrowChildOfCard) {
-                animateOneCard(arrowChildOfCard)
-            }
-        })
+  const cards = document.querySelectorAll(".Lisa__cards__card")
+  cards.forEach((card) => {
+    card.addEventListener("click", () => {
+      const arrowAlreadyDown = document.querySelector(
+        ".Lisa__cards__card__arrow--down",
+      )
+      const arrowChildOfCard = card.querySelector(".Lisa__cards__card__arrow")
+      if (arrowAlreadyDown) {
+        animateOneCard(arrowAlreadyDown)
+      }
+      if (arrowAlreadyDown != arrowChildOfCard) {
+        animateOneCard(arrowChildOfCard)
+      }
     })
+  })
 }
 
 animateCards()
@@ -378,33 +368,33 @@ animateCards()
 // Vérification captcha
 
 export async function isHuman() {
-    try {
-        await new Promise((resolve) => grecaptcha.ready(resolve))
+  try {
+    await new Promise((resolve) => grecaptcha.ready(resolve))
 
-        const token = await grecaptcha.execute(
-            '6LfI5ooqAAAAALgz_7QAZleuziMuAylELYN57-6j',
-            {
-                action: 'submit',
-            }
-        )
+    const token = await grecaptcha.execute(
+      "6LfI5ooqAAAAALgz_7QAZleuziMuAylELYN57-6j",
+      {
+        action: "submit",
+      },
+    )
 
-        const response = await fetch(`${api_url}/verify-recaptcha`, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({ token }),
-        })
+    const response = await fetch(`${api_url}/verify-recaptcha`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ token }),
+    })
 
-        const data = await response.json()
-        if (data.success) {
-            return data
-        } else {
-            return data
-        }
-    } catch (error) {
-        throw error
+    const data = await response.json()
+    if (data.success) {
+      return data
+    } else {
+      return data
     }
+  } catch (error) {
+    throw error
+  }
 }
 
 // Autre façon de faire
@@ -481,8 +471,6 @@ export async function isHuman() {
 //     })
 // }
 
-document.querySelectorAll('.secureButton').forEach((secureButton) => {
-    secureButton.addEventListener('click', () =>
-        clickToUncover(secureButton.id)
-    )
+document.querySelectorAll(".secureButton").forEach((secureButton) => {
+  secureButton.addEventListener("click", () => clickToUncover(secureButton.id))
 })

@@ -1,9 +1,9 @@
-const express = require('express')
-const http = require('http')
-require('dotenv').config({ path: './.env' })
-const sendSMS = require('./middleware/sms')
-const mailjetMiddleware = require('./middleware/mailjetMiddleware')
-const lisaData = require('./data/lisa_data.json')
+const express = require("express")
+const http = require("http")
+require("dotenv").config({ path: "./.env" })
+const sendSMS = require("./middleware/sms")
+const mailjetMiddleware = require("./middleware/mailjetMiddleware")
+const lisaData = require("./data/lisa_data.json")
 
 //Créer l'application avec le framework express
 const app = express()
@@ -16,8 +16,8 @@ const server = http.createServer(app)
 //Déclencher l'écoute du serveur
 // TODO : faire une version local car je ne suis pas sûr que ça fonctionne
 const port = 3000
-server.listen(port, '127.0.0.1', () => {
-    console.log(`Server is running on http://127.0.0.1:${port}`)
+server.listen(port, "127.0.0.1", () => {
+  console.log(`Server is running on http://127.0.0.1:${port}`)
 })
 
 // Middleware pour traiter les données JSON
@@ -26,83 +26,78 @@ app.use(express.json())
 // la configuration CORS ne sert que pour le développement. En production le frontend et le backend sont
 //sur le même serveur donc il n'y a pas de conflit
 app.use((req, res, next) => {
-    res.setHeader(
-        'Access-Control-Allow-Origin',
-        '*'
-        // 'https://lisa-tastevin-psychomotricienne.fr'
-    )
-    res.setHeader(
-        'Access-Control-Allow-Headers',
-        'Origin, X-Requested-With, Content, Accept, Content-Type, Authorization'
-    )
-    res.setHeader(
-        'Access-Control-Allow-Methods',
-        'GET, POST, PUT, DELETE, PATCH, OPTIONS'
-    )
-    next()
+  res.setHeader(
+    "Access-Control-Allow-Origin",
+    "*",
+    // 'https://lisa-tastevin-psychomotricienne.fr'
+  )
+  res.setHeader(
+    "Access-Control-Allow-Headers",
+    "Origin, X-Requested-With, Content, Accept, Content-Type, Authorization",
+  )
+  res.setHeader(
+    "Access-Control-Allow-Methods",
+    "GET, POST, PUT, DELETE, PATCH, OPTIONS",
+  )
+  next()
 })
 
 // Route pour vérifier le reCAPTCHA
-app.post('/verify-recaptcha', async (req, res) => {
-    const { token } = req.body
+app.post("/verify-recaptcha", async (req, res) => {
+  const { token } = req.body
 
-    if (!token) {
-        return res
-            .status(400)
-            .json({ success: false, message: 'Token manquant.' })
+  if (!token) {
+    return res.status(400).json({ success: false, message: "Token manquant." })
+  }
+
+  try {
+    // Effectuez la requête avec fetch
+    console.log("je suis dans le try de app.post(verifycapte)")
+    const response = await fetch(
+      `https://www.google.com/recaptcha/api/siteverify`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+        body: new URLSearchParams({
+          secret: process.env.RECAPTCHA_SECRET_KEY,
+          response: token,
+        }),
+      },
+    )
+
+    const data = await response.json() // Parsez la réponse JSON
+
+    const { success, score } = data
+
+    if (success && score >= 0.5) {
+      // Validation réussie (score > 0.5 recommandé)
+      return res.json({
+        success: true,
+        message: "reCAPTCHA validé.",
+        ...lisaData,
+      })
+    } else {
+      // Échec de la validation
+      return res.status(400).json({
+        success: false,
+        message: "Validation échouée.",
+        score: score || 0,
+      })
     }
-
-    try {
-        // Effectuez la requête avec fetch
-        console.log('je suis dans le try de app.post(verifycapte)')
-        const response = await fetch(
-            `https://www.google.com/recaptcha/api/siteverify`,
-            {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/x-www-form-urlencoded',
-                },
-                body: new URLSearchParams({
-                    secret: process.env.RECAPTCHA_SECRET_KEY,
-                    response: token,
-                }),
-            }
-        )
-
-        const data = await response.json() // Parsez la réponse JSON
-
-        const { success, score } = data
-
-        if (success && score >= 0.5) {
-            // Validation réussie (score > 0.5 recommandé)
-            return res.json({
-                success: true,
-                message: 'reCAPTCHA validé.',
-                ...lisaData,
-            })
-        } else {
-            // Échec de la validation
-            ;('echec de la validation du captache')
-            return res.status(400).json({
-                success: false,
-                message: 'Validation échouée.',
-                score: score || 0,
-            })
-        }
-    } catch (error) {
-        console.error('Erreur lors de la vérification reCAPTCHA :', error)
-        return res
-            .status(500)
-            .json({ success: false, message: 'Erreur serveur.' })
-    }
+  } catch (error) {
+    console.error("Erreur lors de la vérification reCAPTCHA :", error)
+    return res.status(500).json({ success: false, message: "Erreur serveur." })
+  }
 })
 
-app.post('/', sendSMS, mailjetMiddleware, async (req, res) => {
-    try {
-        //const { to, subject, text } = req.body
-        const to = process.env.EMAIL_RECEIVER
-        const subject = `Quelqu'un t'as envoyé un message depuis le formulaire de ton site`
-        const text = `Bonjour Lisa,
+app.post("/", sendSMS, mailjetMiddleware, async (req, res) => {
+  try {
+    //const { to, subject, text } = req.body
+    const to = process.env.EMAIL_RECEIVER
+    const subject = `Quelqu'un t'as envoyé un message depuis le formulaire de ton site`
+    const text = `Bonjour Lisa,
 
         ${req.body.name} a écrit ce message :
         ${req.body.message}
@@ -112,14 +107,14 @@ app.post('/', sendSMS, mailjetMiddleware, async (req, res) => {
         ${req.body.phone}
         
         Bonne journée 😊`
-        await req.sendEmail({ to, subject, text })
-        res.status(200).json({
-            message:
-                'Le formulaire a été envoyé avec succès, je reviens vers vous rapidement.',
-        })
-    } catch (error) {
-        res.status(500).json({ error: 'Failed to send email' })
-    }
+    await req.sendEmail({ to, subject, text })
+    res.status(200).json({
+      message:
+        "Le formulaire a été envoyé avec succès, je reviens vers vous rapidement.",
+    })
+  } catch (error) {
+    res.status(500).json({ error: "Failed to send email" })
+  }
 })
 
 //TODO: Ajouter "sendSMS" et "emailNotification" pour la production

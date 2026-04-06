@@ -45,17 +45,18 @@ utilisateur. ✨
 
 - Un IDE avec la possibilité d'ouvrir un 'live server'
 
-### 🏁 Démarrage du projet
+### 🏁 Démarrage du projet en local
 
+- Vérifier dans frontend/scripts/index.js que api_url soit celui en local
 - Seule la partie frontend vous sera accessible : clique droit sur index.html
   puis 'Ouvrir avec live server'
 - La partie backend ne fonctionne qu'avec les clés de connexion aux différents
   services
+- cd backend | nodemon server.js
 
 ## Déploiement pour l'admin
 
-- Vérifier dans frontend/scripts/index.js que l'url de l'api soit celui de
-  production
+- Vérifier dans frontend/scripts/index.js que api_url soit celui de production
 - Push les changement sur la branch main
 - Se connecter sur le vps et pull la branch main dans le dossier contenant la
   codebase de Lisa.
