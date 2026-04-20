@@ -535,57 +535,6 @@ html {
   z-index: 10;
 }
 
-.AQuoiRessemble {
-  padding-top: 2.4rem;
-  padding-bottom: 2.4rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
-  position: relative;
-  background-size: cover; /* Ajuste l'image à la taille spécifiée */
-}
-.AQuoiRessemble__background {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  background-color: rgba(255, 255, 255, 0.7);
-  width: 100%;
-  height: 100%;
-  z-index: 2;
-}
-.AQuoiRessemble__containText--center {
-  max-width: 27rem;
-  position: relative;
-}
-.AQuoiRessemble__containText--center__containText--left {
-  width: 75%;
-}
-.AQuoiRessemble__containText--center__containText--left__h1 {
-  color: #958340;
-  padding-left: 1rem;
-  padding-right: 1rem;
-  margin-bottom: 1rem;
-  z-index: 3;
-  position: relative;
-}
-.AQuoiRessemble__containText--center__containText--left__p {
-  padding-left: 1rem;
-  padding-right: 1rem;
-  z-index: 3;
-  position: relative;
-}
-.AQuoiRessemble__img {
-  position: absolute;
-  top: 50%;
-  right: -10px;
-  transform: translate(0%, -50%);
-  width: 137px;
-  height: 229px;
-  z-index: 1;
-}
-
 .Lisa {
   position: relative;
   padding-top: 2.4rem;
@@ -597,39 +546,6 @@ html {
   justify-content: center;
   align-items: center;
   gap: 1rem;
-  background-image: url("../pics/background-blue-627w.webp");
-  background-size: cover;
-  background-position: top;
-}
-.Lisa__background {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  background-color: rgba(255, 255, 255, 0.85);
-  width: 100%;
-  height: 100%;
-  z-index: 2;
-}
-.Lisa::before {
-  content: "";
-  position: absolute;
-  top: -2px;
-  left: 0;
-  width: 100%;
-  height: 2rem;
-  background: linear-gradient(to top, rgba(255, 255, 255, 0), rgb(255, 255, 255));
-  z-index: 2;
-}
-.Lisa::after {
-  content: "";
-  position: absolute;
-  bottom: -2px;
-  left: 0;
-  width: 100%;
-  height: 2rem;
-  background: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgb(255, 255, 255));
-  z-index: 2;
 }
 .Lisa__titleAndPhoto {
   display: flex;
@@ -743,6 +659,79 @@ html {
 .Lisa__cards__card__p--visible {
   max-height: 380px;
   padding-bottom: 1.4rem;
+}
+
+.AQuoiRessemble {
+  padding-top: 2.4rem;
+  padding-bottom: 2.4rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  position: relative;
+  background-image: url("../pics/background-blue-627w.webp");
+  background-size: cover;
+  background-position: top;
+}
+.AQuoiRessemble__background {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: rgba(255, 255, 255, 0.85);
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+}
+.AQuoiRessemble::before {
+  content: "";
+  position: absolute;
+  top: -2px;
+  left: 0;
+  width: 100%;
+  height: 2rem;
+  background: linear-gradient(to top, rgba(255, 255, 255, 0), rgb(255, 255, 255));
+  z-index: 2;
+}
+.AQuoiRessemble::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 2rem;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgb(255, 255, 255));
+  z-index: 2;
+}
+.AQuoiRessemble__containText--center {
+  max-width: 27rem;
+  position: relative;
+}
+.AQuoiRessemble__containText--center__containText--left {
+  width: 75%;
+}
+.AQuoiRessemble__containText--center__containText--left__h1 {
+  color: #958340;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  margin-bottom: 1rem;
+  z-index: 3;
+  position: relative;
+}
+.AQuoiRessemble__containText--center__containText--left__p {
+  padding-left: 1rem;
+  padding-right: 1rem;
+  z-index: 3;
+  position: relative;
+}
+.AQuoiRessemble__img {
+  position: absolute;
+  top: 50%;
+  right: -10px;
+  transform: translate(0%, -50%);
+  width: 137px;
+  height: 229px;
+  z-index: 1;
 }
 
 .OuMeTrouver {
@@ -1112,7 +1101,7 @@ footer {
   .Pourquoi {
     background-image: url("../pics/background-blue-1024w.webp");
   }
-  .Lisa {
+  .AQuoiRessemble {
     background-image: url("../pics/background-blue-1024w.webp");
   }
 }
@@ -1248,7 +1237,7 @@ footer {
   .Pourquoi {
     background-image: url("../pics/background-blue-1440w.webp");
   }
-  .Lisa {
+  .AQuoiRessemble {
     background-image: url("../pics/background-blue-1440w.webp");
   }
   .harmoniser__div {
