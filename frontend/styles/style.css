@@ -1143,13 +1143,15 @@ footer {
   .Lisa__titleAndPhoto {
     justify-content: flex-start;
     align-self: flex-start;
-    align-items: flex-start;
+    align-items: center;
   }
   .Lisa__titleAndPhoto__h1 {
-    text-align: left;
+    text-align: center;
+    margin-bottom: 1rem;
   }
   .Lisa__titleAndPhoto__h2 {
     text-align: left;
+    max-width: 500px;
   }
   .Lisa__titleAndPhoto__img {
     margin-top: auto;
