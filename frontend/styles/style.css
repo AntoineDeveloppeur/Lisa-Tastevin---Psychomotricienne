@@ -108,8 +108,7 @@ html {
   line-height: 1.5;
   max-width: 27rem;
   text-align: justify;
-  -webkit-hyphens: auto;
-          hyphens: auto;
+  hyphens: auto;
   word-wrap: break-word;
   white-space: normal;
 }
@@ -298,7 +297,7 @@ html {
   font-style: normal;
   font-size: 1rem;
   z-index: 5;
-  background-color: #fdfdfb;
+  background-color: rgb(253.1070422535, 252.5746478873, 250.5929577465);
 }
 
 #menu ul li {
@@ -685,13 +684,13 @@ html {
   background-color: #eef1f6;
 }
 .Lisa__cards__card--card2 {
-  background-color: #e9edf3;
+  background-color: rgb(232.9980769231, 236.8807692308, 243.3519230769);
 }
 .Lisa__cards__card--card3 {
-  background-color: #e4e9f1;
+  background-color: rgb(227.9961538462, 232.7615384615, 240.7038461538);
 }
 .Lisa__cards__card--card4 {
-  background-color: #dfe5ee;
+  background-color: rgb(222.9942307692, 228.6423076923, 238.0557692308);
 }
 .Lisa__cards__card--extended {
   padding: 1.9rem;
@@ -824,26 +823,25 @@ html {
 }
 .OuMeTrouver__flexbox1__pic {
   position: relative;
+  width: 100%;
+  max-width: 400px;
+  margin-bottom: 1rem;
+  aspect-ratio: 4/3;
 }
 .OuMeTrouver__flexbox1__pic::after {
-  content: "";
   position: absolute;
-  top: 0;
-  left: 0;
-  max-height: 250px;
-  aspect-ratio: 1/1.2;
-  max-width: 400px;
-  width: 100%;
+  content: "";
+  inset: -5px;
   background-color: #eef1f6;
   z-index: -1;
   border-radius: 59% 41% 30% 70%/55% 35% 66% 46%;
-  transform: scale(1.05) rotate(-10deg);
+  transform: rotate(-10deg);
 }
-.OuMeTrouver__flexbox1__img {
+.OuMeTrouver__flexbox1__pic__img {
   width: 100%;
-  max-height: 250px;
-  max-width: 400px;
-  margin-bottom: 1rem;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
   border-radius: 59% 41% 30% 70%/55% 35% 66% 46%;
 }
 .OuMeTrouver__flexbox2 {
@@ -1013,7 +1011,7 @@ html {
 
 .highlight {
   height: 40px;
-  stroke: #e2e8f1;
+  stroke: rgb(225.7530364372, 231.8461538462, 241.2469635628);
   stroke-opacity: 1;
   fill: #2e425f;
   stroke-linecap: round;
@@ -1024,19 +1022,19 @@ html {
 }
 
 .highlight--card1 {
-  stroke: #cdd6e4;
+  stroke: rgb(204.6538461538, 213.5384615385, 228.3461538462);
 }
 
 .highlight--card2 {
-  stroke: #c8d1e2;
+  stroke: rgb(199.6519230769, 209.4192307692, 225.6980769231);
 }
 
 .highlight--card3 {
-  stroke: #c3cddf;
+  stroke: rgb(194.65, 205.3, 223.05);
 }
 
 .highlight--card4 {
-  stroke: #bec9dc;
+  stroke: rgb(189.6480769231, 201.1807692308, 220.4019230769);
 }
 
 .text-to-highlight {
@@ -1219,7 +1217,6 @@ footer {
     margin-bottom: 1rem;
   }
   .OuMeTrouver__flexbox1__pic::after {
-    width: 75%;
     max-height: none;
     min-width: 300px;
   }
