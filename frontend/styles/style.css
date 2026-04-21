@@ -1180,7 +1180,8 @@ footer {
     position: relative;
     flex-direction: row;
     justify-content: center;
-    align-items: flex-start;
+    align-items: center;
+    min-height: 90vh;
   }
   .AQuoiRessemble__containText--center {
     padding-left: 2rem;

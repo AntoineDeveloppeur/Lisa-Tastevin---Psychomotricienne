@@ -1249,7 +1249,8 @@ footer {
     position: relative;
     flex-direction: row;
     justify-content: center;
-    align-items: flex-start;
+    align-items: center;
+    min-height: 90vh;
     &__containText--center {
       padding-left: vars.$paddingDesktop--side;
       &__containText--left {
