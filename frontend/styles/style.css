@@ -410,16 +410,16 @@ html {
 .harmoniser {
   position: relative;
   margin-top: 93px;
-  padding-top: 1.4rem;
-  padding-bottom: 1.4rem;
+  min-height: 85vh;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
   display: flex;
-  flex-direction: row;
-  justify-content: space-around;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
-}
-.harmoniser__img {
-  width: 110px;
-  z-index: 1;
+  overflow: hidden;
 }
 .harmoniser__background {
   content: "";
@@ -429,33 +429,59 @@ html {
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: 2;
+  z-index: 1;
 }
-.harmoniser__div {
+.harmoniser__title {
+  position: relative;
+  z-index: 3;
+  margin-bottom: 1rem;
+  color: #2e425f;
+  font-size: 2rem;
+  line-height: 1.2;
+  text-align: center;
+  max-width: 90%;
+}
+.harmoniser__content {
+  position: relative;
+  z-index: 3;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
   align-items: center;
-  z-index: 3;
+  width: 100%;
+  max-width: 700px;
 }
-.harmoniser__div__h1 {
-  padding-left: 1.5rem;
-  padding-right: 0;
+.harmoniser__textBlock {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+}
+.harmoniser__subtitle {
   color: #2e425f;
+  font-size: 1.1rem;
+  text-align: left;
+  margin-bottom: 0.75rem;
 }
-.harmoniser__div__line {
-  padding-left: 1.5rem;
-  padding-right: 0;
-  height: 2px;
-  width: 10rem;
-  margin-top: 0.5rem;
-  margin-bottom: 1rem;
+.harmoniser__line {
+  height: 3px;
+  width: 80px;
+  margin-bottom: 3rem;
   background: #c7a54b;
   border-radius: 3px;
 }
-.harmoniser__div__p {
-  padding-left: 2rem;
-  padding-right: 0;
+.harmoniser__text {
+  text-align: left;
+  line-height: 1.7;
+  color: #2e425f;
+  max-width: 500px;
+}
+.harmoniser__picture {
+  display: none;
+}
+.harmoniser__img {
+  width: 120px;
+  height: auto;
+  display: block;
 }
 
 .Pourquoi {
@@ -1010,6 +1036,15 @@ html {
      object-fit: cover;
 }
 
+.link {
+  text-decoration: underline;
+  color: #2e425f;
+  cursor: pointer;
+}
+.link:hover {
+  color: #c7a54b;
+}
+
 .highlight--card1 {
   stroke: rgb(204.6538461538, 213.5384615385, 228.3461538462);
 }
@@ -1110,11 +1145,55 @@ footer {
     font-size: 130%;
   }
   .harmoniser {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  }
+  .harmoniser__title {
+    font-size: 2.8rem;
+    margin-bottom: 2rem;
+    max-width: 80%;
+  }
+  .harmoniser__content {
+    flex-direction: row;
+    align-items: flex-start;
+    max-width: 900px;
+  }
+  .harmoniser__textBlock {
+    align-items: flex-start;
+    flex: 2;
+  }
+  .harmoniser__subtitle {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+  }
+  .harmoniser__line {
+    width: 100px;
+    margin-bottom: 2.5rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .harmoniser__text {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    text-align: left;
+    max-width: 100%;
+  }
+  .harmoniser__picture {
+    display: block;
+    position: relative;
+    z-index: 2;
+    opacity: 0.6;
+    flex: 1;
+    display: flex;
+    align-items: center;
     justify-content: center;
   }
   .harmoniser__img {
-    width: 240px;
-    height: 400px;
+    margin: 4rem;
+    margin-top: 7rem;
+    width: 100%;
+    max-width: 180px;
+    height: auto;
   }
   .Pourquoi {
     justify-content: center;
@@ -1243,8 +1322,55 @@ footer {
   .AQuoiRessemble {
     background-image: url("../pics/background-blue-1440w.webp");
   }
-  .harmoniser__div {
-    width: 562px;
-    height: 228px;
+  .harmoniser {
+    min-height: 90vh;
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+  }
+  .harmoniser__title {
+    font-size: 3.5rem;
+    margin-bottom: 1.5rem;
+    max-width: 900px;
+  }
+  .harmoniser__content {
+    flex-direction: row;
+    align-items: flex-start;
+    max-width: 1100px;
+  }
+  .harmoniser__textBlock {
+    align-items: flex-start;
+    flex: 2;
+  }
+  .harmoniser__subtitle {
+    font-size: 1.5rem;
+    margin-bottom: 1.2rem;
+  }
+  .harmoniser__line {
+    width: 240px;
+    height: 4px;
+    margin-bottom: 5rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .harmoniser__text {
+    font-size: 1.1rem;
+    line-height: 1.9;
+    text-align: left;
+  }
+  .harmoniser__picture {
+    display: block;
+    position: relative;
+    z-index: 2;
+    opacity: 0.7;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .harmoniser__img {
+    width: 100%;
+    max-width: 220px;
+    margin-top: 4rem;
+    height: auto;
   }
 }/*# sourceMappingURL=style.css.map */

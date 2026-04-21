@@ -424,16 +424,17 @@ html {
 .harmoniser {
   position: relative;
   margin-top: 93px;
-  padding-top: vars.$paddingMobile--section;
-  padding-bottom: vars.$paddingMobile--section;
+  min-height: 85vh;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+  padding-left: vars.$paddingMobile--p;
+  padding-right: vars.$paddingMobile--p;
   display: flex;
-  flex-direction: row;
-  justify-content: space-around;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
-  &__img {
-    width: 110px;
-    z-index: 1;
-  }
+  overflow: hidden;
+
   &__background {
     content: "";
     position: absolute;
@@ -442,39 +443,68 @@ html {
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: 2;
+    z-index: 1;
   }
-  &__div {
+
+  &__title {
+    position: relative;
+    z-index: 3;
+    margin-bottom: 1rem;
+    color: vars.$color--darkblue;
+    font-size: 2rem;
+    line-height: 1.2;
+    text-align: center;
+    max-width: 90%;
+  }
+
+  &__content {
+    position: relative;
+    z-index: 3;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
     align-items: center;
-    z-index: 3;
-    &__h1 {
-      padding-left: vars.$paddingMobile--title;
-      padding-right: 0;
-      color: vars.$color--darkblue;
-    }
-    &__line {
-      padding-left: vars.$paddingMobile--title;
-      padding-right: 0;
-      height: 2px;
-      width: 10rem;
-      margin-top: 0.5rem;
-      margin-bottom: 1rem;
+    // gap: 2rem;
+    width: 100%;
+    max-width: 700px;
+  }
 
-      background: vars.$color--lightgold;
-      border-radius: 3px;
-    }
-    &__p {
-      padding-left: vars.$paddingMobile--p;
-      padding-right: 0;
-      // &__strong {
-      //     position: relative;
-      //     white-space: nowrap;
-      //     font-weight: 400;
-      //     overflow: visible;
-    }
+  &__textBlock {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+  }
+
+  &__subtitle {
+    color: vars.$color--darkblue;
+    font-size: 1.1rem;
+    text-align: left;
+    margin-bottom: 0.75rem;
+  }
+
+  &__line {
+    height: 3px;
+    width: 80px;
+    margin-bottom: 3rem;
+    background: vars.$color--lightgold;
+    border-radius: 3px;
+  }
+
+  &__text {
+    text-align: left;
+    line-height: 1.7;
+    color: vars.$color--darkblue;
+    max-width: 500px;
+  }
+
+  &__picture {
+    display: none;
+  }
+
+  &__img {
+    width: 120px;
+    height: auto;
+    display: block;
   }
 }
 
@@ -1069,6 +1099,16 @@ html {
   object-fit: cover;
 }
 
+.link {
+  text-decoration: underline;
+  color: vars.$color--darkblue;
+  cursor: pointer;
+
+  &:hover {
+    color: vars.$color--lightgold;
+  }
+}
+
 .highlight--card1 {
   stroke: darken(vars.$color--card1, 10);
 }
@@ -1176,10 +1216,63 @@ footer {
   }
 
   .harmoniser {
-    justify-content: center;
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+
+    &__title {
+      font-size: 2.8rem;
+      margin-bottom: 2rem;
+      max-width: 80%;
+    }
+
+    &__content {
+      flex-direction: row;
+      align-items: flex-start;
+      // gap: 3rem;
+      max-width: 900px;
+    }
+
+    &__textBlock {
+      align-items: flex-start;
+      flex: 2;
+    }
+
+    &__subtitle {
+      font-size: 1.3rem;
+      margin-bottom: 1rem;
+    }
+
+    &__line {
+      width: 100px;
+      margin-bottom: 2.5rem;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    &__text {
+      font-size: 1.05rem;
+      line-height: 1.8;
+      text-align: left;
+      max-width: 100%;
+    }
+
+    &__picture {
+      display: block;
+      position: relative;
+      z-index: 2;
+      opacity: 0.6;
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
     &__img {
-      width: 240px;
-      height: 400px;
+      margin: 4rem;
+      margin-top: 7rem;
+      width: 100%;
+      max-width: 180px;
+      height: auto;
     }
   }
 
@@ -1328,9 +1421,64 @@ footer {
     background-image: url("../pics/background-blue-1440w.webp");
   }
 
-  //Avoid Layout shifting
-  .harmoniser__div {
-    width: 562px;
-    height: 228px;
+  .harmoniser {
+    min-height: 90vh;
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+
+    &__title {
+      font-size: 3.5rem;
+      margin-bottom: 1.5rem;
+      max-width: 900px;
+    }
+
+    &__content {
+      flex-direction: row;
+      align-items: flex-start;
+      // gap: 4rem;
+      max-width: 1100px;
+    }
+
+    &__textBlock {
+      align-items: flex-start;
+      flex: 2;
+    }
+
+    &__subtitle {
+      font-size: 1.5rem;
+      margin-bottom: 1.2rem;
+    }
+
+    &__line {
+      width: 240px;
+      height: 4px;
+      margin-bottom: 5rem;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    &__text {
+      font-size: 1.1rem;
+      line-height: 1.9;
+      text-align: left;
+    }
+
+    &__picture {
+      display: block;
+      position: relative;
+      z-index: 2;
+      opacity: 0.7;
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    &__img {
+      width: 100%;
+      max-width: 220px;
+      margin-top: 4rem;
+      height: auto;
+    }
   }
 }
