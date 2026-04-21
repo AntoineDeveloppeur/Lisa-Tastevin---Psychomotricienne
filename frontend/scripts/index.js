@@ -1,7 +1,9 @@
 import { responsivePreload } from "./responsivePreload.js"
 import { clickToUncover } from "./clickToUncover.js"
+import { initToastOnScroll } from "./toast.js"
 
 responsivePreload()
+initToastOnScroll()
 
 function addHighlight() {
   let textToHighlight = document.querySelectorAll(".text-to-highlight")

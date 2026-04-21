@@ -1,4 +1,5 @@
 @charset "UTF-8";
+@import "../node_modules/toastify-js/src/toastify.css";
 /* Fonts */
 /* Spacing */
 /* Colors */
@@ -1373,5 +1374,51 @@ footer {
     max-width: 220px;
     margin-top: 4rem;
     height: auto;
+  }
+}
+.toastify.custom-toast {
+  background: white !important;
+  border: 2px solid #c7a54b !important;
+  border-radius: 8px !important;
+  color: #2e425f !important;
+  font-family: "EB Garamond", serif !important;
+  font-size: 1rem !important;
+  padding: 1rem 2.5rem 1rem 1.5rem !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15) !important;
+  max-width: 350px !important;
+  min-height: auto !important;
+}
+.toastify.custom-toast .toast-link {
+  color: #2e425f !important;
+  text-decoration: underline !important;
+  font-weight: 600 !important;
+}
+.toastify.custom-toast .toast-link:hover {
+  color: #c7a54b !important;
+}
+.toastify.custom-toast button {
+  position: absolute !important;
+  top: 0.5rem !important;
+  right: 0.5rem !important;
+  color: #2e425f !important;
+  opacity: 0.7 !important;
+  background: transparent !important;
+  border: none !important;
+  font-size: 0.8rem !important;
+  line-height: 1 !important;
+  padding: 0.25rem !important;
+  cursor: pointer !important;
+  width: auto !important;
+  height: auto !important;
+}
+.toastify.custom-toast button:hover {
+  opacity: 1 !important;
+}
+
+@media (max-width: 768px) {
+  .toastify.custom-toast {
+    max-width: 90vw !important;
+    font-size: 0.9rem !important;
+    padding: 0.8rem 1rem !important;
   }
 }/*# sourceMappingURL=style.css.map */

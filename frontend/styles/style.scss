@@ -1,4 +1,5 @@
 @use "variables" as vars;
+@import "../node_modules/toastify-js/src/toastify.css";
 
 /* Codé pour un affichage entre 360px et 767.98px */
 
@@ -1481,5 +1482,59 @@ footer {
       margin-top: 4rem;
       height: auto;
     }
+  }
+}
+
+// Personnalisation du toast Toastify
+.toastify.custom-toast {
+  background: white !important;
+  border: 2px solid vars.$color--lightgold !important;
+  border-radius: 8px !important;
+  color: vars.$color--darkblue !important;
+  font-family: map-get(vars.$fontParagraph, font-family) !important;
+  font-size: 1rem !important;
+  padding: 1rem 2.5rem 1rem 1.5rem !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15) !important;
+  max-width: 350px !important;
+  min-height: auto !important;
+
+  .toast-link {
+    color: vars.$color--darkblue !important;
+    text-decoration: underline !important;
+    font-weight: 600 !important;
+
+    &:hover {
+      color: vars.$color--lightgold !important;
+    }
+  }
+
+  // Bouton de fermeture
+  button {
+    position: absolute !important;
+    top: 0.5rem !important;
+    right: 0.5rem !important;
+    color: vars.$color--darkblue !important;
+    opacity: 0.7 !important;
+    background: transparent !important;
+    border: none !important;
+    font-size: 0.8rem !important;
+    line-height: 1 !important;
+    padding: 0.25rem !important;
+    cursor: pointer !important;
+    width: auto !important;
+    height: auto !important;
+
+    &:hover {
+      opacity: 1 !important;
+    }
+  }
+}
+
+// Responsive mobile
+@media (max-width: 768px) {
+  .toastify.custom-toast {
+    max-width: 90vw !important;
+    font-size: 0.9rem !important;
+    padding: 0.8rem 1rem !important;
   }
 }

@@ -1,0 +1,55 @@
+// Toastify est chargé via CDN et disponible globalement
+
+// Variable pour suivre si un toast est actuellement affiché
+let isToastVisible = false
+
+// Fonction pour afficher le toast
+export function showWorkshopToast() {
+  // Ne pas afficher si un toast est déjà visible
+  if (isToastVisible) {
+    return
+  }
+
+  isToastVisible = true
+
+  Toastify({
+    text: "Découvrez mes ateliers d'automassage, <a href='https://drive.google.com/file/d/1JO7INJNnOV_kP6kvvJC3zY3AE7aKfKnO/view?usp=sharing' target='_blank' class='toast-link'>cliquez ici pour en savoir plus</a>",
+    duration: 15000,
+    close: true,
+    gravity: "bottom",
+    position: "right",
+    stopOnFocus: true,
+    escapeMarkup: false,
+    className: "custom-toast",
+    onClick: function () {},
+    callback: function () {
+      // Réinitialiser quand le toast disparaît
+      isToastVisible = false
+    },
+  }).showToast()
+}
+
+// Fonction pour détecter le scroll au début de la section Pourquoi
+export function initToastOnScroll() {
+  let hasScrolledPast = false
+  const pourquoiSection = document.getElementById("pourquoi")
+
+  if (!pourquoiSection) {
+    return
+  }
+
+  window.addEventListener("scroll", () => {
+    const sectionTop = pourquoiSection.offsetTop
+    const scrollPosition = window.scrollY + window.innerHeight
+
+    // Si on aperçoit le début de la section Pourquoi
+    if (scrollPosition > sectionTop && !hasScrolledPast) {
+      hasScrolledPast = true
+      showWorkshopToast()
+    }
+    // Si on remonte au-dessus de la section, réinitialiser
+    else if (scrollPosition <= sectionTop) {
+      hasScrolledPast = false
+    }
+  })
+}
