@@ -757,7 +757,7 @@ html {
   transform: translate(0%, -50%);
   width: 137px;
   height: 229px;
-  z-index: 1;
+  z-index: 3;
 }
 
 .OuMeTrouver {
@@ -1194,6 +1194,7 @@ footer {
     width: 100%;
     max-width: 180px;
     height: auto;
+    opacity: 0.5;
   }
   .Pourquoi {
     justify-content: center;
