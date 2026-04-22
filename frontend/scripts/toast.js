@@ -13,7 +13,7 @@ export function showWorkshopToast() {
   isToastVisible = true
 
   Toastify({
-    text: "Découvrez mes ateliers d'automassage, <a href='https://drive.google.com/file/d/1JO7INJNnOV_kP6kvvJC3zY3AE7aKfKnO/view?usp=sharing' target='_blank' class='toast-link'>cliquez ici pour en savoir plus</a>",
+    text: "Découvrez mes ateliers d'automassage, <a href='docs/atelier-avril-mai.pdf' target='_blank' rel='noopener noreferrer' class='toast-link'>cliquez ici pour en savoir plus</a>",
     duration: 15000,
     close: true,
     gravity: "bottom",
