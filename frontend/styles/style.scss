@@ -611,20 +611,26 @@ html {
     z-index: 3;
     &__h1 {
       color: vars.$color--darkblue;
+      margin-bottom: vars.$paddingMobile--header;
     }
     &__h2 {
       color: vars.$color--darkblue;
       margin-bottom: vars.$paddingMobile--header;
+      font-size: 1rem;
+      max-width: 80%;
     }
     &__img {
-      border-radius: 53% 41% 37% 64% / 57% 29% 60% 43%;
-      width: 200px;
-      height: 162px;
+      border-radius: 10px;
+      border: 1px solid vars.$color--darkgold;
+      max-width: 100%;
+      max-height: 90vh;
+
       margin-bottom: 1rem;
       object-fit: contain;
       object-position: center;
       position: relative;
       align-self: center;
+      aspect-ratio: 4/5;
     }
   }
   &__cards {
@@ -1298,24 +1304,28 @@ footer {
   .Lisa {
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     flex-direction: row;
     gap: 3rem;
     &__titleAndPhoto {
+      display: flex;
+      flex-direction: column;
       justify-content: flex-start;
-      align-self: flex-start;
       align-items: center;
       &__h1 {
         text-align: center;
         margin-bottom: 1rem;
       }
       &__h2 {
-        text-align: left;
-        max-width: 500px;
+        font-size: 0.8rem;
+        text-align: center;
+        max-width: 320px;
       }
       &__img {
+        width: auto;
+        max-width: 280px;
+        object-fit: contain;
         margin-top: auto;
-        margin-bottom: auto;
       }
     }
     &__cards__card {
