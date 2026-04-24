@@ -59,10 +59,11 @@ utilisateur. ✨
 
 - Vérifier dans frontend/scripts/index.js que api_url soit celui de production
 - Vérifier que les fichiers scss sont transpilés
-- Push les changement sur la branch main
-- Se connecter sur le vps et pull la branch main dans le dossier contenant la
+- Push les changement sur la branch main du depot distant
+- Se connecter sur le vps pull la branch main dans le dossier contenant la
   codebase de Lisa.
-- Redémarrer le serveur si changement sur le backend
+- Installer les dépendances si nécessaires
+- Redémarrer le serveur si changement sur le backend avec pm2 restart all
 
 ```
 pm2 list
