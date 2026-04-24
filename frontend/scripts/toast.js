@@ -5,7 +5,12 @@ let isToastVisible = false
 
 // Fonction pour afficher le toast
 export function showWorkshopToast() {
-  // Ne pas afficher si un toast est déjà visible
+  const currentDate = new Date()
+  const expirationDate = new Date("2026-05-11")
+  if (currentDate > expirationDate) {
+    return
+  }
+
   if (isToastVisible) {
     return
   }
