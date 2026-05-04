@@ -1,0 +1,12 @@
+User-agent: *
+Allow: /
+
+# Bloquer les pages administratives si elles existent
+Disallow: /admin/
+Disallow: /backend/
+
+# Bloquer les fichiers inutiles pour le SEO
+Disallow: /node_modules/
+
+# Sitemap
+Sitemap: https://lisa-tastevin-psychomotricienne.fr/sitemap.xml
