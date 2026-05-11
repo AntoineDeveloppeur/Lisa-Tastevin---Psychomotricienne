@@ -6,7 +6,7 @@ let isToastVisible = false
 // Fonction pour afficher le toast
 export function showWorkshopToast() {
   const currentDate = new Date()
-  const expirationDate = new Date("2026-05-11")
+  const expirationDate = new Date("2026-06-29")
   if (currentDate > expirationDate) {
     return
   }
@@ -18,7 +18,7 @@ export function showWorkshopToast() {
   isToastVisible = true
 
   Toastify({
-    text: "Découvrez mes ateliers d'automassage, <a href='docs/atelier-avril-mai.pdf' target='_blank' rel='noopener noreferrer' class='toast-link'>cliquez ici pour en savoir plus</a>",
+    text: "Découvrez mes ateliers d'automassage, <a href='docs/atelier-juin.pdf' target='_blank' rel='noopener noreferrer' class='toast-link'>cliquez ici pour en savoir plus</a>",
     duration: 15000,
     close: true,
     gravity: "bottom",
